@@ -4,8 +4,12 @@
   "description": "gotomi.info homepage",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cp -r src/assets dist && cp src/favicon.ico dist && jade src/index.jade -o dist"
   },
   "author": "Tomasz Gospodarczyk",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jade": "^1.11.0"
+  }
 }
