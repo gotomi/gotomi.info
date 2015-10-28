@@ -32,7 +32,7 @@ http.get(flickrApiUrl, function(response) {
         body += d;
     });
     response.on('end', function() {
-             var entries = render(parseFeed(body, 8));
+             var entries = render(parseFeed(body, 6));
         process.stdout.write(entries);
     });
 });
