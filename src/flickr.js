@@ -7,7 +7,7 @@ var flickrApiUrl = 'http://api.flickr.com/services/feeds/photos_public.gne?id=23
 function parseFeed(body, limit = 100) {
     var feed = JSON.parse(parser.toJson(body)).feed.entry;
     return feed.map(a => {
-        var photo = a.link[1].href;
+        var photo = a.link[1].href.replace('http', 'https');
         return {
             title: a.title,
             media: {
