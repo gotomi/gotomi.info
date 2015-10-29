@@ -8,11 +8,12 @@ function parseFeed(flickrFeed, limit = 100) {
     var feed = flickrFeed.items;
     return feed.map(a => {
         var photo = a.media.m.replace('http', 'https');
+            photo = photo.substring(0, photo.length - 6);
         return {
             title: a.title,
             media: {
-                small: photo.substring(0, photo.length - 6) + '_q.jpg',
-                big: photo.substring(0, photo.length - 6) + '_b.jpg',
+                small: photo + '_q.jpg',
+                big: photo + '_b.jpg',
             },
             href: a.link.replace('http', 'https')
         };
