@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:flickr": "babel-node src/flickr.js > src/parts/flickr.html",
+    "build:flickr": "node src/flickr.js > src/parts/flickr.html",
     "serve:sync": "browser-sync --files 'dist/*' start --server 'dist' --tunnel",
     "build:css": "lessc --autoprefix='last 2 versions' --clean-css='--s1' src/assets/css/style.less  dist/css/style.css && hashmark -s -l 8 -m assets.json dist/css/style.css 'dist/css/{name}{hash}{ext}'",
     "build:assets": "mkdir dist && cp -r src/assets dist/assets && cp src/favicon.ico dist",
@@ -18,14 +18,15 @@
   "author": "Tomasz Gospodarczyk",
   "license": "ISC",
   "devDependencies": {
-    "babel": "^5.8.29",
     "browser-sync": "^2.9.11",
-    "hashmark": "^3.0.0",
     "http-server": "^0.8.5",
+    "watch": "^0.16.0"
+  },
+  "dependencies": {
+    "hashmark": "^3.0.0",
     "jade": "^1.11.0",
     "less": "^2.5.3",
     "less-plugin-autoprefix": "^1.5.1",
-    "less-plugin-clean-css": "^1.5.1",
-    "watch": "^0.16.0"
+    "less-plugin-clean-css": "^1.5.1"
   }
 }

@@ -4,7 +4,7 @@
 var http = require('http');
 var flickrApiUrl = 'http://api.flickr.com/services/feeds/photos_public.gne?id=23364033@N07&format=json&jsoncallback=%27%27';
 
-function parseFeed(flickrFeed, limit = 100) {
+function parseFeed(flickrFeed, limit) {
     var feed = flickrFeed.items;
     return feed.map(a => {
         var photo = a.media.m.replace('http', 'https');
