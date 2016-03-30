@@ -15,13 +15,13 @@ body{
 	background: #E5EBF7;
 }
 
-@media all and (min-width:990px){
-	body {
-		background: #E5EBF7 url(../img/bg.jpg) no-repeat;
-        	background-size: cover;
-        	background-attachment: fixed;
-	}
-}
+// @media all and (min-width:990px){
+// 	body {
+// 		background: #E5EBF7 url(../img/bg.jpg) no-repeat;
+//         	background-size: cover;
+//         	background-attachment: fixed;
+// 	}
+// }
 
 main {
 	background: rgba(255,255,255,0.75);
