@@ -7,7 +7,7 @@ var flickrApiUrl = 'http://api.flickr.com/services/feeds/photos_public.gne?id=23
 function parseFeed(flickrFeed, limit) {
     var feed = flickrFeed.items;
     return feed.map(a => {
-        var photo = a.media.m;
+        var photo = a.media.m.replace('http://', 'https://');
             photo = photo.substring(0, photo.length - 6);
         return {
             title: a.title,
@@ -15,7 +15,7 @@ function parseFeed(flickrFeed, limit) {
                 small: photo + '_q.jpg',
                 big: photo + '_b.jpg',
             },
-            href: a.link
+            href: a.link.replace('http://', 'https://')
         };
     }).slice(0, limit);
 }
