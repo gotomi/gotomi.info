@@ -54,7 +54,6 @@ main img {
     max-width: 50%;
     -webkit-filter: sepia(57%);
     filter: sepia(57%);
-    transition: 0.6s;
 }
 
 ul {
@@ -132,6 +131,7 @@ h2 {
     transform: scale(0.9);
     -webkit-filter: sepia(57%);
     filter: sepia(57%);
+    will-change: transform;
 }
 
 .flickr-photos li:hover {
