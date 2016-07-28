@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:flickr": "node src/flickr.js > src/parts/flickr.html",
+    "build:flickr": "node src/flickr.js",
     "serve:sync": "browser-sync --files 'dist/*' start --server 'dist' --tunnel",
     "build:css": "lessc --autoprefix='last 2 versions' --clean-css='--s1' src/assets/css/style.less  dist/css/style.css && hashmark -s -l 8 -m assets.json dist/css/style.css 'dist/css/{name}{hash}{ext}'",
-    "build:assets": "mkdir dist && cp -r src/assets dist/assets && cp src/favicon.ico dist",
+    "build:assets": "mkdirp dist && cp -r src/assets dist/assets && cp src/favicon.ico dist",
     "build:markup": "jade src/index.jade -o dist",
-    "build": "npm run build:flickr && npm run build:assets && npm run build:markup",
+    "build": " npm run build:assets && npm run build:flickr && npm run build:markup",
     "serve": "cd dist && http-server -p 3003",
     "clean": "rm -rf dist",
     "watch:build": "watch 'npm run build:assets && npm run build:markup' src"
@@ -27,6 +27,8 @@
     "jade": "^1.11.0",
     "less": "^2.5.3",
     "less-plugin-autoprefix": "^1.5.1",
-    "less-plugin-clean-css": "^1.5.1"
+    "less-plugin-clean-css": "^1.5.1",
+    "mkdirp": "^0.5.1",
+    "request": "^2.74.0"
   }
 }
