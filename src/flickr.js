@@ -6,6 +6,7 @@
     var request = require('request');
     var path = require('path');
     var mkdirp = require('mkdirp');
+    var exec = require('child_process').exec;
 
 
 
@@ -39,23 +40,30 @@
 
 
     function download(feed) {
-        var flickrImg = path.join(__dirname, '../dist/assets/', 'flickr-img');          
+        var flickrImg = path.join(__dirname, '../dist/assets/', 'flickr-img');
         mkdirp(flickrImg);
-        
+
         var downloadFile = function(uri, callback) {
             var filename = uri.split('/').pop();
             request.head(uri, function(err, res, body) {
                 var f = path.join(flickrImg, filename);
-                request(uri).pipe(fs.createWriteStream(f)).on('close', callback);
+                request(uri).pipe(fs.createWriteStream(f)).on('close', () => {
+                    exec(`cwebp -q 70  ${f}  -o ${f}.webp`, (error, stdout, stderr) => {
+                        if (error) {
+                            console.error(`exec error: ${error}`);
+                            return;
+                        }
+                    });
+                });
             });
         };
 
         feed.forEach(item => {
             downloadFile(item.media.small, function() {
-                console.log(item.media.small);
+                // console.log(item.media.small);
             });
-           downloadFile(item.media.big, function() {
-                console.log(item.media.big);
+            downloadFile(item.media.big, function() {
+                // console.log(item.media.big);
             });
         })
 
@@ -72,10 +80,9 @@
             var flickrFeed = eval(body);
             var entries = render(parseFeed(flickrFeed, 6));
             download(parseFeed(flickrFeed, 6));
-            
-            fs.writeFile(path.join(__dirname, 'parts/flickr.html'), entries, 'utf8', function(){ console.log('write file done')});
-       
-            // process.stdout.write(entries);
+            fs.writeFile(path.join(__dirname, 'parts/flickr.html'), entries, 'utf8', function() {
+                console.log('OK')
+            });
         });
     });
 })();
