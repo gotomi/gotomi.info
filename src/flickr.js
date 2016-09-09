@@ -33,7 +33,7 @@
         var entries = feed.map(item => {
             var imgSmall = flickrImgPath + item.media.small.split('/').pop();
             var imgBig = flickrImgPath + item.media.big.split('/').pop();
-            return `<li><a href="${item.href}" data-img="${imgBig}"><img src="${imgSmall}"  alt="${item.title}"/></a></li>`;
+            return `<li><a href="${item.href}"><img src="${imgSmall.split('.jpg')[0]}"  alt="${item.title}"/></a></li>`;
         }).join('\n');
         return `<ul class="flickr-photos">${entries}</ul>`;
     }
@@ -48,7 +48,7 @@
             request.head(uri, function(err, res, body) {
                 var f = path.join(flickrImg, filename);
                 request(uri).pipe(fs.createWriteStream(f)).on('close', () => {
-                    exec(`cwebp -q 70  ${f}  -o ${f}.webp`, (error, stdout, stderr) => {
+                    exec(`cwebp -q 70  ${f}  -o ${f.replace('jpg','webp')}`, (error, stdout, stderr) => {
                         if (error) {
                             console.error(`exec error: ${error}`);
                             return;
