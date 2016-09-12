@@ -9,10 +9,9 @@ body, html {
 }
 
 body {
-    font: 400 1.7rem/2.3rem 'PT Serif', serif;
-    color: #eee;
-    text-shadow: 1px 1px rgba(55, 55, 55, 1);
-    background: #120B08 radial-gradient(#AA634C, #120B08);
+    font: 400 1.7rem/2.3rem Georgia, serif;
+    color: #333;
+    background: linear-gradient(#fff, #eee);
 }
 
 header {
@@ -26,10 +25,6 @@ main > div, header > div, footer > div {
     text-align: center
 }
 
-footer > div {
-    color: rgba(255, 255, 255, 0.7);
-    text-shadow: 1px 1px #111;
-}
 
 figure {
     margin: -3.5em 0 1.5em;
@@ -49,11 +44,8 @@ a:hover {
 }
 
 main img {
-    border-radius: 50%;
-    box-shadow: 1px 1px 38px #DD7F60;
     max-width: 50%;
-    -webkit-filter: sepia(57%);
-    filter: sepia(57%);
+
 }
 
 ul {
@@ -61,13 +53,13 @@ ul {
 }
 
 h1 {
-    font: 700 3.2rem/3.2rem 'PT Sans Narrow', sans-serif;
+    font: 700 3.2rem/3.2rem 'Arial Narrow', sans-serif;
     text-transform: uppercase;
     margin-bottom: 0;
 }
 
 h2 {
-    font: 700 2rem/2.4rem 'PT Sans', sans-serif;
+    font: 700 2rem/2.4rem Arial, sans-serif;
     margin: 0.25em 0 1.5em;
 }
 
@@ -97,7 +89,7 @@ h2 {
 }
 
 .social li a:hover {
-    background-color: orangered;
+    background-color: #ddd;
 }
 
 .social .linkedin a {
@@ -123,29 +115,13 @@ h2 {
 }
 
 .flickr-photos li {
-    padding: 0;
+    padding: 0 10px 0;
     list-style: none;
     display: inline-block;
     text-align: center;
-    transition: transform 0.3s;
-    transform: scale(0.9);
-    -webkit-filter: sepia(57%);
-    filter: sepia(57%);
-    will-change: transform;
 }
 
-.flickr-photos li:hover {
-    transform: scale(1);
+.flickr-photos a{
+    border: 0;
 }
 
-.flickr-photos img{
-    border-radius: 10px;
-}
-
-.flickr-photos a {
-    border: 0
-}
-
-.flickr-photos a + a {
-    display: none
-}
