@@ -45,7 +45,7 @@ a:hover {
 
 main img {
     max-width: 50%;
-
+    height: auto;
 }
 
 ul {
@@ -55,7 +55,7 @@ ul {
 h1 {
     font: 700 3rem/1.2 'Arial Narrow', sans-serif;
     text-transform: uppercase;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 h2 {
