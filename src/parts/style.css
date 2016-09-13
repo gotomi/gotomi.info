@@ -38,11 +38,6 @@ a {
     border-bottom: 2px dotted #999;
 }
 
-a:hover {
-    color: #fff;
-    text-shadow: 1px 1px 5px #fff;
-}
-
 main img {
     max-width: 50%;
     height: auto;
@@ -53,7 +48,7 @@ ul {
 }
 
 h1 {
-    font: 700 3rem/1.2 'Arial Narrow', sans-serif;
+    font: 700 2.8rem/1.2 'Arial Narrow', sans-serif;
     text-transform: uppercase;
     margin: 0;
 }
