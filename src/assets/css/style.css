@@ -15,14 +15,6 @@ body{
 	background: #E5EBF7;
 }
 
-// @media all and (min-width:990px){
-// 	body {
-// 		background: #E5EBF7 url(../img/bg.jpg) no-repeat;
-//         	background-size: cover;
-//         	background-attachment: fixed;
-// 	}
-// }
-
 main {
 	background: rgba(255,255,255,0.75);
 	box-shadow: 0 0 10px #bbb;
@@ -82,7 +74,7 @@ ul{
 }
 
 h1{
-	font: 700 3.2rem/3.2rem 'PT Sans Narrow', sans-serif;
+	font: 700 2.7rem/1 'PT Sans Narrow', sans-serif;
 	text-transform: uppercase;
 	margin-bottom: 0;
 }
