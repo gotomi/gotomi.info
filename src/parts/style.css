@@ -36,12 +36,12 @@ ul {
 }
 h1 {
     font:700 2.4rem/1.2 arial narrow,sans-serif;
-    margin:2rem 0;
+    margin:2rem 0 4rem 0;
 }
 
 h1 img{
     vertical-align: middle;
-    border-radius: 50%;
+    border-radius: 50% 1rem 1rem 50%;
     margin: 0 1rem 0 0;
 }
 
