@@ -20,8 +20,8 @@
             return {
                 title: a.caption.text,
                 media: {
-                    small: a.images.standard_resolution.url,
-                    big: a.images.low_resolution.url
+                    small: a.images.thumbnail.url,
+                    big: a.images.standard_resolution.url
                 },
                 href: a.link
             };
