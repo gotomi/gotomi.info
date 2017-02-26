@@ -20,8 +20,7 @@
             return {
                 title: a.caption.text,
                 media: {
-                    small: a.images.low_resolution.url,
-                    big: a.images.standard_resolution.url
+                    small: a.images.low_resolution.url
                 },
                 href: a.link
             };
@@ -33,7 +32,6 @@
         var flickrImgPath = '/assets/flickr-img/';
         var entries = feed.map(item => {
             var imgSmall = flickrImgPath + item.media.small.split('/').pop();
-            var imgBig = flickrImgPath + item.media.big.split('/').pop();
             return `<li><a href="${item.href}"><img src="${imgSmall.split('.jpg')[0]}"  alt="${item.title}"/></a></li>`;
         }).join('\n');
         return `<ul class="flickr-photos">${entries}</ul>`;
@@ -62,9 +60,6 @@
         feed.forEach(item => {
             downloadFile(item.media.small, function() {
                 // console.log(item.media.small);
-            });
-            downloadFile(item.media.big, function() {
-                // console.log(item.media.big);
             });
         })
 
