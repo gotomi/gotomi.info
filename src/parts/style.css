@@ -91,6 +91,11 @@ h2 {
     margin:0;
     background: #222;
 }
+
+.flickr-photos {
+    max-width: 150px;
+}
+
 .flickr-photos li {
     padding:0 0.5rem;
     list-style:none;

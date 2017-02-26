@@ -20,7 +20,7 @@
             return {
                 title: a.caption.text,
                 media: {
-                    small: a.images.thumbnail.url,
+                    small: a.images.low_resolution.url,
                     big: a.images.standard_resolution.url
                 },
                 href: a.link
