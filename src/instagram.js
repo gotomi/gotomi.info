@@ -10,19 +10,20 @@
 
 
 
-    var flickrApiUrl = 'https://www.instagram.com/gotomik/media/';
+    var flickrApiUrl = 'https://www.instagram.com/gotomik/?__a=1';
 
     function parseFeed(flickrFeed, limit) {
-        var feed = flickrFeed.items;
-    
+        var feed = flickrFeed;
+
+
         return feed.map(a => {
-  
+
             return {
-                title: a.caption.text,
+                title: a.caption,
                 media: {
-                    small: a.images.low_resolution.url
+                    small: a.thumbnail_src
                 },
-                href: a.link
+                href: `https://www.instagram.com/p/${a.code}/`
             };
         }).slice(0, limit);
     }
@@ -59,7 +60,7 @@
 
         feed.forEach(item => {
             downloadFile(item.media.small, function() {
-                // console.log(item.media.small);
+                console.log(item.media.small);
             });
         })
 
@@ -73,12 +74,13 @@
         });
         response.on('end', function() {
             /* jshint -W061 */
-          
-            var flickrFeed = JSON.parse(body);
-        
+
+            var flickrFeed = JSON.parse(body).user.media.nodes;
+
+
 
             var entries = render(parseFeed(flickrFeed, 6));
-            console.log(entries);
+
             download(parseFeed(flickrFeed, 6));
             fs.writeFile(path.join(__dirname, 'parts/flickr.html'), entries, 'utf8', function() {
                 console.log('OK')
