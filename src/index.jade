@@ -9,6 +9,10 @@ html(lang="en")
           include parts/style.css
         script
           include parts/google_analytics_config.js
+        script
+          | if ('serviceWorker' in navigator) {
+          |   navigator.serviceWorker.register('/sw.js');
+          | }
       body
         include parts/content.html
         include parts/flickr.html
