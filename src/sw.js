@@ -1,3 +1,4 @@
+var version = "v1::";
 var offlineFundamentals = [
     '/'
 ];
