@@ -1,6 +1,5 @@
 var offlineFundamentals = [
-    '/',
-    '/assets/'
+    '/'
 ];
 self.addEventListener('install', function installer(event) {
     event.waitUntil(
