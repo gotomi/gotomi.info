@@ -7,12 +7,8 @@ html(lang="en")
         meta(name='theme-color' content='#eee')
         style
           include parts/style.css
-        script
-          include parts/google_analytics_config.js
-        script
-          | if ('serviceWorker' in navigator) {
-          |   navigator.serviceWorker.register('/sw.js');
-          | }
+        include parts/google_analytics_config.html
+        script(src="/assets/js/sw-init.js")
       body
         include parts/content.html
         include parts/flickr.html
