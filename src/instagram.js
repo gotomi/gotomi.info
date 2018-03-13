@@ -15,17 +15,30 @@
     function parseFeed(flickrFeed, limit) {
         var feed = flickrFeed;
 
+        var feed0 = [];
+        for (var node in feed) {
 
-        return feed.map(a => {
-
-            return {
-                title: a.caption,
+            feed0.push({
+                title: '',
                 media: {
-                    small: a.thumbnail_src
+                    small: feed[node].node.display_url
                 },
-                href: `https://www.instagram.com/p/${a.code}/`
-            };
-        }).slice(0, limit);
+                href: `https://www.instagram.com/p/${feed[node].node.id}/`
+            })
+        }
+        return feed0.slice(0, limit);
+
+
+        // return feed.map(a => {
+
+        //     return {
+        //         title: a.caption,
+        //         media: {
+        //             small: a.thumbnail_src
+        //         },
+        //         href: `https://www.instagram.com/p/${a.code}/`
+        //     };
+        // }).slice(0, limit);
     }
 
     function render(feed) {
@@ -74,8 +87,10 @@
         });
         response.on('end', function() {
             /* jshint -W061 */
+            var flickrFeed = JSON.parse(body).graphql.user.edge_owner_to_timeline_media.edges;
+            console.log(flickrFeed.length, 'length');
 
-            var flickrFeed = JSON.parse(body).user.media.nodes;
+            // var flickrFeed = JSON.parse(body).user.media.nodes;
 
 
 
