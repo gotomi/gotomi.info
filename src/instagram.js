@@ -23,7 +23,7 @@
                 media: {
                     small: feed[node].node.display_url
                 },
-                href: `https://www.instagram.com/p/${feed[node].node.id}/`
+                href: `https://www.instagram.com/p/${feed[node].node.shortcode}/`
             })
         }
         return feed0.slice(0, limit);
