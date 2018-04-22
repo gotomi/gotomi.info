@@ -6,10 +6,19 @@ html(lang="en")
         meta(name='viewport', content='width=device-width, initial-scale=1')
         meta(name='theme-color' content='#000')
         style
-          include parts/style.css
-      body
+            include parts/style.css
+    body
         include parts/content.html
-        include parts/flickr.html
-        footer
-          div
+        ul.photos
+            each item in feed
+                each image in item.images
+                    li
+                        a(href=item.link)
+                            img(src='images/' + image.filename , alt=item.text)
+    footer
+        div
             p &copy; 2018 Tomasz Gospodarczyk | designed in the browser
+
+
+
+
