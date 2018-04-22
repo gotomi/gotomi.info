@@ -1,0 +1,133 @@
+html{
+	font-size: 62.5%;
+}
+
+body, html{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body{
+	font: 400 1.7rem/2.3rem 'PT Serif', serif;
+	color: #333;
+	text-shadow: 1px 1px rgba(255,255,255,0.8);
+	background: #E5EBF7;
+}
+
+main {
+	background: rgba(255,255,255,0.75);
+	box-shadow: 0 0 10px #bbb;
+}
+
+header{
+	padding: 25px 0;
+}
+
+main > div,
+header > div,
+footer > div{
+	max-width: 500px;
+	margin: 0 auto;
+	padding:10px 30px;
+	text-align: center
+}
+
+footer > div{
+	color: rgba(255,255,255,0.7);
+	text-shadow: 1px 1px #111;
+}
+
+figure{
+	margin: -3.5em 0 1.5em;
+}
+
+a{
+	color: #333;
+	display: inline-block;
+	text-decoration: none;
+	padding-bottom: 1px;
+	border-bottom: 2px dotted #444;
+}
+
+a:hover{
+	color: #60697f;
+	text-shadow: 1px 1px 5px #fff;
+}
+
+img{
+	border-radius: 50%;
+	box-shadow: 1px 1px 15px #999;
+	max-width: 50%;
+	-webkit-filter: saturate(0.6);
+	filter: saturate(0.6);
+	transition: 0.6s;
+}
+
+img:hover{
+	-webkit-filter: saturate(1);
+	filter: saturate(1);
+}
+
+ul{
+	text-align: left;
+}
+
+h1{
+	font: 700 2.7rem/1 'PT Sans Narrow', sans-serif;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+h2{
+	font: 700 2rem/2.4rem 'PT Sans', sans-serif;
+	margin: 0.25em 0 1.5em;
+}
+
+.social {
+	list-style: none;
+	padding: 0;
+	text-align: center;
+	margin: 50px 0 20px;
+	position: relative;
+}
+
+.social li{
+	text-indent: -9999px;
+	display: inline-block;
+	margin: 0 5px 0 0;
+}
+
+.social li a{
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	border-bottom: 2px solid #444;
+	background: #eee url(../svg/github_alt.svg) no-repeat center;
+	display: block;
+	background-size: 24px 24px;
+	box-shadow: 0 0 3px #bbb;
+	transition: 0.6s;
+}
+
+.social li a:hover{
+	background-color: #bbc;
+}
+
+.social .linkedin a{
+	background-image: url(../svg/linkedin_alt.svg)
+}
+.social .flickr a{
+	background-image: url(../svg/flickr.svg)
+}
+.social .twitter a{
+	background-image: url(../svg/twitter.svg)
+}
+.social .last a{
+	background-image: url(../svg/last.fm.svg)
+}
+
+
+
+
+
+
