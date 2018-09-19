@@ -25,7 +25,7 @@ var downloadImages = function () {
     fs.ensureDir(dest);
 
     getUserFeed().then(feed => {
-        const media = feed.slice(0, 8);
+        const media = feed.slice(0, 5);
 
         createMarkup(media);
         media.forEach(item => {
