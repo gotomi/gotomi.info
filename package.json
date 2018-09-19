@@ -15,14 +15,14 @@
   "author": "Tomasz Gospodarczyk",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.9.11",
-    "http-server": "^0.8.5",
+    "browser-sync": "^2.24.7",
+    "http-server": "^0.11.1",
     "watch": "^0.16.0"
   },
   "dependencies": {
     "axios": "0.18.0",
     "fs-extra": "5.0.0",
-    "hashmark": "^3.0.0",
+    "hashmark": "5.0.0",
     "less": "3.0.2",
     "less-plugin-autoprefix": "1.5.1",
     "less-plugin-clean-css": "1.5.1",
