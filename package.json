@@ -15,7 +15,7 @@
   "author": "Tomasz Gospodarczyk",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.24.7",
+    "browser-sync": "^2.26.3",
     "http-server": "^0.11.1",
     "watch": "^0.16.0"
   },
