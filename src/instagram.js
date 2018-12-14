@@ -9,22 +9,26 @@ var config = require(path.join( home, '/inst.json'));
 const instagram = new Instagram(config);
 
 
+var normalizeImageObject = function(item){
+    const image = item.images.standard_resolution;
+    image.url = image.url.split('?')[0];
+    const file = image.url.split('/').pop();
+    image.filename = file.slice(0, file.lastIndexOf('.'));
+    return image;
+}
+
+
 var getUserFeed = async function () {
     const feed = await instagram.get('users/self/media/recent');
+    let images;
     const media = feed.data.map(item => {
-        var images = [];
+        let images = [];
         if (item.type === 'carousel') {
             item.carousel_media.forEach(item => {
-                const image = item.images.standard_resolution;
-                const file = image.url.split('/').pop();
-                image.filename = file.slice(0, file.lastIndexOf('.'));
-                images.push(item.images.standard_resolution)
+                images.push(normalizeImageObject(item));
             })
         } else if (item.type === 'image') {
-            const image = item.images.standard_resolution;
-            const file = image.url.split('/').pop();
-            image.filename = file.slice(0, file.lastIndexOf('.'));
-            images.push(item.images.standard_resolution);
+            images.push(normalizeImageObject(item));
         }
 
         return {

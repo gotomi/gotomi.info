@@ -30,8 +30,7 @@ var downloadImages = function () {
         createMarkup(media);
         media.forEach(item => {
             item.images.forEach(image => {
-                let imageUrl = image.url.split('?')[0];
-                downloadImage(imageUrl, dest)
+                downloadImage(image.url, dest)
             });
         });
 
