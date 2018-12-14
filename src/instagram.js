@@ -11,8 +11,7 @@ const instagram = new Instagram(config);
 
 var normalizeImageObject = function(item){
     const image = item.images.standard_resolution;
-    image.url = image.url.split('?')[0];
-    const file = image.url.split('/').pop();
+    const file = image.url.split('?')[0].split('/').pop();
     image.filename = file.slice(0, file.lastIndexOf('.'));
     return image;
 }

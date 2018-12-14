@@ -5,8 +5,7 @@ const sharp = require('sharp');
 
 
 
-const downloadImage = async (url, dest) => {
-    const filename = url.split('/').pop();
+const downloadImage = async (url, filename, dest) => {
     const placeToWrite = path.join(dest, filename);
     const response = await axios({
         method: 'get',
