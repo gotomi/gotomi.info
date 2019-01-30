@@ -11,14 +11,17 @@ html {
 
 body {
     font: 400 1.7rem/2.3rem Georgia, serif;
-    color: #333;
-    background: #eeel
+    color: #111;
+    background-image: linear-gradient(to bottom, #ffe300 0%, #ffe300 51%, #ffd600 52%, #ffd600 100%);
+    background-size: auto 80px;
+    background-repeat: repeat;
+    background-blend-mode: multiply;
 }
 
 main>div,
 header>div,
 footer>div {
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 10px 30px;
     /*! text-align:center */
@@ -32,24 +35,30 @@ a {
     border-bottom: 2px dotted #999
 }
 
+main{
+    margin: 2rem 0 0 0;
+}
+
 main img {
     max-width: 50%;
     height: auto;
-    /*! width: 100%; */
+    float: left;
+    margin: 0rem 2rem 0 0;
 }
+
 
 ul {
     text-align: left
 }
 
 h1 {
-    font: 700 2.4rem/1.2 arial narrow, sans-serif;
+    font: 700 4rem/2.3rem "Poppins", serif;
     margin: 2rem 0 4rem 0;
 }
 
 h1 img {
     vertical-align: middle;
-    border-radius: 50% 1rem 1rem 50%;
+    /* border-radius: 50% 1rem 1rem 50%; */
     margin: 0 1rem 0 0;
 }
 

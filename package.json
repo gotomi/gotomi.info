@@ -10,7 +10,7 @@
     "build": " node src/index.js",
     "serve": "cd dist && http-server -p 3003",
     "clean": "rm -rf dist",
-    "watch:build": "watch 'npm run build:assets && npm run build:markup' src"
+    "watch:build": "watch 'npm run build' src"
   },
   "author": "Tomasz Gospodarczyk",
   "license": "ISC",
