@@ -110,12 +110,18 @@ h2 {
 
 .photos {
     display: flex;
-justify-content: center;
-overflow: scroll;
+    overflow: scroll;
     padding: 1rem 0;
     margin: 0;
     background:#000;
 }
+
+@media only screen and (min-width: 600px) {
+    .photos {
+        justify-content: center;
+    }
+  }
+
 
 .photos img {
     max-width: 150px;
