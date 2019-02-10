@@ -10,12 +10,9 @@ html {
 }
 
 body {
-    font: 400 1.7rem/2.3rem Georgia, serif;
+    font: 400 2rem/1.5 Georgia, serif;
     color: #111;
-    background-image: linear-gradient(to bottom, #ffe300 0%, #ffe300 51%, #ffd600 52%, #ffd600 100%);
-    background-size: auto 80px;
-    background-repeat: repeat;
-    background-blend-mode: multiply;
+    background-color: #ffbf00;
 }
 
 main>div,
@@ -52,7 +49,8 @@ ul {
 }
 
 h1 {
-    font: 700 2.7rem/1.2 "Poppins", serif;
+    font: 700 3.3rem/1.2 "Poppins", serif;
+    margin:0;
 }
 
 h1 img {
@@ -111,11 +109,19 @@ h2 {
 }
 
 .photos {
-    text-align: center;
+    display: flex;
+    overflow: scroll;
     padding: 1rem 0;
     margin: 0;
-    background: #222;
+    background:#000;
 }
+
+@media only screen and (min-width: 600px) {
+    .photos {
+        justify-content: center;
+    }
+  }
+
 
 .photos img {
     max-width: 150px;
@@ -124,7 +130,7 @@ h2 {
 .photos li {
     padding: 0 0.5rem;
     list-style: none;
-    display: inline-block;
+    /* display: inline-block; */
     text-align: center
 }
 
