@@ -17,16 +17,16 @@
   "devDependencies": {
     "browser-sync": "^2.26.3",
     "http-server": "^0.11.1",
-    "watch": "^0.16.0",
+    "watch": "^1.0.2",
     "axios": "0.18.0",
     "fs-extra": "7.0.1",
     "hashmark": "5.0.0",
     "less": "3.9.0",
     "less-plugin-autoprefix": "2.0.0",
     "less-plugin-clean-css": "1.5.1",
-    "node-instagram": "4.2.0",
+    "node-instagram": "4.3.0",
     "pug": "2.0.3",
-    "sharp": "0.21.1"
+    "sharp": "0.21.3"
   },
   "dependencies": {}
 }
