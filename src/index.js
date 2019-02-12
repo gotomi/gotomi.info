@@ -12,30 +12,23 @@ const downloadImage = require('./download-image')
 
 
 const DEST = path.join(__dirname, '../dist');
-
 const SRC = path.join(__dirname, '../src');
-
 
 
 fs.ensureDir(DEST);
 
-
-var downloadImages = function () {
+(async function () {
     const dest = path.join(DEST, '/images');
     fs.ensureDir(dest);
 
-    getUserFeed().then(feed => {
-        const media = feed.slice(0, 5);
+    let feed = await getUserFeed();
+    let media = feed.slice(0, 5);
+    media.forEach(item => {
+        downloadImage(item.url, item.id, dest)
+    })
 
-        createMarkup(media);
-        media.forEach(item => {
-            item.images.forEach(image => {
-                downloadImage(image.url, image.filename, dest)
-            });
-        });
-
-    });
-}
+    createMarkup(media);
+})()
 
 const createMarkup = function (photoFeed) {
     const pageData = pug.renderFile(path.join(SRC, './template.pug'), {
@@ -49,4 +42,3 @@ const createMarkup = function (photoFeed) {
     fs.copy(path.join(SRC, './assets'), path.join(DEST, '/assets'));
     fs.copy(path.join(SRC, './favicon.ico'), path.join(DEST, './favicon.ico'));
 }
-downloadImages();

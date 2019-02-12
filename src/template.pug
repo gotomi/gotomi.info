@@ -12,10 +12,9 @@ html(lang="en")
         include parts/content.html
         ul.photos
             each item in feed
-                each image in item.images
-                    li
-                        a(href=item.link)
-                            img(src='images/' + image.filename , alt=item.text)
+                li
+                    a(href=item.href)
+                        img(src='images/' + item.id+'.jpg' , alt=item.text)
     footer
         div
             p &copy; 2019 Tomasz Gospodarczyk | designed in the browser
