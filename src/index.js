@@ -8,7 +8,7 @@ const path = require('path');
 
 
 const getUserFeed = require('./instagram');
-const downloadImage = require('./download-image')
+const image = require('./download-image')
 
 
 const DEST = path.join(__dirname, '../dist');
@@ -24,9 +24,12 @@ fs.ensureDir(DEST);
     let feed = await getUserFeed();
     let media = feed.slice(0, 5);
     media.forEach(item => {
-        downloadImage(item.url, item.id, dest)
+        image.downloadImage(item.url, item.id, dest).then(
+            function(){
+                image.convertImages(item.id, dest);
+            }
+        )
     })
-
     createMarkup(media);
 })()
 
