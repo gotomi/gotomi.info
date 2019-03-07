@@ -124,7 +124,7 @@ h2 {
 
 
 .photos img {
-    max-width: 150px;
+    height: 150px;
 }
 
 .photos li {
