@@ -5,9 +5,8 @@ html(lang="en")
         title Tomasz Gospodarczyk | front-end developer
         meta(name='viewport', content='width=device-width, initial-scale=1')
         meta(name='theme-color' content='#ffbf00')
-        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Poppins:700')
-        style
-            include parts/style.css
+        link(rel='preload', as='font',type='font/woff2', href='/assets/fonts/poppins.woff2',crossorigin)
+        link(rel='stylesheet', href='/assets/css/style.css')
     body
         include parts/content.html
         ul.photos
@@ -15,9 +14,9 @@ html(lang="en")
                 li
                     a(href=item.href)
                         img(src='images/' + item.id, alt=item.text)
-    footer
-        div
-            p &copy; 2019 Tomasz Gospodarczyk | designed in the browser
+        footer
+            div
+                p &copy; 2019 Tomasz Gospodarczyk | designed in the browser
 
 
 
