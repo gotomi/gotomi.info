@@ -4,8 +4,19 @@ const Instagram = require('node-instagram').default;
 
 // Create a new instance.
 
-var config = require(path.join(home, '/inst.json'));
+const getConfig = function () {
+    try {
+        return require(path.join(home, '/inst.json'));
+    } catch (e) {
+        return {
+            clientId: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+            accessToken: process.env.ACCESS_TOKEN
+        }
+    }
+}
 
+const config = getConfig();
 const instagram = new Instagram(config);
 
 var getUserFeed = async function () {
