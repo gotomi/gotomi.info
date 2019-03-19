@@ -43,5 +43,4 @@ const createMarkup = function (photoFeed) {
     })
 
     fs.copy(path.join(SRC, './assets'), path.join(DEST, '/assets'));
-    fs.copy(path.join(SRC, './favicon.ico'), path.join(DEST, './favicon.ico'));
 }
