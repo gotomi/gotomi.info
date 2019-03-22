@@ -1,4 +1,4 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
-  X-XSS-Protection: 1; mode=block
 /images/*
+  Cache-Control: public, max-age=31536000, immutable
