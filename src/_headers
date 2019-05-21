@@ -4,5 +4,7 @@
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+  Vary: DPR, Width, Wieport-width
 /images/*
   Cache-Control: public, max-age=31536000, immutable
+  Vary: DPR, Width, Wieport-width
