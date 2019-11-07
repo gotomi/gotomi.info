@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "hashmark -s -l 8 -m assets.json dist/css/style.css 'dist/css/{name}{hash}{ext}'",
-    "build": " node src/index.js",
+    "build:assets": "hashmark -s -l 8 -m ./assets.json src/**/*.{jpg,png,woff2,ico,css} dist/{name}.{hash}{ext}",
+    "build": " npm run build:assets && node src/index.js",
     "serve": "cd dist && http-server -p 3003",
     "clean": "rm -rf dist",
     "watch:build": "watch 'npm run build' src"

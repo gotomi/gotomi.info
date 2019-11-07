@@ -6,6 +6,16 @@ const path = require('path');
 
 
 
+let assets = {}
+try {
+    assets = require(path.join(__dirname, '../assets.json'));
+
+} catch (e) {
+    console.log('no assets')
+}
+
+console.log(__dirname);
+
 
 const getUserFeed = require('./instagram');
 const image = require('./download-image')
@@ -25,7 +35,7 @@ fs.ensureDir(DEST);
     let media = feed.slice(0, 5);
     media.forEach(item => {
         image.downloadImage(item.url, item.id, dest).then(
-            function(){
+            function () {
                 image.convertImages(item.id, dest);
             }
         )
@@ -35,7 +45,8 @@ fs.ensureDir(DEST);
 
 const createMarkup = function (photoFeed) {
     const pageData = pug.renderFile(path.join(SRC, './template.pug'), {
-        feed: photoFeed
+        feed: photoFeed,
+        assets: assets
     });
     const dest = path.join(DEST, 'index.html');
     fs.writeFile(dest, pageData, function (err) {
