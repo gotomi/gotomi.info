@@ -9,15 +9,24 @@ html(lang="en")
         link(rel='stylesheet', href='/assets/css/style.css')
         link(rel='icon', href='/assets/img/favicon.ico', type='image/x-icon')
     body
-        include parts/content.html
-        ul.photos
-            each item in feed
-                li
-                    a(href=item.href)
-                        img(src='images/' + item.id + '-200.jpg', alt=item.text)
-        footer
-            div
-                p &copy; 2019 Tomasz Gospodarczyk | designed in the browser
+        span.logo
+            gotomi
+        main
+            //- h1 Tomasz Gospodarczyk
+            .coffee
+                img(src='/assets/img/kawa2-no-bg-c.png', alt='I like coffee')
+                //- img(src='/assets/img/me.jpg', alt="me")
+            .c
+                include parts/content.html
+                h2 Latest photos
+                ul.photos
+                    each item in feed
+                        li
+                            a(href=item.href)
+                                img(src='images/' + item.id + '-200.jpg', alt=item.text)    
+                footer
+                    div
+                        p &copy; 2019 Tomasz Gospodarczyk | designed in the browser
 
 
 

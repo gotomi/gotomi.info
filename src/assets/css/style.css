@@ -6,26 +6,40 @@
     font-display: swap;
     src: local('Poppins Bold'), local('Poppins-Bold'), url(/assets/fonts/poppins.woff2) format('woff2');
     unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
-  }
-  /* latin-ext */
-  @font-face {
+}
+
+/* latin-ext */
+@font-face {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: local('Poppins Bold'), local('Poppins-Bold'), url(/assets/fonts/poppins.woff2)  format('woff2');
+    src: local('Poppins Bold'), local('Poppins-Bold'), url(/assets/fonts/poppins.woff2) format('woff2');
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-  /* latin */
-  @font-face {
+}
+
+/* latin */
+@font-face {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: local('Poppins Bold'), local('Poppins-Bold'), url(/assets/fonts/poppins.woff2)  format('woff2');
+    src: local('Poppins Bold'), local('Poppins-Bold'), url(/assets/fonts/poppins.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  
+}
+
+:root {
+    --main-bg-color: #ffbf00;
+    --main-bg-color2: coral;
+    --main-bg-color3: #3ff;
+    --main-gradient: radial-gradient(circle at 5vw 10vh, #fff 0, var(--main-bg-color) 50%, var(--main-bg-color2) 100%);
+
+
+    --main-color: hsl(45, 100%, 50%);
+    --main-color-left: hsl(45, 100%, 90%);
+    --main-color-right: hsl(45, 100%, 40%);
+    --main-gradient2: radial-gradient(circle at 5vw 10vh, var(--main-color-left) 0, var(--main-color) 50%, var(--main-color-right) 100%);
+}
 
 
 html {
@@ -42,16 +56,34 @@ html {
 body {
     font: 400 2rem/1.5 Georgia, serif;
     color: #111;
-    background-color: #ffbf00;
+    background-color: var(--main-bg-color);
+    background-image: var(--main-gradient2);
+    background-attachment: fixed;
 }
 
+.logo {
+    display: inline-block;
+    background-image: url('/assets/img/gotomi-trans.png'), linear-gradient(rgba(155, 55, 60, 0.6),rgba(155, 55, 60, 0.9));
+    background-repeat: no-repeat, repeat;
+    background-position: 0px -0.3rem, 0 0;
+    background-size: cover, auto;
+    width: 7rem;
+    height: 7rem;
+    line-height: 1;
+    text-align: center;
+    transition: 0.4s;
+    text-indent: -9999px;
+    padding: 0;
+    position: fixed;
+    z-index: 3;
+}
+
+
 main>div,
-header>div,
-footer>div {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 10px 30px;
-    /*! text-align:center */
+header>div {
+   
+    padding: 10px 20px; 
+
 }
 
 a {
@@ -62,112 +94,82 @@ a {
     border-bottom: 2px dotted #999
 }
 
-main{
+main {
     margin: 2rem 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 980px;
+    margin: 0 auto;
 }
 
-main img {
-    max-width: 50%;
-    height: auto;
-    float: left;
-    margin: 0rem 2rem 0 0;
-}
-
-
-ul {
-    text-align: left
-}
 
 h1 {
     font: 700 3.3rem/1.2 "Poppins", serif;
-    margin:0;
+    color: var(--main-bg-color);
+    background: #000;
+    box-sizing: border-box;
+    text-align: right;
+    padding: 1.5rem 2rem;
+    flex: 1 0 100%;
+    margin: 0;
 }
 
-h1 img {
-    vertical-align: middle;
-    margin: 0 1rem 0 0;
-}
 
 h2 {
     font: 700 2rem/2.4rem Arial, sans-serif;
     margin: .25em 0 1.5em
 }
 
-.social {
-    list-style: none;
-    padding: 0;
-    /*! text-align:center; */
-    margin: 50px 0 20px;
-    position: relative
-}
 
-.social li {
-    text-indent: -9999px;
-    display: inline-block;
-    margin: 0 5px 0 0
-}
 
-.social li a {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border-bottom: 2px solid #444;
-    background: #eee url(/assets/svg/github_alt.svg) no-repeat center;
-    display: block;
-    background-size: 24px 24px;
-    transition: .6s
-}
 
-.social li a:hover {
-    background-color: #ddd
-}
-
-.social .linkedin a {
-    background-image: url(/assets/svg/linkedin_alt.svg)
-}
-
-.social .flickr a {
-    background-image: url(/assets/svg/flickr.svg)
-}
-
-.social .twitter a {
-    background-image: url(/assets/svg/twitter.svg)
-}
-
-.social .last a {
-    background-image: url(/assets/svg/last.fm.svg)
-}
 
 .photos {
-    display: flex;
+    display: grid;
     overflow: auto;
-    padding: 1rem 0;
+    padding: 0;
     margin: 0;
-    background:#000;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 10px;
+    align-items: stretch;
 }
-
-@media only screen and (min-width: 600px) {
-    .photos {
-        justify-content: center;
-    }
-  }
-
+.photos li {
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    object-fit: cover;
+    width: 100%;
+}
 
 .photos img {
-    height: 150px;
-}
-
-.photos li {
-    padding: 0 0.5rem;
-    list-style: none;
-    /* display: inline-block; */
-    text-align: center
-}
-
-.photos a {
-    border: 0;
-    padding: 0;
     display: block;
-    /*! float: left; */
-    height: 150px;
+    max-width: 100%;
+}
+
+
+
+
+.coffee {
+    flex: 3 1 320px;
+}
+
+.c {
+    flex: 4 1 480px;
+}
+
+
+.coffee img {
+    /* filter: saturate(2.5);
+    opacity: 0.7; */
+    float: none;
+    max-width: 100%;
+    display: block;
+    transition: 2s;
+    transform-origin: 50% 50%;
+}
+
+.coffee img:hover {
+    transform: rotate(145deg);
 }
