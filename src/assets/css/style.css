@@ -50,7 +50,7 @@ header>div {
     padding: 10px 20px;
 }
 
-a {
+p a {
     color: inherit;
     display: inline-block;
     text-decoration: none;
@@ -89,7 +89,7 @@ h2 {
     margin: 0;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
-    align-items: stretch;
+    align-items: center;
 }
 
 .photos li {
