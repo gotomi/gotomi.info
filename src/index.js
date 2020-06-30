@@ -30,7 +30,7 @@ fs.ensureDir(DEST);
 (async function () {
     const dest = path.join(DEST, '/images');
     fs.ensureDir(dest);
-
+    try {
     let feed = await getUserFeed();
     let media = feed.slice(0, 5);
     media.forEach(item => {
@@ -41,6 +41,12 @@ fs.ensureDir(DEST);
         )
     })
     createMarkup(media);
+    }  catch(e) {
+        console.log(e)
+    }
+    finally {
+        createMarkup();
+    }
 })()
 
 const createMarkup = function (photoFeed) {

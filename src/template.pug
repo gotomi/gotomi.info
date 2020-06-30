@@ -19,12 +19,14 @@ html(lang="en")
                 //- img(src='/assets/img/me.jpg', alt="me")
             .c
                 include parts/content.html
-                h2 Latest photos
-                ul.photos
-                    each item in feed
-                        li
-                            a(href=item.href)
-                                img(src='images/' + item.id + '-200.jpg', alt=item.text)    
+                if feed
+                    h2 Latest photos
+                    ul.photos
+                        each item in feed
+                            li
+                                a(href=item.href)
+                                    img(src='images/' + item.id + '-200.jpg', alt=item.text)    
+                
                 footer
                     div
                         p &copy; 2020 Tomasz Gospodarczyk | designed in the browser
