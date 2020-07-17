@@ -45,7 +45,7 @@ fs.ensureDir(DEST);
         console.log(e)
     }
     finally {
-        createMarkup();
+       // createMarkup();
     }
 })()
 
