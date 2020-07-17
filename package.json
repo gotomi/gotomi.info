@@ -17,10 +17,11 @@
     "fs-extra": "9.0.0",
     "hashmark": "^5.0.0",
     "http-server": "0.12.3",
-    "node-instagram": "^4.3.0",
     "axios": "^0.19.2",
     "pug": "^2.0.4",
     "sharp": "^0.25.2",
-    "watch": "^1.0.2"
-  }
+    "watch": "^1.0.2",
+    "instagram-scraping": "^1.0.13"
+  },
+  "dependencies": {}
 }
