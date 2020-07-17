@@ -1,0 +1,130 @@
+:root {
+    --main-bg-color: #ffbf00;
+    --main-bg-color2: coral;
+    --main-bg-color3: #3ff;
+    --main-gradient: radial-gradient(circle at 5vw 10vh, #fff 0, var(--main-bg-color) 50%, var(--main-bg-color2) 100%);
+    --main-color: hsl(45, 100%, 50%);
+    --main-color-left: hsl(45, 100%, 90%);
+    --main-color-right: hsl(45, 100%, 40%);
+    --main-gradient2: radial-gradient(circle at 5vw 10vh, var(--main-color-left) 0, var(--main-color) 50%, var(--main-color-right) 100%);
+}
+
+html {
+    font-size: 62.5%
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%
+}
+
+body {
+    font: 400 2rem/1.5 Georgia, serif;
+    color: #111;
+    background-color: var(--main-bg-color);
+    background-image: var(--main-gradient2);
+    background-attachment: fixed;
+}
+
+.logo {
+    display: inline-block;
+    background-image: url('/assets/img/gotomi-trans.png'), linear-gradient(rgba(155, 55, 60, 0.6), rgba(155, 55, 60, 0.9));
+    background-repeat: no-repeat, repeat;
+    background-position: 0px -0.3rem, 0 0;
+    background-size: cover, auto;
+    width: 7rem;
+    height: 7rem;
+    line-height: 1;
+    text-align: center;
+    transition: 0.4s;
+    text-indent: -9999px;
+    padding: 0;
+    position: fixed;
+    z-index: 3;
+}
+
+main>div,
+header>div {
+    padding: 10px 20px;
+}
+
+p a {
+    color: inherit;
+    display: inline-block;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 2px dotted #999
+}
+
+main {
+    margin: 2rem 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+h1 {
+    font: 700 3.3rem/1.2 "Poppins", serif;
+    color: var(--main-bg-color);
+    background: #000;
+    box-sizing: border-box;
+    text-align: right;
+    padding: 1.5rem 2rem;
+    flex: 1 0 100%;
+    margin: 0;
+}
+
+h2 {
+    font: 700 2rem/2.4rem Arial, sans-serif;
+    margin: .25em 0 1.5em
+}
+
+.photos {
+    display: grid;
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    align-items: center;
+}
+
+.photos li {
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    object-fit: cover;
+    width: 100%;
+}
+
+.photos img {
+    display: block;
+    max-width: 100%;
+}
+
+.coffee {
+    flex: 3 1 320px;
+}
+
+.c {
+    flex: 4 1 480px;
+}
+
+.coffee img {
+    /* filter: saturate(2.5);
+    opacity: 0.7; */
+    float: none;
+    max-width: 100%;
+    display: block;
+    transition: 2s;
+    transform-origin: 54% 46%;
+}
+
+.coffee img:hover {
+    transform: rotate(145deg);
+}
