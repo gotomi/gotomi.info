@@ -9,14 +9,15 @@ html(lang="en")
         link(rel='stylesheet', href=assets['src/assets/css/style.css'].substr(5))
     
         link(rel='icon', href=assets['src/assets/img/favicon.ico'].substr(5), type='image/x-icon')
-    body
-        span.logo
+    body#top
+        a(href='#top').logo
             gotomi
         main
             //- h1 Tomasz Gospodarczyk
             .coffee
-                img(src=assets['src/assets/img/kawa2-no-bg-c.png'].substr(5), alt='I like coffee')
-                //- img(src='/assets/img/me.jpg', alt="me")
+                //- img(src=assets['src/assets/img/kawa2-no-bg-c.png'].substr(5), alt='I like coffee')
+                figure
+                    img(src=assets['src/assets/img/me-p.jpg'].substr(5), alt='me', width='320')
             .c
                 include parts/content.html
                 if feed
@@ -30,7 +31,3 @@ html(lang="en")
                 footer
                     div
                         p &copy; 2020 Tomasz Gospodarczyk | designed in the browser
-
-
-
-
