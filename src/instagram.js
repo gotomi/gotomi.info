@@ -1,5 +1,7 @@
 const fetch = require('node-fetch');
-const { Headers } = require('node-fetch');
+const {
+    Headers
+} = require('node-fetch');
 const instagramFeedUrl = 'https://www.instagram.com/gotomik/?__a=1';
 
 const getUserFeed = async function() {
@@ -17,12 +19,31 @@ const getUserFeed = async function() {
     });
     const json = await result.json();
     const timeline = json.graphql.user.edge_owner_to_timeline_media.edges;
-    const images = timeline.map(item => {
-        return {
-            text: item.node.edge_media_to_caption.edges[0].node.text,
-            url: item.node.thumbnail_src,
-            id: item.node.id,
-            href: instagramPageUrl + item.node.shortcode
+
+    let images = [];
+
+    timeline.forEach(item => {
+        if (item.node.__typename === "GraphImage") {
+            const randomName = "a" + Math.floor(Math.random() * 100000000);
+            images.push({
+                text: item.node.edge_media_to_caption.edges[0].node.text,
+                url: item.node.display_url,
+                id: randomName,
+                href: instagramPageUrl + item.node.shortcode
+            })
+        } else { //__typename": "GraphSidecar"
+
+            item.node.edge_sidecar_to_children.edges.forEach(it => {
+                const randomName = "a" + Math.floor(Math.random() * 100000000);
+                images.push({
+                    text: item.node.edge_media_to_caption.edges[0].node.text,
+                    url: it.node.display_url,
+                    id: randomName,
+                    href: instagramPageUrl + item.node.shortcode
+                })
+
+            })
+
         }
     })
 

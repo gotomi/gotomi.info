@@ -32,10 +32,12 @@ fs.ensureDir(DEST);
     fs.ensureDir(dest);
     try {
     let feed = await getUserFeed();
+    
     let media = feed.slice(0, 5);
     media.forEach(item => {
         image.downloadImage(item.url, item.id, dest).then(
             function () {
+                console.log(item.id)
                 image.convertImages(item.id, dest);
             }
         )
