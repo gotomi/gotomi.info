@@ -1,14 +1,14 @@
 {
   "src/assets/img/me-p.jpg": "dist/me-p.5fff9372.jpg",
   "src/assets/img/cup-no-bg-c.png": "dist/cup-no-bg-c.3726c0a2.png",
+  "src/assets/img/me.jpg": "dist/me.95fcc1a4.jpg",
   "src/assets/img/cup2-no-bg-c.png": "dist/cup2-no-bg-c.25c94cf7.png",
   "src/assets/img/kawa-no-bg-c.png": "dist/kawa-no-bg-c.66d6dcca.png",
-  "src/assets/img/gotomi-trans.png": "dist/gotomi-trans.3f1be0bb.png",
+  "src/assets/fonts/poppins.woff2": "dist/poppins.56a522e7.woff2",
   "src/assets/img/kawa3-no-bg-c.png": "dist/kawa3-no-bg-c.83a9c3dc.png",
   "src/assets/img/kawa2-no-bg-c.png": "dist/kawa2-no-bg-c.1ecf2fb3.png",
-  "src/assets/fonts/poppins.woff2": "dist/poppins.56a522e7.woff2",
-  "src/assets/img/me.jpg": "dist/me.95fcc1a4.jpg",
-  "src/assets/css/style.css": "dist/style.59f2152c.css",
   "src/assets/img/favicon.ico": "dist/favicon.6b1f9b40.ico",
-  "src/favicon.ico": "dist/favicon.99065ed2.ico"
+  "src/assets/img/gotomi-trans.png": "dist/gotomi-trans.3f1be0bb.png",
+  "src/favicon.ico": "dist/favicon.99065ed2.ico",
+  "src/assets/css/style.css": "dist/style.59f2152c.css"
 }
