@@ -14,14 +14,14 @@
   "author": "Tomasz Gospodarczyk",
   "license": "ISC",
   "devDependencies": {
+    "axios": "^0.21.1",
     "fs-extra": "9.0.0",
     "hashmark": "^5.0.0",
     "http-server": "0.12.3",
-    "axios": "^0.21.1",
+    "instagram-scraping": "^1.0.13",
     "pug": "^2.0.4",
     "sharp": "^0.25.2",
-    "watch": "^1.0.2",
-    "instagram-scraping": "^1.0.13"
+    "watch": "^1.0.2"
   },
   "dependencies": {
     "node-fetch": "^2.6.1"
