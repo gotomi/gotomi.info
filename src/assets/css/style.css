@@ -99,6 +99,7 @@ h2 {
 .photos img {
     display: block;
     max-width: 100%;
+    height: auto;
 }
 
 .coffee figure {
@@ -124,5 +125,6 @@ h2 {
 .coffee img {
     float: none;
     max-width: 100%;
+    height: auto;
     display: block;
 }

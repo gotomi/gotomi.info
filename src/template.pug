@@ -17,7 +17,7 @@ html(lang="en")
             .coffee
                 //- img(src=assets['src/assets/img/kawa2-no-bg-c.png'].substr(5), alt='I like coffee')
                 figure
-                    img(src=assets['src/assets/img/me-p.jpg'].substr(5), alt='me', width='320')
+                    img(src=assets['src/assets/img/me-p.jpg'].substr(5), alt='me', width='320', height='320')
             .c
                 include parts/content.html
                 if feed
@@ -26,7 +26,7 @@ html(lang="en")
                         each item in feed
                             li
                                 a(href=item.href)
-                                    img(src='images/' + item.id + '-200.jpg', alt=item.text)    
+                                    img(src='images/' + item.id + '-200.jpg', alt=item.text, width='200', height='200')    
                 
                 footer
                     div
