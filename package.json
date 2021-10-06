@@ -13,7 +13,7 @@
     "author": "Tomasz Gospodarczyk",
     "license": "ISC",
     "dependencies": {
-        "axios": "^0.21.1",
+        "axios": "^0.21.2",
         "fs-extra": "^9.1.0",
         "hashmark": "^5.0.0",
         "http-server": "^0.12.3",
