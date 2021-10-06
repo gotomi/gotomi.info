@@ -2,4 +2,5 @@ node_modules
 # dist
 .DS_Store
 Caddyfile
+assets.json
 out
