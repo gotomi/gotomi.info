@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* :root {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  font-size: 1rem;
+  --user-font-scale: 1rem - 16px;
+  font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
+} */
+
+
+:root {
+  --main-bg-color: #ffbf00;
+  --main-bg-color2: coral;
+  --main-bg-color3: #3ff;
+  --main-gradient: radial-gradient(circle at 5vw 10vh, #fff 0, var(--main-bg-color) 50%, var(--main-bg-color2) 100%);
+  --main-color: hsl(45, 100%, 50%);
+  --main-color-left: hsl(45, 100%, 90%);
+  --main-color-right: hsl(45, 100%, 40%);
+  --main-gradient2: radial-gradient(circle at 5vw 10vh, var(--main-color-left) 0, var(--main-color) 50%, var(--main-color-right) 100%);
+  --logo-gradient: linear-gradient(rgba(155, 55, 60, 0.6), rgba(155, 55, 60, 0.9))
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%
+}
+
+body {
+  font: 400 1rem/1.5 'Source Sans Pro', sans-serif;
+  color: #111;
+  --user-font-scale: 1rem - 16px;
+  /* font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem); */
+  background-color: var(--main-bg-color);
+  background-image: var(--main-gradient2);
+  background-attachment: fixed;
+}
+
+h1, h2, h3{
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+h2{
+  background: var(--main-color-left);
+  display: inline-block;
+  padding: 0 0.5rem;
+  margin: 0.5rem 0 1rem;
+  transform: rotate(-1deg);
+}
+
+h3{
+  background: var(--main-color);
+  display: inline-block;
+  padding: 0 0.25rem;
+  margin: 0 0 0.25rem 0;
+  transform: rotate(-0.5deg);
+}
+
+
+.shadow {
+  filter: drop-shadow(5px 5px 5px #716a0c);
+}
+
+img{
+  border-radius: 2%;
+}
+
+.chunk, ul li.chunk {
+  background: #ffffff5e;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 0 10px;
+}
+
+
+.logo {
+  display: inline-block;
+  background-image: url('/assets/gotomi-logo.png'), var(--logo-gradient);
+  background-repeat: no-repeat, repeat;
+  background-position: 0px -0.3rem, 0 0;
+  background-size: cover, auto;
+  width: 4.5rem;
+  height: 4.5rem;
+  line-height: 1;
+  text-align: center;
+  transition: 0.4s;
+  text-indent: -9999px;
+  font-size: 10px;
+  padding: 0;
+  position: fixed;
+  z-index: 3;
+  left: 0.5rem;
+  top: 0.5rem
+}
+
+main{
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+section{
+  margin: 0.5rem 0 2rem 0;
+}
+
+/* 
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111827;
+    color: #fff;
+  }
+} */

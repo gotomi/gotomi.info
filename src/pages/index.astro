@@ -1,0 +1,154 @@
+---
+// Component Imports
+import photos from '../_data/photos.json';
+import projects from '../_data/projects.json';
+
+// const response = await fetch('https://api.github.com/users/gotomi/repos');
+// const repos = await response.json();
+// const filteredRepos = repos.map(repo => {return {name: repo.name, description: repo.description, homepage: repo.homepage, svn_url: repo.svn_url}})
+
+let title = 'gotomi.info';
+---
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{title}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/style/global.css">
+
+    <style>
+ 
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            max-width: min(100%, 68ch);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="logo">gotomi.info</div>
+
+        <section class="intro">
+            <div class="coffee">
+              <!-- <img src="/assets/cups/cup2.png" alt="make some coffee..."> -->
+                <img src="/assets/me2.png" alt="me" width="200" height="200" class="shadow">
+            </div>
+               
+                 <div class="content">
+              
+            <h2>Hi, I'm Tomasz</h2>
+            <p class="chunk">I'm a front-end developer, currently working as a web performance team leader.
+            If you want to contact me, you can easily find me on <a href="http://twitter.com/gotomi">Twitter</a>,
+            <a href="http://github.com/gotomi">GitHub</a> or <a href="http://linkedin.com/in/gotomi">Linkedin</a>.</p>
+            <!-- <p class="chunk">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit consequuntur molestias, doloremque facere ipsum beatae ipsam rerum ut maxime iste excepturi laboriosam autem quidem incidunt voluptas id aut inventore! Repudiandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi praesentium, ipsa aspernatur iure voluptatum similique atque earum, mollitia omnis minima ea repudiandae perspiciatis facere iste? Veniam delectus laudantium enim unde.
+            </p> -->
+           
+              </div>
+ 
+       
+            <!-- <img src="/assets/cups/cup1.png" alt="">
+            <img src="/assets/cups/cup3.png" alt="">
+            <img src="/assets/cups/cup4.png" alt=""> -->
+            
+        </section>
+
+        <section class="projects">
+        <h2>My projects</h2>
+        <ul>
+            {projects.map((item) => (
+            <li class="chunk">
+            <h3>{item.name}</h3>
+                <p>{item.description}</p>
+
+                <a href={item.svn_url}>{item.svn_url}</a>
+            </li>
+            ))}
+        </ul>
+        </section>
+        <section class="photos">
+        <h2>Photos</h2>
+        <ul>
+            {photos.map((item, i) => (
+            <li class={i === 0? 'featured' : ''}><img src={item.src}/></li>
+            ))}
+        </ul>
+        </section>
+    <footer>© 2021 Tomasz Gospodarczyk | designed in the browser</footer>
+    </main>
+    <script>
+    let index = 0;
+    const photos = [... document.querySelectorAll('.photos li')];
+    setInterval(() => {
+            photos.forEach(item => item.classList.remove('featured')); 
+            photos[index].classList.add('featured');
+            index ++;
+            if(index > photos.length -1 ) index = 0;
+    }, 3000);
+
+    </script>
+</body>
+</html>
+
+<style>
+
+    .intro{
+        display:  grid;
+        grid-template-columns: repeat(24, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        align-items: center;
+
+    }
+
+    .coffee {
+        grid-column: 1/span 6;
+        grid-row: 1/span 6;
+    }
+    .content {
+        grid-column: 8/span 18;
+        grid-row: 1/span 5;
+    }
+
+    .intro img, 
+    .photos img{
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    ul,li{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .photos ul {
+        display:  grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-gap: 0.25rem;
+    }
+
+    @media (max-width: 480px) {
+     .photos ul {
+        grid-template-columns: repeat(3, 1fr);
+     }
+    }
+
+    .projects ul{
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(160px, 1fr));
+        grid-gap: 1rem;
+    }
+
+
+    .photos li.featured {
+        grid-column: 1/3;
+        grid-row: 1/3;
+    }
+</style>
