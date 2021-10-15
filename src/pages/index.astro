@@ -6,6 +6,7 @@ import projects from '../_data/projects.json';
 // const response = await fetch('https://api.github.com/users/gotomi/repos');
 // const repos = await response.json();
 // const filteredRepos = repos.map(repo => {return {name: repo.name, description: repo.description, homepage: repo.homepage, svn_url: repo.svn_url}})
+// console.log(filteredRepos)
 
 let title = 'gotomi.info';
 ---
@@ -92,7 +93,7 @@ let title = 'gotomi.info';
             photos[index].classList.add('featured');
             index ++;
             if(index > photos.length -1 ) index = 0;
-    }, 3000);
+    }, 6000);
 
     </script>
 </body>

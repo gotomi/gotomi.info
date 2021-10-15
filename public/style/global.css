@@ -54,6 +54,7 @@ h2{
   padding: 0 0.5rem;
   margin: 0.5rem 0 1rem;
   transform: rotate(-1deg);
+  filter: drop-shadow(3px 3px 0 #333);
 }
 
 h3{
@@ -64,6 +65,9 @@ h3{
   transform: rotate(-0.5deg);
 }
 
+a{
+  color: inherit
+}
 
 .shadow {
   filter: drop-shadow(5px 5px 5px #716a0c);
@@ -74,10 +78,9 @@ img{
 }
 
 .chunk, ul li.chunk {
-  background: #ffffff5e;
+  background: var(--main-color-left);
   padding: 1rem;
   margin-top: 1rem;
-  border-radius: 0 10px;
 }
 
 
