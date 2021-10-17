@@ -33,7 +33,6 @@
 
     let time = 0;
     export let audioSource = "";
-    export let podcastPlatforms = [];
     export let title = "";
     export let trackCover = "";
     export let albumCover = "/img/podcast-player/podcast.png";
@@ -119,12 +118,14 @@
     <div>
         <div class={playerClassName}>
             <img src={trackCover} class="author" alt="" width="200" height="200"/>
-            <img src={albumCover} class="cover-bg" alt="" width="200" height="200l"/>
+            <img src={albumCover} class="cover-bg" alt="" width="200" height="200"/>
         </div>
     </div>
     <div class="panel">
         <h2 class="podcast-title">
+            
             <span class="icon" on:click={togglePlay}>{@html toggleButton}</span>
+           
             {title} 
         </h2>
    
@@ -134,36 +135,17 @@
         
         <div class="controls">
             
-            <span class="icon" on:click={() => (time -= 15)}
-                >{@html rewindButton}</span
-            >
-            <span class="icon" on:click={() => (time += 15)}
-                >{@html forwardButton}</span
-            >
+        
+            <span class="icon" on:click={() => (time -= 15)}>{@html rewindButton}</span>
+            <span class="icon" on:click={() => (time += 15)}>{@html forwardButton}</span>
+            <!-- 
             <span class="icon" on:click={setPlaybackRate}
                 >{@html playspeedButton}</span
             >
             <span class="playbackrate-text"
                 >{playbackRates[chosenPlaybackRate]}x</span
-            >
+            > -->
             <span class="progress-display" id="progress">{progress}</span>     
-            <ul class="platforms">
-                {#each Object.entries(podcastPlatforms) as [platform, url]}
-                    {#if platform !== "buzzsprout"}
-                        <li>
-                            <a href={url}
-                                ><img
-                                    src={"/img/podcast-player/icons/" +
-                                        platform +
-                                        ".svg"}
-                                    alt={platform}
-                                    title={platform}
-                                /></a
-                            >
-                        </li>
-                    {/if}
-                {/each}
-            </ul>
         </div>
         <!-- svelte-ignore a11y-media-has-caption -->
         <audio
@@ -181,29 +163,6 @@
 </div>
 
 <style>
-    .platforms {
-        float: right;
-    }
-    .platforms,
-    .platforms li {
-        text-align: right;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .platforms li {
-        display: inline-block;
-        border-radius: 50%;
-        background: var (--player-theme-color);
-        margin: 0 0 10px 10px;
-    }
-
-    .platforms li img {
-        width: 18px;
-        height: 18px;
-    }
-
     .audioplayer img {
         aspect-ratio: 1 / 1;
     }
@@ -246,7 +205,7 @@
         border-radius: 5px;
         /* display: flex; */
         display: grid;
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: auto 3fr;
         align-self: baseline;
         background-color: var(--player-theme-bg-color);
         color: var(--player-theme-color);
