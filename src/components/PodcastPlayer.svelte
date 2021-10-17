@@ -37,8 +37,6 @@
     export let title = "";
     export let trackCover = "";
     export let albumCover = "/img/podcast-player/podcast.png";
-    export let themeBgColor = "orangered";
-    export let themeColor = "#333";
     export let autoplay = false;
 
     let progressBarWidth, progressBarLeft;
@@ -116,7 +114,6 @@
 <div
     class="audioplayer"
     on:click={setFocus}
-    style="--theme-bg-color: {themeBgColor};--theme-color: {themeColor}"
 >
     <input type="text" class="root-focus" bind:this={root} />
     <div>
@@ -198,7 +195,7 @@
     .platforms li {
         display: inline-block;
         border-radius: 50%;
-        background: var (--theme-color);
+        background: var (--player-theme-color);
         margin: 0 0 10px 10px;
     }
 
@@ -212,8 +209,8 @@
     }
 
     .progress-bar {
-        background: white;
-        border: 0 solid tomato;
+        background: var(--player-theme-progress-bg-color);
+        border: 0 solid var(--player-theme-progress-color);
         border-width: 0 0 0 1px;
         height: 10px;
         margin: 5px 0;
@@ -251,8 +248,8 @@
         display: grid;
         grid-template-columns: 1fr 3fr;
         align-self: baseline;
-        background-color: var(--theme-bg-color);
-        color: var(--theme-color);
+        background-color: var(--player-theme-bg-color);
+        color: var(--player-theme-color);
         max-width: 860px;
         font-family: "Open Sans", Arial, sans-serif;
         font-size: 13px;

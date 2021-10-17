@@ -14,13 +14,37 @@
 :root {
   --main-bg-color: #ffbf00;
   --main-bg-color2: coral;
+  --copy-bg-color: hsl(45, 100%, 90%);
+  --copy-color: #111;
+
+
+  --player-theme-bg-color:var(--main-bg-color);
+  --player-theme-color:var(--copy-color);
+  --player-theme-progress-bg-color:  #fff;
+  --player-theme-progress-color:  tomato;
+  
+  --logo-gradient: linear-gradient(rgba(155, 55, 60, 0.6), rgba(155, 55, 60, 0.9));
+
+  /* --main-color: hsl(45, 100%, 50%);
   --main-bg-color3: #3ff;
   --main-gradient: radial-gradient(circle at 5vw 10vh, #fff 0, var(--main-bg-color) 50%, var(--main-bg-color2) 100%);
-  --main-color: hsl(45, 100%, 50%);
   --main-color-left: hsl(45, 100%, 90%);
   --main-color-right: hsl(45, 100%, 40%);
   --main-gradient2: radial-gradient(circle at 5vw 10vh, var(--main-color-left) 0, var(--main-color) 50%, var(--main-color-right) 100%);
-  --logo-gradient: linear-gradient(rgba(155, 55, 60, 0.6), rgba(155, 55, 60, 0.9))
+  */
+
+
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-bg-color: #333;
+    --main-bg-color2: coral;
+    --copy-color: hsl(45, 100%, 90%);
+    --copy-bg-color: #111;
+  }
 }
 
 html {
@@ -51,11 +75,11 @@ html {
 
 body {
   font: 400 1rem/1.5 'Source Sans Pro', sans-serif;
-  color: #111;
+  color: var(--copy-color);
   --user-font-scale: 1rem - 16px;
   /* font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem); */
   background-color: var(--main-bg-color);
-  background-image: var(--main-gradient2);
+  /* background-image: var(--main-gradient2); */
   background-attachment: fixed;
 }
 
@@ -64,16 +88,16 @@ h1, h2, h3{
 }
 
 .section-title{
-  background: var(--main-color-left);
+  background: var(--copy-bg-color);
   display: inline-block;
   padding: 0 0.5rem;
-  margin: 0.5rem 0 1rem;
+  margin: 2rem 0;
   transform: rotate(-1deg);
   filter: drop-shadow(3px 3px 0 #333);
 }
 
 h3{
-  background: var(--main-color);
+  background: var(--main-bg-color);
   display: inline-block;
   padding: 0 0.25rem;
   margin: 0 0 0.25rem 0;
@@ -92,15 +116,14 @@ a{
 .shadow:hover {
   filter: drop-shadow(6px 6px 0 #fff) drop-shadow(-6px -6px 0 var(--main-bg-color2)) drop-shadow(9px -9px var(--main-bg-color));
 }
-
-img{
-  border-radius: 2%;
-}
-
-.chunk, ul li.chunk {
-  background: var(--main-color-left);
+.chunk,
+ul li.chunk {
+  background: var(--copy-bg-color);
+  color: var(--copy-color);
   padding: 1rem;
-  margin-top: 1rem;
+}
+p.chunk{
+  margin-bottom: 1rem;
 }
 
 
@@ -131,17 +154,12 @@ main{
 }
 
 section{
-  margin: 0.5rem 0 2rem 0;
+  margin: 1rem 0;
 }
 
 footer{
-  margin: 20px 0 10px 0;
+  text-align: center;
+  padding: 10px 0;
 }
 
-/* 
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #111827;
-    color: #fff;
-  }
-} */
+

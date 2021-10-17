@@ -49,7 +49,7 @@ let title = 'gotomi.info';
                  <div class="content">
               
             <h2 class="section-title">Hi, I'm Tomasz</h2>
-            <p class="chunk">I'm a front-end developer, currently working as a web performance team leader.
+            <p class="chunk">I am a front-end engineer, currently working as a web performance team leader at Allegro.
             If you want to contact me, you can easily find me on <a href="http://twitter.com/gotomi">Twitter</a>,
             <a href="http://github.com/gotomi">GitHub</a> or <a href="http://linkedin.com/in/gotomi">Linkedin</a>.</p>
             <!-- <p class="chunk">
@@ -81,7 +81,7 @@ let title = 'gotomi.info';
         <section class="photos">
         <h2 class="section-title">My photos</h2>
         <ul>
-            {photos.map((item, i) => (
+            {photos.reverse().slice(0,7).map((item, i) => (
             <li class={i === 0? 'featured' : ''}><img src={item.src} width="100" height="100" loading="lazy"/></li>
             ))}
         </ul>
@@ -96,8 +96,8 @@ let title = 'gotomi.info';
 
     </section>
 
-    <footer>© 2021 Tomasz Gospodarczyk | designed in the browser</footer>
     </main>
+        <footer>&copy; 2021 Tomasz Gospodarczyk | designed in the browser</footer>
     <!-- <script>
     let index = 0;
     const photos = [... document.querySelectorAll('.photos li')];
@@ -144,8 +144,8 @@ let title = 'gotomi.info';
     }
     .photos ul {
         display:  grid;
-        grid-template-columns: repeat(8, 1fr);
-        grid-gap: 0.25rem;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 1rem;
     }
 
     @media (max-width: 480px) {

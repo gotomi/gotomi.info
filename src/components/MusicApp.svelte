@@ -29,8 +29,6 @@
       title={title}
       trackCover={trackCover}
       albumCover={albumCover}
-      themeBgColor="#ffbf00"
-      themeColor="#000"
       autoplay=false
     />
 </div>
@@ -49,7 +47,7 @@
     cursor: pointer;
   }
   .playlist{
-    background-color: #ffbf00;
+    background-color: var(--main-bg-color);
     padding: 1rem;
     border-radius: 5px;
     font-size: 90%;
