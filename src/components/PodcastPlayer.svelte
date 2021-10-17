@@ -1,15 +1,11 @@
 <script>
-    import { onMount } from 'svelte';
-
+    import { onMount, afterUpdate } from "svelte";
     let player, trackBar;
     let progressPercent = 0;
     let playerClassName = "player";
     let duration;
     let root;
     let progress = ``;
-    let playbackRate;
-    let playbackRates = [1, 1.25, 1.5, 1.75, 2];
-    let chosenPlaybackRate = 0;
 
     const playButton = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" width="50">
     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
@@ -26,34 +22,33 @@
     <path d="M4.555 5.168A1 1 0 003 6v8a1 1 0 001.555.832L10 11.202V14a1 1 0 001.555.832l6-4a1 1 0 000-1.664l-6-4A1 1 0 0010 6v2.798l-5.445-3.63z" />
   </svg>`;
 
-    const playspeedButton = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 16 16" fill="currentColor" style="transform: scale(0.8)" width="28"><g transform="translate(-148 -412)"><path d="M10.939,3.672a6.517,6.517,0,0,1,0,12.93v1.626a8.145,8.145,0,0,0,0-16.2v.016M4.988,16.45a8.1,8.1,0,0,0,4.327,1.84V16.664a6.486,6.486,0,0,1-3.161-1.329L4.992,16.453m1.161-11.4A6.481,6.481,0,0,1,9.316,3.683V2.057a7.966,7.966,0,0,0-4.328,1.79l1.165,1.2M5.009,6.156,3.844,4.994A8.061,8.061,0,0,0,2.05,9.334H3.671A6.538,6.538,0,0,1,5,6.158m-1.323,4.8H2.06A8.188,8.188,0,0,0,3.855,15.3l1.153-1.165a6.525,6.525,0,0,1-1.326-3.175" transform="translate(145.95 409.975)"/><g transform="translate(138 445)"><path d="M11,7.868h0a1.994,1.994,0,0,1,1.11.336l3.2,2.132.046.033a2,2,0,0,1-.046,3.3L12.11,15.8A2,2,0,0,1,9,14.133V9.87a2,2,0,0,1,2-2Zm3.163,4.109L11,9.868h0v4.265L14.2,12Z" transform="translate(5.803 -37)"/></g></g></svg>
-`;
-
     let toggleButton = playButton;
-
     let time = 0;
-    export let audioSource = "";
-    export let title = "";
-    export let trackCover = "";
-    export let albumCover = "/img/podcast-player/podcast.png";
     export let autoplay = false;
+    export let playlist = [];
+    export let curentSongIndex;
+
+    let { audioSource, title, trackCover, albumCover } =
+        playlist[curentSongIndex];
 
     let progressBarWidth, progressBarLeft;
 
     onMount(async () => {
         const { left, width } = trackBar.getBoundingClientRect();
-        progressBarWidth = width; 
+        progressBarWidth = width;
         progressBarLeft = left;
-	});
-    
+    });
+
+    afterUpdate(() => {
+        ({ audioSource, title, trackCover, albumCover } =
+            playlist[curentSongIndex]);
+    });
 
     function setProgress(e) {
         const x = e.clientX - progressBarLeft; //x position within the element.
         progressPercent = x / progressBarWidth;
         time = progressPercent * duration;
     }
-
-    
 
     function togglePlay() {
         if (player.paused) {
@@ -70,6 +65,11 @@
         toggleButton = pauseButton;
         playerClassName = "player playing";
     }
+    function onEnded() {
+        toggleButton = playButton;
+        playerClassName = "player";
+        curentSongIndex = (curentSongIndex >= playlist.length - 1)? 0 : curentSongIndex + 1;
+    }
 
     function formatTime(seconds) {
         const minutes = parseInt(seconds / 60);
@@ -79,7 +79,8 @@
 
     let globalID;
     function onTimeUpdate() {
-        trackBar.style["border-left-width"] = Math.ceil((time / duration) * progressBarWidth) + "px";
+        trackBar.style["border-left-width"] =
+            Math.ceil((time / duration) * progressBarWidth) + "px";
         progress = `${formatTime(time)} / ${formatTime(duration)}`;
         globalID = requestAnimationFrame(onTimeUpdate);
     }
@@ -87,14 +88,6 @@
     function onLoadedData() {
         progress = `${formatTime(time)} / ${formatTime(duration)}`;
         autoplay && togglePlay();
-    }
-
-    function setPlaybackRate() {
-        chosenPlaybackRate++;
-        if (chosenPlaybackRate > playbackRates.length - 1) {
-            chosenPlaybackRate = 0;
-        }
-        playbackRate = playbackRates[chosenPlaybackRate];
     }
 
     function handleKeydown(event) {
@@ -110,42 +103,48 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div
-    class="audioplayer"
-    on:click={setFocus}
->
+<div class="audioplayer" on:click={setFocus}>
     <input type="text" class="root-focus" bind:this={root} />
     <div>
         <div class={playerClassName}>
-            <img src={trackCover} class="author" alt="" width="200" height="200"/>
-            <img src={albumCover} class="cover-bg" alt="" width="200" height="200"/>
+            <img
+                src={trackCover}
+                class="author"
+                alt=""
+                width="200"
+                height="200"
+            />
+            <img
+                src={albumCover}
+                class="cover-bg"
+                alt=""
+                width="200"
+                height="200"
+            />
         </div>
     </div>
     <div class="panel">
         <h2 class="podcast-title">
-            
             <span class="icon" on:click={togglePlay}>{@html toggleButton}</span>
-           
-            {title} 
-        </h2>
-   
-        <div class="progress-bar" on:click={setProgress} bind:this={trackBar} id="track">
 
-        </div>
-        
+            {title}
+        </h2>
+
+        <div
+            class="progress-bar"
+            on:click={setProgress}
+            bind:this={trackBar}
+            id="track"
+        />
+
         <div class="controls">
-            
-        
-            <span class="icon" on:click={() => (time -= 15)}>{@html rewindButton}</span>
-            <span class="icon" on:click={() => (time += 15)}>{@html forwardButton}</span>
-            <!-- 
-            <span class="icon" on:click={setPlaybackRate}
-                >{@html playspeedButton}</span
+            <span class="icon" on:click={() => (time -= 15)}
+                >{@html rewindButton}</span
             >
-            <span class="playbackrate-text"
-                >{playbackRates[chosenPlaybackRate]}x</span
-            > -->
-            <span class="progress-display" id="progress">{progress}</span>     
+            <span class="icon" on:click={() => (time += 15)}
+                >{@html forwardButton}</span
+            >
+            <span class="progress-display" id="progress">{progress}</span>
         </div>
         <!-- svelte-ignore a11y-media-has-caption -->
         <audio
@@ -153,10 +152,10 @@
             bind:this={player}
             bind:currentTime={time}
             bind:duration
-            bind:playbackRate
             on:loadeddata={onLoadedData}
             on:timeupdate={onTimeUpdate}
             on:playing={onPlaying}
+            on:ended={onEnded}
             preload="metadata"
         />
     </div>
@@ -193,7 +192,6 @@
         font-size: 13px;
     }
 
-    .audioplayer .playbackrate-text,
     .audioplayer .progress-display {
         min-width: 48px;
         height: 21px;
@@ -227,7 +225,6 @@
         }
     }
 
-
     .player img {
         width: 100%;
         height: auto;
@@ -250,8 +247,6 @@
         transition: 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
     }
 
-
-    
     .player.playing img.author {
         width: 90%;
         transform: translate(5%, 5%);
@@ -260,8 +255,6 @@
     .player.playing img.cover-bg {
         filter: blur(1px);
     }
-
- 
 
     input.root-focus {
         position: absolute;

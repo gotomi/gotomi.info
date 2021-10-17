@@ -1,14 +1,10 @@
 <script>
   import PodcastPlayer from "./PodcastPlayer.svelte";
   export let playlist = [];
-  
-  let { audioSource, title, trackCover, albumCover } = playlist[0];
+  let curentSongIndex = 0;
   let autoplay;
-  function change(i) {
-    audioSource = playlist[i].audioSource;
-    title = playlist[i].title;
-    trackCover = playlist[i].trackCover;
-    albumCover = playlist[i].albumCover;
+  function changeSong(index) {
+    curentSongIndex = index;
     autoplay = true;
   }
 </script>
@@ -19,17 +15,14 @@
  
   <ul >
     {#each playlist as item, index}
-      <li on:click={() => change(index)}>🎹 {item.title}</li>
-      <!-- ► -->
+      <li class={index === curentSongIndex ? "active-song":""} on:click={() => changeSong(index)}>🎹 {item.title}</li>
     {/each}
   </ul>
 </div>
     <PodcastPlayer
-      {audioSource}
-      title={title}
-      trackCover={trackCover}
-      albumCover={albumCover}
+      {playlist}
       autoplay=false
+      bind:curentSongIndex
     />
 </div>
 <style>
@@ -45,6 +38,9 @@
     padding: 0;
     margin: 0;
     cursor: pointer;
+  }
+  .playlist li.active-song{
+    color: tomato;
   }
   .playlist{
     background-color: var(--main-bg-color);
