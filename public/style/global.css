@@ -63,7 +63,7 @@ h1, h2, h3{
   font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
-h2{
+.section-title{
   background: var(--main-color-left);
   display: inline-block;
   padding: 0 0.5rem;
@@ -132,6 +132,10 @@ main{
 
 section{
   margin: 0.5rem 0 2rem 0;
+}
+
+footer{
+  margin: 20px 0 10px 0;
 }
 
 /* 

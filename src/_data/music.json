@@ -1,0 +1,32 @@
+[
+    {
+        "audioSource": "/music/gotomi - tell me.mp3",
+        "title": "tell me",
+        "albumCover": "/covers/gotomi.png",
+        "trackCover": "/covers/tell-me.jpg"
+    },
+    {
+        "audioSource": "/music/gotomi - eighty 90.mp3",
+        "title": "eighty 90",
+        "albumCover": "/covers/gotomi.png",
+        "trackCover": "/covers/eigthy-90.jpg"
+    },
+    {
+        "audioSource": "/music/gotomi - powrot.m4a",
+        "title": "powrót",
+        "albumCover": "/covers/gotomi.png",
+        "trackCover": "/covers/powrot.png"
+    },
+    {
+        "audioSource": "/music/gotomi - c-moll-7-jass.m4a",
+        "title": "c-moll-7-jass",
+        "albumCover": "/covers/gotomi.png",
+        "trackCover": "/covers/c-moll-jass.jpg"
+    },
+    {
+        "audioSource": "/music/gotomi - BACH.m4a",
+        "title": "B-A-C-H",
+        "albumCover": "/covers/gotomi.png",
+        "trackCover": "/covers/gotomi.png"
+    }
+]
