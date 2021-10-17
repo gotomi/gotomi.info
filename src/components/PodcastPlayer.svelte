@@ -121,8 +121,8 @@
     <input type="text" class="root-focus" bind:this={root} />
     <div>
         <div class={playerClassName}>
-            <img src={trackCover} class="author" alt="" />
-            <img src={albumCover} class="cover-bg" alt="" />
+            <img src={trackCover} class="author" alt="" width="200" height="200"/>
+            <img src={albumCover} class="cover-bg" alt="" width="200" height="200l"/>
         </div>
     </div>
     <div class="panel">
@@ -207,7 +207,7 @@
         height: 18px;
     }
 
-    .audioplayer .cover-bg {
+    .audioplayer img {
         aspect-ratio: 1 / 1;
     }
 
@@ -271,6 +271,13 @@
         }
     }
 
+
+    .player img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
     .player {
         flex: 1 1 120px;
         margin: 10px;
@@ -278,7 +285,7 @@
         z-index: 1;
     }
 
-    .author {
+    .player .author {
         position: absolute;
         z-index: 2;
         transform-origin: 100% 100%;
@@ -287,19 +294,18 @@
         transition: 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
     }
 
-    .player.playing .author {
+
+    
+    .player.playing img.author {
         width: 90%;
         transform: translate(5%, 5%);
     }
 
-    .player.playing .cover-bg {
+    .player.playing img.cover-bg {
         filter: blur(1px);
     }
 
-    .player img {
-        max-width: 100%;
-        display: block;
-    }
+ 
 
     input.root-focus {
         position: absolute;
