@@ -67,7 +67,10 @@
     function onEnded() {
         toggleButton = playButton;
         playerClassName = "player";
-        curentSongIndex = (curentSongIndex >= playlist.length - 1) ? curentSongIndex : curentSongIndex + 1; //play next song if possible
+        curentSongIndex =
+            curentSongIndex >= playlist.length - 1
+                ? curentSongIndex
+                : curentSongIndex + 1; //play next song if possible
     }
 
     function formatTime(seconds) {
@@ -89,6 +92,7 @@
         autoplay && togglePlay();
     }
 </script>
+
 <div class="audioplayer">
     <div>
         <div class={playerClassName}>
@@ -198,6 +202,11 @@
         line-height: 1.5;
     }
 
+    @media (max-width: 480px) {
+        .audioplayer {
+            grid-template-columns: 2fr 5fr;
+        }
+    }
     .panel {
         padding: 0 10px 0 30px;
         position: relative;
@@ -239,14 +248,5 @@
 
     .player.playing img.cover-bg {
         filter: blur(1px);
-    }
-
-    input.root-focus {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        border: 0;
-        z-index: -1;
-        background-color: transparent;
     }
 </style>
