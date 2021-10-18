@@ -4,7 +4,6 @@
     let progressPercent = 0;
     let playerClassName = "player";
     let duration;
-    let root;
     let progress = ``;
 
     const playButton = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" width="50">
@@ -89,22 +88,8 @@
         progress = `${formatTime(time)} / ${formatTime(duration)}`;
         autoplay && togglePlay();
     }
-
-    function handleKeydown(event) {
-        if (event.keyCode === 32) {
-            root === document.activeElement && togglePlay();
-        }
-    }
-
-    function setFocus(e) {
-        root.focus();
-    }
 </script>
-
-<svelte:window/>
-
 <div class="audioplayer">
-    <!-- <input type="text" class="root-focus" bind:this={root} /> -->
     <div>
         <div class={playerClassName}>
             <img
