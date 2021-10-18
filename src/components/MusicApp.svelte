@@ -1,5 +1,5 @@
 <script>
-  import PodcastPlayer from "./PodcastPlayer.svelte";
+  import MusicPlayer from "./MusicPlayer.svelte";
   export let playlist = [];
   let curentSongIndex = 0;
   let autoplay;
@@ -19,7 +19,7 @@
     {/each}
   </ul>
 </div>
-    <PodcastPlayer
+    <MusicPlayer
       {playlist}
       autoplay=false
       bind:curentSongIndex

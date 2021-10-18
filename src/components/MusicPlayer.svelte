@@ -68,7 +68,7 @@
     function onEnded() {
         toggleButton = playButton;
         playerClassName = "player";
-        curentSongIndex = (curentSongIndex >= playlist.length - 1)? 0 : curentSongIndex + 1;
+        curentSongIndex = (curentSongIndex >= playlist.length - 1) ? curentSongIndex : curentSongIndex + 1; //play next song if possible
     }
 
     function formatTime(seconds) {
