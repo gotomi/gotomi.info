@@ -101,10 +101,10 @@
     }
 </script>
 
-<svelte:window on:keydown={handleKeydown} />
+<svelte:window/>
 
-<div class="audioplayer" on:click={setFocus}>
-    <input type="text" class="root-focus" bind:this={root} />
+<div class="audioplayer">
+    <!-- <input type="text" class="root-focus" bind:this={root} /> -->
     <div>
         <div class={playerClassName}>
             <img
