@@ -1,12 +1,14 @@
 ---
 // Component Imports
-import photos from '../_data/photos.json';
+import photoSource from '../_data/photos.json';
 import music from '../_data/music.json';
 import projects from '../_data/projects.json';
 import MusicApp from '../components/MusicApp.svelte';
 import PhotoGallery from '../components/PhotoGallery.svelte';
 import ProjectGallery from '../components/ProjectGallery.svelte';
 
+
+const photos = photoSource.reverse().slice(0, 7);
 
 // const response = await fetch('https://api.github.com/users/gotomi/repos');
 // const repos = await response.json();

@@ -8,7 +8,7 @@
 </script>
 
 <ul class="photo-gallery">
-    {#each photos.reverse().slice(0, 7) as item, index}
+    {#each photos as item, index}
         <li
             class={activeIndex === index ? "featured" : ""}
             on:click={() => setActive(index)}
