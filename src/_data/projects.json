@@ -1,25 +1,25 @@
 [
     {
         "name": "psikus",
-        "description": "PSI report",
+        "description": "PSI report. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam quas nesciunt laudantium accusamus illo, debitis consectetur mollitia quasi, expedita itaque eius possimus eaque culpa tempora animi commodi, ea repellendus earum.",
         "homepage": null,
         "svn_url": "https://github.com/gotomi/psikus"
     },
     {
         "name": "kruk",
-        "description": "Command Line Tool for CrUX Rest API",
+        "description": "Command Line Tool for CrUX Rest API. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam quas nesciunt laudantium accusamus illo, debitis consectetur mollitia quasi, expedita itaque eius possimus eaque culpa tempora animi commodi, ea repellendus earum.",
         "homepage": "",
         "svn_url": "https://github.com/gotomi/kruk"
     },
     {
         "name": "crux-dashboard",
-        "description": null,
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam quas nesciunt laudantium accusamus illo, debitis consectetur mollitia quasi, expedita itaque eius possimus eaque culpa tempora animi commodi, ea repellendus earum.",
         "homepage": null,
         "svn_url": "https://github.com/gotomi/crux-dashboard"
     },
     {
         "name": "crux-netlify",
-        "description": null,
+        "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam quas nesciunt laudantium accusamus illo, debitis consectetur mollitia quasi, expedita itaque eius possimus eaque culpa tempora animi commodi, ea repellendus earum.",
         "homepage": null,
         "svn_url": "https://github.com/gotomi/crux-netlify"
     }

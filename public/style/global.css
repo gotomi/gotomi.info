@@ -1,7 +1,8 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
+    box-sizing: border-box;
+    margin: 0;
 }
+
 
 /* :root {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
@@ -10,162 +11,162 @@
   font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
 } */
 
-
 :root {
-  --main-bg-color: #ffbf00;
-  --main-bg-color2: coral;
-  --copy-bg-color: hsl(45, 100%, 90%);
-  --copy-color: #111;
-
-
-  --player-theme-bg-color:var(--main-bg-color);
-  --player-theme-color:var(--copy-color);
-  --player-theme-progress-bg-color:  #fff;
-  --player-theme-progress-color:  tomato;
-  
-  --logo-gradient: linear-gradient(rgba(155, 55, 60, 0.6), rgba(155, 55, 60, 0.9));
-
-  /* --main-color: hsl(45, 100%, 50%);
+    --main-bg-color: #ffbf00;
+    --main-bg-color2: coral;
+    --copy-bg-color: hsl(45, 100%, 90%);
+    --copy-color: #111;
+    --player-theme-bg-color: var(--main-bg-color);
+    --player-theme-color: var(--copy-color);
+    --player-theme-progress-bg-color: #fff;
+    --player-theme-progress-color: tomato;
+    --logo-gradient: linear-gradient(rgba(155, 55, 60, 0.6), rgba(155, 55, 60, 0.9));
+    /* --main-color: hsl(45, 100%, 50%);
   --main-bg-color3: #3ff;
   --main-gradient: radial-gradient(circle at 5vw 10vh, #fff 0, var(--main-bg-color) 50%, var(--main-bg-color2) 100%);
   --main-color-left: hsl(45, 100%, 90%);
   --main-color-right: hsl(45, 100%, 40%);
   --main-gradient2: radial-gradient(circle at 5vw 10vh, var(--main-color-left) 0, var(--main-color) 50%, var(--main-color-right) 100%);
   */
-
-
 }
-
-
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --main-bg-color: #333;
-    --main-bg-color2: coral;
-    --copy-color: hsl(45, 100%, 90%);
-    --copy-bg-color: #111;
-  }
+     :root {
+        --main-bg-color: #333;
+        --main-bg-color2: coral;
+        --copy-color: hsl(45, 100%, 90%);
+        --copy-bg-color: #111;
+    }
 }
 
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
+
 @media screen and (min-width: 320px) {
-  html {
-    font-size: calc(13px + 6 * ((100vw - 320px) / 680));
-  }
-}
-@media screen and (min-width: 1000px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: calc(13px + 6 * ((100vw - 320px) / 680));
+    }
 }
 
+@media screen and (min-width: 1000px) {
+    html {
+        font-size: 16px;
+    }
+}
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body,
 html {
-  margin: 0;
-  padding: 0;
-  height: 100%
+    margin: 0;
+    padding: 0;
+    height: 100%
 }
 
 body {
-  font: 400 1rem/1.5 'Source Sans Pro', sans-serif;
-  color: var(--copy-color);
-  --user-font-scale: 1rem - 16px;
-  /* font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem); */
-  background-color: var(--main-bg-color);
-  /* background-image: var(--main-gradient2); */
-  background-attachment: fixed;
+    font: 400 1rem/1.5 'Source Sans Pro', sans-serif;
+    color: var(--copy-color);
+    --user-font-scale: 1rem - 16px;
+    /* font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem); */
+    background-color: var(--main-bg-color);
+    /* background-image: var(--main-gradient2); */
+    background-attachment: fixed;
 }
 
-h1, h2, h3{
-  font-family: Poppins, Arial, Helvetica, sans-serif;
+h1,
+h2,
+h3 {
+    font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
-.section-title{
-  background: var(--copy-bg-color);
-  display: inline-block;
-  padding: 0 0.5rem;
-  margin: 2rem 0;
-  transform: rotate(-1deg);
-  filter: drop-shadow(3px 3px 0 #333);
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-h3{
-  background: var(--main-bg-color);
-  display: inline-block;
-  padding: 0 0.25rem;
-  margin: 0 0 0.25rem 0;
-  transform: rotate(-0.5deg);
+.section-title {
+    background: var(--copy-bg-color);
+    display: inline-block;
+    padding: 0 0.5rem;
+    margin: 2rem 0;
+    transform: rotate(-1deg);
+    filter: drop-shadow(3px 3px 0 #333);
 }
 
-h3::after{
-  content: '✈';
-  display: inline-block;
-  padding: 0 0 0 5px;
+h3 {
+    background: var(--main-bg-color);
+    display: inline-block;
+    padding: 0 0.25rem;
+    margin: 0 0 0.25rem 0;
+    transform: rotate(-0.5deg);
 }
 
-a{
-  color: inherit
+h3::after {
+    content: '✈';
+    display: inline-block;
+    padding: 0 0 0 5px;
+}
+
+a {
+    color: inherit
 }
 
 .shadow {
-  filter: drop-shadow(3px 3px 0 #fff) drop-shadow(-3px -3px 0 var(--main-bg-color2)) drop-shadow(5px -5px var(--main-bg-color));
-  transition: 0.6s;
+    filter: drop-shadow(3px 3px 0 #fff) drop-shadow(-3px -3px 0 var(--main-bg-color2)) drop-shadow(5px -5px var(--main-bg-color));
+    transition: 0.6s;
 }
+
 .shadow:hover {
-  filter: drop-shadow(6px 6px 0 #fff) drop-shadow(-6px -6px 0 var(--main-bg-color2)) drop-shadow(9px -9px var(--main-bg-color));
+    filter: drop-shadow(6px 6px 0 #fff) drop-shadow(-6px -6px 0 var(--main-bg-color2)) drop-shadow(9px -9px var(--main-bg-color));
 }
 
 .chunk,
 ul li.chunk {
-  background: var(--copy-bg-color);
-  color: var(--copy-color);
-  padding: 1rem;
-}
-p.chunk{
-  margin-bottom: 1rem;
+    background: var(--copy-bg-color);
+    color: var(--copy-color);
+    padding: 1rem;
 }
 
+p.chunk {
+    margin-bottom: 1rem;
+}
 
 .logo {
-  display: inline-block;
-  background-image: url('/assets/gotomi-logo.png'), var(--logo-gradient);
-  background-repeat: no-repeat, repeat;
-  background-position: 0 0, 0 0;
-  background-size: cover, auto;
-  width: 3rem;
-  height: 3rem;
-  line-height: 1;
-  text-align: center;
-  transition: 0.4s;
-  text-indent: -9999px;
-  font-size: 10px;
-  padding: 0;
-  position: fixed;
-  z-index: 3;
-  left: 0.5rem;
-  top: 0.5rem
+    display: inline-block;
+    background-image: url('/assets/gotomi-logo.png'), var(--logo-gradient);
+    background-repeat: no-repeat, repeat;
+    background-position: 0 0, 0 0;
+    background-size: cover, auto;
+    width: 3rem;
+    height: 3rem;
+    line-height: 1;
+    text-align: center;
+    transition: 0.4s;
+    text-indent: -9999px;
+    font-size: 10px;
+    padding: 0;
+    position: fixed;
+    z-index: 3;
+    left: 0.5rem;
+    top: 0.5rem
 }
 
-main{
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 0 0.5rem;
+main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
 }
 
-section{
-  margin: 0 0 1rem 0;
+section {
+    margin: 0 0 1rem 0;
 }
 
-footer{
-  text-align: center;
-  padding: 10px 0;
+footer {
+    text-align: center;
+    padding: 10px 0;
 }
-
-
