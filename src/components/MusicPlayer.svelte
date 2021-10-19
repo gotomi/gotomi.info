@@ -147,7 +147,7 @@
             on:canplay={onCanPlay}
             on:playing={onPlaying}
             on:ended={onEnded}
-            preload="auto"
+            preload="metadata"
         />
     </div>
 </div>
