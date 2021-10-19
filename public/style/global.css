@@ -104,6 +104,12 @@ h3{
   transform: rotate(-0.5deg);
 }
 
+h3::after{
+  content: '✈';
+  display: inline-block;
+  padding: 0 0 0 5px;
+}
+
 a{
   color: inherit
 }
