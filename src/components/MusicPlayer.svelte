@@ -81,14 +81,15 @@
 
     let globalID;
     function onTimeUpdate() {
-        trackBar.style["border-left-width"] =
-            Math.ceil((time / duration) * progressBarWidth) + "px";
+        trackBar.style["border-left-width"] = Math.ceil((time / duration) * progressBarWidth) + "px";
         progress = `${formatTime(time)} / ${formatTime(duration)}`;
         globalID = requestAnimationFrame(onTimeUpdate);
     }
 
-    function onLoadedData() {
+    function onLoadedMetaData() {
         progress = `${formatTime(time)} / ${formatTime(duration)}`;
+    }
+    function onCanPlay() {
         autoplay && togglePlay();
     }
 </script>
@@ -141,11 +142,12 @@
             bind:this={player}
             bind:currentTime={time}
             bind:duration
-            on:loadeddata={onLoadedData}
             on:timeupdate={onTimeUpdate}
+            on:loadedmetadata={onLoadedMetaData}
+            on:canplay={onCanPlay}
             on:playing={onPlaying}
             on:ended={onEnded}
-            preload="metadata"
+            preload="auto"
         />
     </div>
 </div>

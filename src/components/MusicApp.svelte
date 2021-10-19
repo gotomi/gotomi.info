@@ -22,7 +22,7 @@
       {/each}
     </ul>
   </div>
-  <MusicPlayer {playlist} autoplay="false" bind:curentSongIndex />
+  <MusicPlayer {playlist} autoplay={autoplay} bind:curentSongIndex />
 </div>
 
 <style>

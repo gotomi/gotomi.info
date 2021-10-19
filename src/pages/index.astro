@@ -6,6 +6,7 @@ import projects from '../_data/projects.json';
 import MusicApp from '../components/MusicApp.svelte';
 import PhotoGallery from '../components/PhotoGallery.svelte';
 import ProjectGallery from '../components/ProjectGallery.svelte';
+import Section from '../components/Section.astro'
 
 
 const photos = photoSource.reverse().slice(0, 7);
@@ -34,8 +35,8 @@ let title = 'gotomi.info';
 
         <section class="intro">
             <div class="coffee">
-              <!-- <img src="/assets/cups/cup2.png" alt="make some coffee..."> -->
-                <img src="/assets/me.jpg" alt="me" width="250" height="250" class="shadow">
+              <img src="/assets/cups/cup2b.png" alt="make some coffee..." width="326" height="331" class="shadow">
+                <!-- <img src="/assets/me.jpg" alt="me" width="250" height="250" class="shadow"> -->
             </div>
                
                  <div class="content">
@@ -74,7 +75,7 @@ let title = 'gotomi.info';
         <p class="chunk">
         From time to time I create music using DAW, MIDI software instruments, MIDI keyboard and occasionally also my voice. I will probably never consider any of my tracks finished, but you can enjoy the latest drafts if you like.
         </p>
-        <MusicApp playlist={music} client:visible/>
+        <MusicApp playlist={music} client:load/>
 
     </section>
 
@@ -95,18 +96,31 @@ let title = 'gotomi.info';
     .coffee {
         grid-column: 1/span 6;
         grid-row: 1/span 6;
-        position: relative;
-        z-index: 333;
+
     }
+
+ ]
+
+     .coffee:hover{
+         transform: translate(0px,2rem) rotate(70deg);
+     }
     .content {
         grid-column: 8/span 18;
         grid-row: 1/span 5;
+        position: relative;
+        z-index: 2;
     }
 
-    .intro img{
-        width: 100%;
+     .intro img{
         height: auto;
         display: block;
+        width: 250px;
+        transition: 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transform: translate(-3rem, 1rem) rotate(30deg);
+        transform-origin: center;
+    } 
+    .intro:hover img{
+        transform: translate(-3rem, 1rem) rotate(390deg);
     }
 
 

@@ -76,17 +76,21 @@ body {
     background-attachment: fixed;
 }
 
-h1,
-h2,
-h3 {
-    font-family: Poppins, Arial, Helvetica, sans-serif;
-}
-
 ul,
 li {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+a {
+    color: inherit
+}
+
+h1,
+h2,
+h3 {
+    font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
 .section-title {
@@ -112,21 +116,11 @@ h3::after {
     padding: 0 0 0 5px;
 }
 
-a {
-    color: inherit
-}
-
 .shadow {
-    filter: drop-shadow(3px 3px 0 #fff) drop-shadow(-3px -3px 0 var(--main-bg-color2)) drop-shadow(5px -5px var(--main-bg-color));
-    transition: 0.6s;
+    filter: drop-shadow(6px 6px 0 #fff) drop-shadow(-6px -6px 0 var(--main-bg-color2));
 }
 
-.shadow:hover {
-    filter: drop-shadow(6px 6px 0 #fff) drop-shadow(-6px -6px 0 var(--main-bg-color2)) drop-shadow(9px -9px var(--main-bg-color));
-}
-
-.chunk,
-ul li.chunk {
+.chunk {
     background: var(--copy-bg-color);
     color: var(--copy-color);
     padding: 1rem;

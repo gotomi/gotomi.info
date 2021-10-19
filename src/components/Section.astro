@@ -1,0 +1,23 @@
+---
+export interface Props {
+  title: any;
+}
+const { title } = Astro.props;
+import { Markdown } from 'astro/components';
+---
+
+
+
+<section class="projects">
+<h2 class="section-title">{title}</h2>
+    <slot />
+</section>
+
+
+<style>
+.chunk {
+    background: var(--copy-bg-color);
+    color: var(--copy-color);
+    padding: 1rem;
+}
+</style>
