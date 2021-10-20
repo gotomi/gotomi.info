@@ -1,6 +1,6 @@
 {
   "name": "gotomi.info",
-  "version": "3.0.0",
+  "version": "3.0.0 ",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -9,7 +9,9 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^0.20.11",
     "@astrojs/renderer-svelte": "^0.1.2"
+  },
+  "dependencies": {
+    "astro": "^0.20.12"
   }
 }

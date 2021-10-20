@@ -88,9 +88,10 @@
 
     function onLoadedMetaData() {
         progress = `${formatTime(time)} / ${formatTime(duration)}`;
+        autoplay && togglePlay();
     }
     function onCanPlay() {
-        autoplay && togglePlay();
+        
     }
 </script>
 
