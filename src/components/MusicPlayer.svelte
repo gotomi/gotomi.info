@@ -90,9 +90,6 @@
         progress = `${formatTime(time)} / ${formatTime(duration)}`;
         autoplay && togglePlay();
     }
-    function onCanPlay() {
-        
-    }
 </script>
 
 <div class="audioplayer">
@@ -117,7 +114,6 @@
     <div class="panel">
         <h2 class="podcast-title">
             <span class="icon" on:click={togglePlay}>{@html toggleButton}</span>
-
             {title}
         </h2>
 
@@ -145,7 +141,6 @@
             bind:duration
             on:timeupdate={onTimeUpdate}
             on:loadedmetadata={onLoadedMetaData}
-            on:canplay={onCanPlay}
             on:playing={onPlaying}
             on:ended={onEnded}
             preload="metadata"
@@ -154,10 +149,6 @@
 </div>
 
 <style>
-    .audioplayer img {
-        aspect-ratio: 1 / 1;
-    }
-
     .progress-bar {
         background: var(--player-theme-progress-bg-color);
         border: 0 solid var(--player-theme-progress-color);
@@ -193,7 +184,6 @@
     .audioplayer {
         position: relative;
         border-radius: 5px;
-        /* display: flex; */
         display: grid;
         grid-template-columns: auto 3fr;
         align-self: baseline;
