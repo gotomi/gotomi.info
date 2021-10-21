@@ -1,0 +1,42 @@
+---
+// Component Imports
+import photoSource from '../_data/photos.json';
+import music from '../_data/music.json';
+import projects from '../_data/projects.json';
+import MusicApp from '../components/MusicApp.svelte';
+import PhotoGallery from '../components/PhotoGallery.svelte';
+import ProjectGallery from '../components/ProjectGallery.svelte';
+import PostIndex from '../components/PostIndex.astro'
+
+
+const photos = photoSource.reverse().slice(0, 7);
+
+// const response = await fetch('https://api.github.com/users/gotomi/repos');
+// const repos = await response.json();
+// const filteredRepos = repos.map(repo => {return {name: repo.name, description: repo.description, homepage: repo.homepage, svn_url: repo.svn_url}})
+// console.log(filteredRepos)
+
+let title = 'gotomi.info';
+---
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>{title}</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="/style/global.css">
+</head>
+<body>
+    <main id="top">
+        <a href="#top"><div class="logo">gotomi.info</div></a>
+     
+   <PostIndex title="Latest posts"></PostIndex>
+        
+
+    </main>
+        <footer>&copy; 2021 Tomasz Gospodarczyk | designed in the browser</footer>
+</body>
+</html>

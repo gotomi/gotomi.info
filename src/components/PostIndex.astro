@@ -1,0 +1,41 @@
+---
+export interface Props {
+  title: any;
+}
+const { title } = Astro.props;
+import { Markdown } from 'astro/components';
+
+
+function isValidDate(d) {
+  return d instanceof Date && !isNaN(d);
+}
+
+
+
+let posts = Astro.fetchContent('../_data/posts/*.md').map((post) => {
+  const html = post.astro.html;
+  const excerpt = html.substring(0, html.indexOf('<!--more-->'));
+
+  const dateString = post.file.toString().split('/').pop().substring(0,10);
+  post.date = isValidDate(new Date(dateString)) ? new Date(dateString) : new Date(); 
+  post.excerpt = excerpt;
+  return post
+});
+---
+
+
+
+<section class="projects">
+<h2 class="section-title">{title}</h2>
+  {posts.map((post) => (
+    <div class=" chunk post-excerpt">
+    <h2>{post.title}</h2>
+    <p> date: {new Intl.DateTimeFormat('pl-PL', { dateStyle: 'full'}).format(post.date)}</p>
+    <p> tags: {post.tags.join(', ')}</p>
+    <p> authors: {post.author.join(', ')}</p>
+    {post.excerpt}
+    </div>
+  ))}
+</section>
+
+
