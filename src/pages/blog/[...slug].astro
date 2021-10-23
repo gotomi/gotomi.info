@@ -1,20 +1,9 @@
 ---
 // Component Imports
-// import photoSource from '../_data/photos.json';
-// import music from '../_data/music.json';
-// import projects from '../_data/projects.json';
-// import MusicApp from '../components/MusicApp.svelte';
-// import PhotoGallery from '../components/PhotoGallery.svelte';
-// import ProjectGallery from '../components/ProjectGallery.svelte';
 
 import {getAllPosts, getPostsByTag} from '../../libs/posts.mjs';
-import PostSingle from '../../components/PostSingle.astro'
+import Post from '../../components/blog/Post.astro'
 
-
-
-// const response = await fetch('https://api.github.com/users/gotomi/repos');
-// const repos = await response.json();
-// const filteredRepos = repos.map(repo => {return {name: repo.name, description: repo.description, homepage: repo.homepage, svn_url: repo.svn_url}})
 export async function getStaticPaths({rss}) {
     const posts = getAllPosts();
 
@@ -48,7 +37,7 @@ let title = 'gotomi.info';
 <body>
     <main id="top">
         <a href="#top"><div class="logo">gotomi.info</div></a>
-   <PostSingle slug={slug} full=true/>
+   <Post slug={slug}/>
         
 
     </main>

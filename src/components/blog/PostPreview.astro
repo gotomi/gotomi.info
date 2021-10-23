@@ -1,0 +1,67 @@
+---
+export interface Props {
+  slug: any
+}
+const { slug} = Astro.props;
+
+import PostTags from '../../components/blog/PostTags.astro';
+import PostAuthor from '../../components/blog/PostAuthor.astro';
+import {getPostBySlug} from '../../libs/posts.mjs';
+
+
+import 'highlight.js/styles/a11y-dark.css';
+const post = getPostBySlug(slug);
+---
+  <div class="blog-post">
+    <time class="entry-date" datetime={post.date}>{new Intl.DateTimeFormat('en-US', { dateStyle: 'medium'}).format(post.date)}</time>
+  <h2>{post.data.title}</h2>
+  <PostAuthor authors={post.data.author}/>
+  <article class="blog-post-content">
+
+        {post.excerpt}
+        <a class="read-more" href={"/blog/" + post.slug}>read more →</a>
+          <PostTags tags={post.data.tags}/>
+  </article>
+  </div>
+
+
+<style>
+
+
+:global(.hljs) {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+}
+:global(.blog-post){
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--copy-bg-color);
+  color: var(--copy-color);
+}
+:global(.blog-post-content p),
+:global(.blog-post-content h3){
+  margin: 1rem 0;
+}
+
+:global(.blog-post-content ol, .blog-post-content ul,  .blog-post-content li) {
+  list-style-type: unset;
+}
+:global(.blog-post-content ol){
+  list-style-type:decimal;
+}
+:global(.blog-post-content li) {
+  margin: 0 0 5px 20px;
+}
+
+:global(.read-more){
+  color: tomato;
+  text-align: right;
+  display: block;
+}
+:global(blockquote) {
+  border-left: 1rem solid;
+  padding-left: 1rem;
+}
+
+</style>

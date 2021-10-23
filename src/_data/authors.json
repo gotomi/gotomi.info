@@ -1,23 +1,23 @@
 {
     "bartosz.walacik": {
-        "name": "Piotr Orłowski",
+        "name": "Bartosz Walacik",
         "bio": "Software Development Manager with over twenty years of experience in IT and e-commerce. At Allegro he manages the work of 150+ engineers taking care of their continuous substantive development, he is responsible for the technical quality, stability and efficiency of the Allegro platform. He likes simple solutions which gives more possibilities than originally planned :)",
         "twitter": "nigraspl"
     },
     "mateusz.krzeszowiak": {
-        "name": "Adam Dubiel",
-        "bio": "Adam is the library guy, who loves designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. At Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier, the most significant one being [Hermes](http://hermes.allegro.tech/).",
-        "twitter": "dubieladam",
-        "github": "adamdubiel"
+        "name": "Mateusz Krzeszowiak",
+        "bio": "Webperf Team member. Likes to constantly optimize and improve existing solutions. Finds it hard to stop talking about his work and sharing knowledge.",
+        "twitter": "krzksz",
+        "github": "krzksz"
     },
     "pawel.wieladek": {
-        "name": "Piotr Stapp",
+        "name": "Paweł Wielądek",
         "bio": "Doer. Microsoft MVP. Master of Science. Speaker and blogger. VP at devwarsztaty.pl. CxO of dotnetomaniak.pl. Don't Stapp me now, please!",
         "twitter": "ptrstpp950",
         "linkedin": "piotrstapp"
     },
     "bartosz.galek": {
-        "name": "Paweł Zwierzchowski",
+        "name": "Bartosz Gałek",
         "bio": "Software test engineer with a relevant full stack experience from various companies, who helps achieve better quality results by testing software and sharing knowledge. Testing has been his life since 2011. A real team member, involved not only in all the testing, but also in the final delivery of the product to end users. Besides testing, he loves all kinds of cars and PC games. A big fan of donuts.",
         "linkedin": "paweł-zwierzchowski"
     },
@@ -30,5 +30,10 @@
         "name": "Kasia Wróbel",
         "bio": "UX designer who let her curiosity be the driving force of her life. Introverted, but willing to discuss dogs. A lifelong bookworm with a black sense of humour included.",
         "linkedin": "katarzyna-wrobel-ux"
+    },
+    "jerzy.jelinek":{
+        "name": "Jerzy Jelinek",
+        "bio": "Webperf Team member. Performance enthusiast. Short sentences lover.",
+        "twitter": "jerzyjelinek"
     }
-}
+}  

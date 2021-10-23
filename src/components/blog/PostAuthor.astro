@@ -3,8 +3,7 @@ export interface Props {
   authors: any;
 }
 const { authors} = Astro.props;
-import authorsData from '../_data/authors.json';
-console.log(authorsData);
+import authorsData from '../../_data/authors.json';
 ---
 <ul>
   {authors.map((author, i) => (
@@ -19,12 +18,11 @@ li{
 }
 
 li a{
-  text-decoration: none;
   display: flex;
 }
 img{
   max-width: 24px;
-  border-radius: 50%;
-  margin-right: 5px;
+  margin-right: 10px;
+  filter: drop-shadow(2px 2px 0 tomato)
 }
 </style>

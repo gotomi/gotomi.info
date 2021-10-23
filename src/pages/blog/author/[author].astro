@@ -1,18 +1,8 @@
 ---
 // Component Imports
-// import photoSource from '../_data/photos.json';
-// import music from '../_data/music.json';
-// import projects from '../_data/projects.json';
-// import MusicApp from '../components/MusicApp.svelte';
-// import PhotoGallery from '../components/PhotoGallery.svelte';
-// import ProjectGallery from '../components/ProjectGallery.svelte';
 
 import {getAllAuthors, getPostsByAuthor} from '../../../libs/posts.mjs';
-import PostIndex from '../../../components/PostIndex.astro'
-
-
-
-
+import PostIndex from '../../../components/blog/PostIndex.astro'
 
 export async function getStaticPaths() {
     const tags = getAllAuthors();
@@ -23,14 +13,9 @@ export async function getStaticPaths() {
         }
     })
 }
+
 const {author} = Astro.request.params;
-
-
-
 const posts = getPostsByAuthor(author);
-
-
-
 let title = 'gotomi.info';
 ---
 <html lang="en">
@@ -46,7 +31,7 @@ let title = 'gotomi.info';
 </head>
 <body>
     <main id="top">
-        <PostIndex  posts={posts} title={"All posts by " + author}></PostIndex>
+        <PostIndex  posts={posts} title={"All posts by " + author}/>
     </main>
         <footer>&copy; 2021 Tomasz Gospodarczyk | designed in the browser</footer>
 </body>

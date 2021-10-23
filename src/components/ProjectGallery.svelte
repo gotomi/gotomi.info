@@ -5,7 +5,7 @@
 <ul class="projects-gallery">
     {#each projects as item, index}
         <li class="chunk">
-            <a href={item.svn_url}><h3>{item.name}</h3></a>
+            <a href={item.svn_url}><h3 class="box-title">{item.name}</h3></a>
             <p>{item.description}</p>
         </li>
     {/each}

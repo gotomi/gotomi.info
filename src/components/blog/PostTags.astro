@@ -13,17 +13,18 @@ const { tags } = Astro.props;
 <style>
 li{
   display: inline-block;
-  padding: 0 3px;
-  margin: 0 5px 0 0;
-  background-color: tomato;
-  color: #eee;
-  border-radius: 3px;
+  padding: 0 5px;
+  margin: 5px 5px 0 0;
+  background-color: var(--copy-color);
+  color: var(--copy-bg-color);
   font-size: 80%;
+  filter: drop-shadow(2px 2px 0 var(--main-bg-color));
+  transition: 0.6s;
 }
 li a{
   text-decoration: none;
 }
 li:hover{
-  filter:invert();
+  filter: drop-shadow(0 0 0 tomato)
 }
 </style>
