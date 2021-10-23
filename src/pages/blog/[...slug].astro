@@ -1,20 +1,36 @@
 ---
 // Component Imports
-import photoSource from '../_data/photos.json';
-import music from '../_data/music.json';
-import projects from '../_data/projects.json';
-import MusicApp from '../components/MusicApp.svelte';
-import PhotoGallery from '../components/PhotoGallery.svelte';
-import ProjectGallery from '../components/ProjectGallery.svelte';
-import PostIndex from '../components/PostIndex.astro'
+// import photoSource from '../_data/photos.json';
+// import music from '../_data/music.json';
+// import projects from '../_data/projects.json';
+// import MusicApp from '../components/MusicApp.svelte';
+// import PhotoGallery from '../components/PhotoGallery.svelte';
+// import ProjectGallery from '../components/ProjectGallery.svelte';
+
+import {getAllPosts, getPostsByTag} from '../../libs/posts.mjs';
+import PostSingle from '../../components/PostSingle.astro'
 
 
-const photos = photoSource.reverse().slice(0, 7);
 
 // const response = await fetch('https://api.github.com/users/gotomi/repos');
 // const repos = await response.json();
 // const filteredRepos = repos.map(repo => {return {name: repo.name, description: repo.description, homepage: repo.homepage, svn_url: repo.svn_url}})
-// console.log(filteredRepos)
+export async function getStaticPaths({rss}) {
+    const posts = getAllPosts();
+
+    return posts.map(item => {
+        return {
+            params : {slug: item.slug}
+        }
+    })
+}
+const {slug} = Astro.request.params;
+
+
+
+
+
+
 
 let title = 'gotomi.info';
 ---
@@ -32,8 +48,7 @@ let title = 'gotomi.info';
 <body>
     <main id="top">
         <a href="#top"><div class="logo">gotomi.info</div></a>
-     
-   <PostIndex title="Latest posts"></PostIndex>
+   <PostSingle slug={slug} full=true/>
         
 
     </main>

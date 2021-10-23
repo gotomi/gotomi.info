@@ -1,0 +1,39 @@
+---
+// Component Imports
+// import photoSource from '../_data/photos.json';
+// import music from '../_data/music.json';
+// import projects from '../_data/projects.json';
+// import MusicApp from '../components/MusicApp.svelte';
+// import PhotoGallery from '../components/PhotoGallery.svelte';
+// import ProjectGallery from '../components/ProjectGallery.svelte';
+import PostIndex from '../../components/PostIndex.astro'
+import {getAllPosts} from '../../libs/posts.mjs';
+
+
+
+const posts = getAllPosts();
+
+let title = 'gotomi.info';
+---
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>{title}</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="/style/global.css">
+</head>
+<body>
+    <main id="top">
+        <a href="#top"><div class="logo">gotomi.info</div></a>
+     
+   <PostIndex  posts={posts} title="Latest posts"></PostIndex>
+        
+
+    </main>
+        <footer>&copy; 2021 Tomasz Gospodarczyk | designed in the browser</footer>
+</body>
+</html>

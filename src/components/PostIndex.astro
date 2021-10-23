@@ -1,68 +1,18 @@
 ---
-  
+
 export interface Props {
-  title: any;
+  posts: any,
+  title: any,
+  full: Boolean
 }
-const { title } = Astro.props;
-import { Markdown } from 'astro/components';
+const { posts, title, full} = Astro.props;
 
+import PostSingle from '../components/PostSingle.astro'
 
-function isValidDate(d) {
-  return d instanceof Date && !isNaN(d);
-}
-
-
-
-let posts = Astro.fetchContent('../_data/posts/*.md').map((post) => {
-  const html = post.astro.html;
-
-  const excerpt = html.substring(0, html.indexOf('<!--more-->'));
-  post.excerpt = excerpt;
-  
-
-  const file = post.file.toString().split('/').pop();
-  const fileNameWithoutDateAndExtenstion = file.slice(11,-3);
-  post.url  = fileNameWithoutDateAndExtenstion;
-
-  const dateString = file.slice(0,10);
-  if(isValidDate(new Date(dateString))){
-    post.date = new Date(dateString);
-    // const [year, month, day] = dateString.split('-');
-    // console.log(year, month, day)
-  } else{
-    throw('Invalid date. File must start with something like this: 2021-02-22');
-  }
-
-    
-  return post
-}).sort((a, b) => b.date - a.date);
 ---
 
- <!-- <Markdown content={post.astro.source} /> -->
 
-<section class="projects">
 <h2 class="section-title">{title}</h2>
   {posts.map((post) => (
-    <div class=" chunk post-excerpt">
-    <h2>{post.title}</h2>
-    <p>url : {post.url}</p>
-    <p> date: {new Intl.DateTimeFormat('pl-PL', { dateStyle: 'full'}).format(post.date)}</p>
-    <p> tags: {post.tags.join(', ')}</p>
-    <p> authors: {post.author.join(', ')}</p>
-    <hr>
-
-       {post.excerpt}
-    </div>
+    <PostSingle slug={post.slug} full={full} />
   ))}
-</section>
-
-
-<style>
-.chunk{
-  margin-bottom: 2rem;
-}
-hr{
-  border: 1px solid tomato;
-  margin: 1rem 0;
-}
-</style>

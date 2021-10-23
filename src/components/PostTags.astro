@@ -1,0 +1,29 @@
+---
+export interface Props {
+  tag: any;
+}
+const { tags } = Astro.props;
+---
+<ul>
+  {tags.map((tag, i) => (
+    <li><a href={"/blog/tag/" +  tag}>{tag}</a></li>
+  ))}
+</ul>
+
+<style>
+li{
+  display: inline-block;
+  padding: 0 3px;
+  margin: 0 5px 0 0;
+  background-color: tomato;
+  color: #eee;
+  border-radius: 3px;
+  font-size: 80%;
+}
+li a{
+  text-decoration: none;
+}
+li:hover{
+  filter:invert();
+}
+</style>

@@ -1,0 +1,53 @@
+---
+export interface Props {
+  slug: any;
+  full: Boolean
+}
+const { slug, full} = Astro.props;
+
+import PostTags from '../components/PostTags.astro';
+import PostAuthor from '../components/PostAuthor.astro';
+import {getPostBySlug} from '../libs/posts.mjs';
+
+
+import 'highlight.js/styles/a11y-dark.css';
+const post = getPostBySlug(slug);
+
+const content = full ?  post.content : post.excerpt;
+const readMore = full ? '' : `<a href=/blog/${post.slug}>read more →</a>`;
+---
+  <div class="blog-post">
+  <time class="entry-date" datetime={post.date}>{new Intl.DateTimeFormat('en-US', { dateStyle: 'medium'}).format(post.date)}</time>
+  <h2>{post.data.title}</h2>
+  <PostAuthor authors={post.data.author}/>
+  <!-- <PostTags tags={post.data.tags}/> -->
+
+      {content}
+      {readMore}
+  </div>
+
+
+<style>
+.chunk{
+  margin-bottom: 2rem;
+}
+hr{
+  border: 1px solid tomato;
+  margin: 1rem 0;
+}
+:global(.hljs) {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+}
+:global(.blog-post){
+  padding: 1rem;
+  background-color: #fff;
+}
+:global(p),
+:global(h3){
+  margin: 1rem 0;
+}
+:global(img)
+{max-width: 100%;}
+</style>

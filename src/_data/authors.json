@@ -1,0 +1,34 @@
+{
+    "bartosz.walacik": {
+        "name": "Piotr Orłowski",
+        "bio": "Software Development Manager with over twenty years of experience in IT and e-commerce. At Allegro he manages the work of 150+ engineers taking care of their continuous substantive development, he is responsible for the technical quality, stability and efficiency of the Allegro platform. He likes simple solutions which gives more possibilities than originally planned :)",
+        "twitter": "nigraspl"
+    },
+    "mateusz.krzeszowiak": {
+        "name": "Adam Dubiel",
+        "bio": "Adam is the library guy, who loves designing reusable software components with minimal dependencies, maximal usefulness and user friendly API. At Allegro he leads team responsible for creating internal services-for-services and tools that make development of microservices easier, the most significant one being [Hermes](http://hermes.allegro.tech/).",
+        "twitter": "dubieladam",
+        "github": "adamdubiel"
+    },
+    "pawel.wieladek": {
+        "name": "Piotr Stapp",
+        "bio": "Doer. Microsoft MVP. Master of Science. Speaker and blogger. VP at devwarsztaty.pl. CxO of dotnetomaniak.pl. Don't Stapp me now, please!",
+        "twitter": "ptrstpp950",
+        "linkedin": "piotrstapp"
+    },
+    "bartosz.galek": {
+        "name": "Paweł Zwierzchowski",
+        "bio": "Software test engineer with a relevant full stack experience from various companies, who helps achieve better quality results by testing software and sharing knowledge. Testing has been his life since 2011. A real team member, involved not only in all the testing, but also in the final delivery of the product to end users. Besides testing, he loves all kinds of cars and PC games. A big fan of donuts.",
+        "linkedin": "paweł-zwierzchowski"
+    },
+    "martyna.niszczota": {
+        "name": "Martyna Niszczota",
+        "bio": "Martyna works in Delivery Promise product. Her priorities are effective, client-oriented results; and maintaining positive relations within the developers team and promoting cooperation with other departments. Martyna has got an HR background and her view of the IT world is different from the standard one.",
+        "linkedin": "martyna-niszczota"
+    },
+    "kasia.wrobel": {
+        "name": "Kasia Wróbel",
+        "bio": "UX designer who let her curiosity be the driving force of her life. Introverted, but willing to discuss dogs. A lifelong bookworm with a black sense of humour included.",
+        "linkedin": "katarzyna-wrobel-ux"
+    }
+}
