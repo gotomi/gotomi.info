@@ -9,9 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/renderer-svelte": "^0.1.2"
-  },
-  "dependencies": {
+    "@astrojs/renderer-svelte": "^0.1.2",
     "astro": "0.20.10",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.3.1",
