@@ -1,13 +1,12 @@
 ---
 // Component Imports
 
-import {getAllAuthors, getPostsByAuthor} from '../../../libs/posts.mjs';
+import posts from '../../../_data/posts/posts.json';
 import PostIndex from '../../../components/blog/PostIndex.astro'
 
 export async function getStaticPaths() {
-    const tags = getAllAuthors();
-
-    return tags.map(author => {
+    const authors =posts.map(item => item.data.author).reduce((a, b) => a.concat(b))
+    return authors.map(author => {
         return {
             params : {author: author}
         }
@@ -15,7 +14,8 @@ export async function getStaticPaths() {
 }
 
 const {author} = Astro.request.params;
-const posts = getPostsByAuthor(author);
+const postsWithAuthor = posts.filter(item => item.data.author.includes(author));
+
 let title = 'gotomi.info';
 ---
 <html lang="en">
@@ -31,7 +31,7 @@ let title = 'gotomi.info';
 </head>
 <body>
     <main id="top">
-        <PostIndex  posts={posts} title={"All posts by " + author}/>
+        <PostIndex  posts={postsWithAuthor} title={"All posts by " + author}/>
     </main>
         <footer>&copy; 2021 Tomasz Gospodarczyk | designed in the browser</footer>
 </body>

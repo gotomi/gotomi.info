@@ -1,11 +1,8 @@
 ---
 // Component Imports
 import PostIndex from '../../components/blog/PostIndex.astro'
-import {getAllPosts} from '../../libs/posts.mjs';
+import posts from '../../_data/posts/posts.json';
 
-
-
-const posts = getAllPosts();
 
 let title = 'gotomi.info';
 ---
@@ -23,7 +20,8 @@ let title = 'gotomi.info';
 <body>
     <main id="top">
         <a href="#top"><div class="logo">gotomi.info</div></a>
-     
+
+
    <PostIndex  posts={posts} title="Latest posts"></PostIndex>
         
 

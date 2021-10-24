@@ -13,5 +13,5 @@ import PostPreview from '../../components/blog/PostPreview.astro'
 
 <h2 class="section-title">{title}</h2>
   {posts.map((post) => (
-    <PostPreview slug={post.slug}/>
+    <PostPreview {post}/>
   ))}

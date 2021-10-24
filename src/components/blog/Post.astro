@@ -1,19 +1,16 @@
 ---
 export interface Props {
-  slug: any
+  post: any
 }
-const { slug} = Astro.props;
+const { post} = Astro.props;
 
 import PostTags from '../../components/blog/PostTags.astro';
 import PostAuthor from '../../components/blog/PostAuthor.astro';
-import {getPostBySlug} from '../../libs/posts.mjs';
-
-
 import 'highlight.js/styles/a11y-dark.css';
-const post = getPostBySlug(slug);
+
 ---
   <div class="blog-post">
-  <time class="entry-date" datetime={post.date}>{new Intl.DateTimeFormat('en-US', { dateStyle: 'medium'}).format(post.date)}</time>
+ <time class="entry-date" datetime={post.date}>{new Intl.DateTimeFormat('en-US', { dateStyle: 'medium'}).format(new Date(post.date).valueOf())}</time>
   <h2 class="section-title">{post.data.title}</h2>
   <PostAuthor authors={post.data.author}/>
   <article class="blog-post-content">

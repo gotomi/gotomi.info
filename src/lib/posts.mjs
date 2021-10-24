@@ -77,11 +77,11 @@ export function getAllSlugs() {
 
 
 export function getAllTags() {
-    return AllPosts.map(item => item.data.tags).reduce((a, b) =>  a.concat(b) )
+    return AllPosts.map(item => item.data.tags).reduce((a, b) => a.concat(b))
 }
 
 export function getAllAuthors() {
-    return AllPosts.map(item => item.data.author).reduce((a, b) =>  a.concat(b) )
+    return AllPosts.map(item => item.data.author).reduce((a, b) => a.concat(b))
 }
 
 
@@ -89,4 +89,12 @@ export function getAllPosts() {
     return getData();
 }
 
-// console.log(getAllTags());
+function writeAllPostsToJson() {
+    const dir = '../_data/posts';
+    const file = 'posts.json';
+    const AllPosts = getAllPosts();
+    fs.writeFileSync(new URL(path.join(dir, file), import.meta.url), JSON.stringify(AllPosts), 'utf-8')
+}
+
+
+writeAllPostsToJson();

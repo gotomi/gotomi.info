@@ -1,6 +1,6 @@
 ---
 
-import {getAllTags, getPostsByTag} from '../../../libs/posts.mjs';
+import posts from '../../../_data/posts/posts.json';
 import PostIndex from '../../../components/blog/PostIndex.astro'
 
 
@@ -8,8 +8,7 @@ import PostIndex from '../../../components/blog/PostIndex.astro'
 
 
 export async function getStaticPaths() {
-    const tags = getAllTags();
-
+    const tags = posts.map(item => item.data.tags).reduce((a, b) => a.concat(b))
     return tags.map(tag => {
         return {
             params : {tag: tag}
@@ -18,11 +17,7 @@ export async function getStaticPaths() {
 }
 const {tag} = Astro.request.params;
 
-
-
-const posts = getPostsByTag(tag);
-
-
+const postsWithTag = posts.filter(item => item.data.tags.includes(tag));
 
 let title = 'gotomi.info';
 ---
@@ -39,7 +34,7 @@ let title = 'gotomi.info';
 </head>
 <body>
     <main id="top">
-        <PostIndex  posts={posts} title={"Post for tag: " + tag}></PostIndex>
+        <PostIndex  posts={postsWithTag} title={"Post for tag: " + tag}></PostIndex>
     </main>
         <footer>&copy; 2021 Tomasz Gospodarczyk | designed in the browser</footer>
 </body>

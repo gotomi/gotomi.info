@@ -1,11 +1,10 @@
 ---
 // Component Imports
 
-import {getAllPosts, getPostsByTag} from '../../libs/posts.mjs';
-import Post from '../../components/blog/Post.astro'
 
+import Post from '../../components/blog/Post.astro'
+import posts from '../../_data/posts/posts.json';
 export async function getStaticPaths({rss}) {
-    const posts = getAllPosts();
 
     return posts.map(item => {
         return {
@@ -14,12 +13,7 @@ export async function getStaticPaths({rss}) {
     })
 }
 const {slug} = Astro.request.params;
-
-
-
-
-
-
+const post = posts.filter( item => item.slug === slug)[0];
 
 let title = 'gotomi.info';
 ---
@@ -37,7 +31,7 @@ let title = 'gotomi.info';
 <body>
     <main id="top">
         <a href="#top"><div class="logo">gotomi.info</div></a>
-   <Post slug={slug}/>
+   <Post post= {post}/>
         
 
     </main>
