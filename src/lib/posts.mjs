@@ -35,7 +35,8 @@ function getData() {
 
     let posts = [];
 
-    files.forEach(file => {
+    files.filter(file => file.indexOf('.md') > -1)  // filter only file with .md extension
+        .forEach(file => {
         const fileContent = fs.readFileSync(new URL(path.join(dir, file), import.meta.url), 'utf-8');
         const { data, content, excerpt } = matter(fileContent, { excerpt_separator: '<!--more-->' });
         let date, year, month, day, slug;
