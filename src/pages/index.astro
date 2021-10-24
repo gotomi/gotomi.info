@@ -34,20 +34,16 @@ let title = 'gotomi.info';
         <section class="intro">
             <div class="coffee">
               <img src="/assets/cups/cup2b.png" alt="make some coffee..." width="250" height="252" class="shadow">
-                <!-- <img src="/assets/me.jpg" alt="me" width="250" height="250" class="shadow"> -->
+              
             </div>
                
-                 <div class="content">
+            <div class="content">
               
-            <h2 class="section-title">Hi, I'm Tomasz</h2>
+            <h2 class="section-title"><img src="/assets/me.jpg" alt="me" width="25" height="25" > Hi, I'm Tomasz</h2>
             <p class="chunk">I am a front-end engineer, currently working as a web performance team leader at Allegro.
-            If you want to contact me, you can easily find me on <a href="http://twitter.com/gotomi">Twitter</a>,
+                     If you want to contact me, you can easily find me on <a href="http://twitter.com/gotomi">Twitter</a>,
             <a href="http://github.com/gotomi">GitHub</a> or <a href="http://linkedin.com/in/gotomi">Linkedin</a>.</p>
-            <!-- <p class="chunk">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit consequuntur molestias, doloremque facere ipsum beatae ipsam rerum ut maxime iste excepturi laboriosam autem quidem incidunt voluptas id aut inventore! Repudiandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi praesentium, ipsa aspernatur iure voluptatum similique atque earum, mollitia omnis minima ea repudiandae perspiciatis facere iste? Veniam delectus laudantium enim unde.
-            </p> -->
-           
-              </div>
+             </div>
  
        
             <!-- <img src="/assets/cups/cup1.png" alt="">
@@ -81,45 +77,3 @@ let title = 'gotomi.info';
         <footer>&copy; 2021 Tomasz Gospodarczyk | designed in the browser</footer>
 </body>
 </html>
-
-<style>
-    .intro{
-        display:  grid;
-        grid-template-columns: repeat(24, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        align-items: center;
-
-    }
-
-    .coffee {
-        grid-column: 1/span 6;
-        grid-row: 1/span 6;
-
-    }
-
- ]
-
-     .coffee:hover{
-         transform: translate(0px,2rem) rotate(70deg);
-     }
-    .content {
-        grid-column: 8/span 18;
-        grid-row: 1/span 5;
-        position: relative;
-        z-index: 2;
-    }
-
-     .intro img{
-        height: auto;
-        display: block;
-        width: 250px;
-        transition: 4s cubic-bezier(0.075, 0.82, 0.165, 1);
-        transform: translate(-3rem, 1rem) rotate(30deg);
-        transform-origin: center;
-    } 
-    .intro:hover img{
-        transform: translate(-3rem, 1rem) rotate(390deg);
-    }
-
-
-</style>

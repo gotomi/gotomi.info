@@ -161,8 +161,6 @@ footer {
     padding: 10px 0;
 }
 
-
-
 .blog-post time {
     display: block;
 }
@@ -214,4 +212,42 @@ footer {
 .blog-post-content blockquote {
     border-left: 1rem solid;
     padding-left: 1rem;
+}
+
+/* into section */
+
+.intro {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    align-items: center;
+}
+
+.intro .coffee {
+    grid-column: 1/span 6;
+    grid-row: 1/span 6;
+}
+
+.intro .coffee:hover {
+    transform: translate(0px, 2rem) rotate(70deg);
+}
+
+.intro .content {
+    grid-column: 8/span 18;
+    grid-row: 1/span 5;
+    position: relative;
+    z-index: 2;
+}
+
+.intro .coffee img {
+    height: auto;
+    display: block;
+    width: 250px;
+    transition: 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translate(-3rem, 1rem) rotate(30deg);
+    transform-origin: center;
+}
+
+.intro:hover .coffee img {
+    transform: translate(-3rem, 1rem) rotate(390deg);
 }
