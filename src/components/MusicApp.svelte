@@ -41,7 +41,7 @@
     cursor: pointer;
   }
   .playlist li.active-song {
-    color: tomato;
+    color: var(--main-bg-color2)
   }
 
   @media (max-width: 480px) {

@@ -19,23 +19,14 @@ const {tag} = Astro.request.params;
 
 const postsWithTag = posts.filter(item => item.data.tags.includes(tag));
 
-let title = 'gotomi.info';
+import BaseHead from '../../../layouts/BaseHead.astro';
+import Body from '../../../layouts/Body.astro';
 ---
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<title>{title}</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="/style/global.css">
+<BaseHead title = "gotomi.info" description = "gotomi.info  - personal page" />
 </head>
-<body>
-    <main id="top">
-        <PostIndex  posts={postsWithTag} title={"Post for tag: " + tag}></PostIndex>
-    </main>
-        <footer>&copy; 2021 Tomasz Gospodarczyk | designed in the browser</footer>
-</body>
+<Body>
+<PostIndex  posts={postsWithTag} title={"Post for tag: " + tag}></PostIndex>
+</Body>
 </html>

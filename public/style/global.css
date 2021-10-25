@@ -3,22 +3,21 @@
     margin: 0;
 }
 
-/* :root {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-  font-size: 1rem;
-  --user-font-scale: 1rem - 16px;
-  font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
-} */
+:root {
+    font: 400 1rem/1.5 'Source Sans Pro', sans-serif;
+    /* --user-font-scale: 1rem - 16px;
+    font-size: clamp(1rem, 1rem + var(--user-font-scale), 1.125rem); */
+}
 
 :root {
     --main-bg-color: #ffbf00;
-    --main-bg-color2: coral;
+    --main-bg-color2: tomato;
     --copy-bg-color: hsl(45, 100%, 90%);
     --copy-color: #111;
     --player-theme-bg-color: var(--main-bg-color);
     --player-theme-color: var(--copy-color);
     --player-theme-progress-bg-color: #fff;
-    --player-theme-progress-color: tomato;
+    --player-theme-progress-color: var(--main-bg-color2);
     --logo-gradient: linear-gradient(rgba(155, 55, 60, 0.6), rgba(155, 55, 60, 0.9));
     /* --main-color: hsl(45, 100%, 50%);
   --main-bg-color3: #3ff;
@@ -29,28 +28,19 @@
   */
 }
 
+:root.variant {
+    --main-bg-color: tomato;
+    --main-bg-color2: rgb(122, 23, 23);
+    --copy-bg-color: #fff;
+    --copy-color: #111;
+}
+
 @media (prefers-color-scheme: dark) {
-    :root {
+     :root {
         --main-bg-color: #333;
-        --main-bg-color2: coral;
+        --main-bg-color2: tomato;
         --copy-color: hsl(45, 100%, 90%);
         --copy-bg-color: #111;
-    }
-}
-
-html {
-    font-size: 14px;
-}
-
-@media screen and (min-width: 320px) {
-    html {
-        font-size: calc(13px + 6 * ((100vw - 320px) / 680));
-    }
-}
-
-@media screen and (min-width: 1000px) {
-    html {
-        font-size: 16px;
     }
 }
 
@@ -58,23 +48,21 @@ html {
     scroll-behavior: smooth;
 }
 
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100%
 }
 
 body {
-    font: 400 1rem/1.5 'Source Sans Pro', sans-serif;
     color: var(--copy-color);
-    --user-font-scale: 1rem - 16px;
-    /* font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem); */
     background-color: var(--main-bg-color);
-    /* background-image: var(--main-gradient2); */
-    background-attachment: fixed;
 }
 
-ul, ol, li {
+ul,
+ol,
+li {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -90,7 +78,10 @@ a {
     text-underline-offset: 3px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3,
+header {
     font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
@@ -109,7 +100,7 @@ h1, h2, h3 {
     padding: 0 0.25rem;
     margin: 0 0 0.5rem 0;
     transform: rotate(-0.25deg);
-    filter: drop-shadow(3px 3px 0 tomato);
+    filter: drop-shadow(3px 3px 0 var(--main-bg-color2));
 }
 
 .shadow {
@@ -126,30 +117,6 @@ p.chunk {
     margin-bottom: 1rem;
 }
 
-header{
-     background-color: rgba(255,255,255,0.7);
-}
-
-.logo {
-    display: inline-block;
-    background-image: url('/assets/gotomi-logo.png'), var(--logo-gradient);
-    background-repeat: no-repeat, repeat;
-    background-position: 0 0, 0 0;
-    background-size: cover, auto;
-    width: 3rem;
-    height: 3rem;
-    line-height: 1;
-    text-align: center;
-    transition: 0.4s;
-    text-indent: -9999px;
-    font-size: 10px;
-    padding: 0;
-    position: fixed;
-    z-index: 3;
-    left: 0.5rem;
-    top: 0.5rem
-}
-
 main {
     max-width: 780px;
     margin: 0 auto;
@@ -161,12 +128,15 @@ section {
 }
 
 footer {
-    text-align: center;
-    padding: 10px 0;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: inline-block;
 }
 
-.blog-post time {
+.blog-post .entry-date {
     display: block;
+    font-size: 90%;
 }
 
 .blog-post {
@@ -186,16 +156,19 @@ footer {
 
 .blog-post-content {
     margin-top: 1rem;
-    padding: 1rem;
+    padding: 0.5rem 1rem 1rem 1rem;
     background-color: var(--copy-bg-color);
     color: var(--copy-color)
 }
 
-.blog-post-content p, .blog-post-content h3 {
+.blog-post-content p,
+.blog-post-content h3 {
     margin: 1rem 0;
 }
 
-.blog-post-content ol, .blog-post-content ul, .blog-post-content li {
+.blog-post-content ol,
+.blog-post-content ul,
+.blog-post-content li {
     list-style-type: unset;
 }
 
@@ -210,13 +183,13 @@ footer {
 .blog-post-content .read-more {
     color: tomato;
     text-align: right;
-    display: block;
 }
 
 .blog-post-content blockquote {
     border-left: 1rem solid;
     padding-left: 1rem;
 }
+
 
 /* into section */
 

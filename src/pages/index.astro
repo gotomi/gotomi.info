@@ -7,33 +7,17 @@ import MusicApp from '../components/MusicApp.svelte';
 import PhotoGallery from '../components/PhotoGallery.svelte';
 import ProjectGallery from '../components/ProjectGallery.svelte';
 
+import BaseHead from '../layouts/BaseHead.astro';
+import Body from '../layouts/Body.astro';
 
 const photos = photoSource.reverse().slice(0, 7);
 
-// const response = await fetch('https://api.github.com/users/gotomi/repos');
-// const repos = await response.json();
-// const filteredRepos = repos.map(repo => {return {name: repo.name, description: repo.description, homepage: repo.homepage, svn_url: repo.svn_url}})
-// console.log(filteredRepos)
-
-let title = 'gotomi.info';
 ---
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<title>{title}</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="/style/global.css">
+<BaseHead title = "gotomi.info" description = "gotomi.info  - personal page" />
 </head>
-<body>
-    <main id="top">
-        <header>
-        <a href="#top"><div class="logo">gotomi.info</div></a>
-        <nav></nav>
-        </header>
+<Body>
         <section class="intro">
             <div class="coffee">
               <img src="/assets/cups/cup2b.png" alt="make some coffee..." width="250" height="252" class="shadow">
@@ -47,36 +31,29 @@ let title = 'gotomi.info';
                      If you want to contact me, you can easily find me on <a href="http://twitter.com/gotomi">Twitter</a>,
             <a href="http://github.com/gotomi">GitHub</a> or <a href="http://linkedin.com/in/gotomi">Linkedin</a>.</p>
              </div>
- 
-       
-            <!-- <img src="/assets/cups/cup1.png" alt="">
-            <img src="/assets/cups/cup3.png" alt="">
-            <img src="/assets/cups/cup4.png" alt=""> -->
+
             
         </section>
 
-        <section class="projects">
+        <section class="projects" id="">
         <h2 class="section-title">My projects</h2>
         <ProjectGallery projects = {projects}/>
         </section>
-        <section class="photos">
-        <h2 class="section-title">My photos</h2>
-             <p class="chunk">
-        From time to time I create music using DAW, MIDI software instruments, MIDI keyboard and occasionally also my voice. I will probably never consider any of my tracks finished, but you can enjoy the latest drafts if you like.
-        </p>
-        <PhotoGallery photos ={photos} client:visible/>
-        </section>
 
-    <section class="music">
+
+    <section class="music" id="music">
         <h2 class="section-title">My music</h2>
         <p class="chunk">
         From time to time I create music using DAW, MIDI software instruments, MIDI keyboard and occasionally also my voice. I will probably never consider any of my tracks finished, but you can enjoy the latest drafts if you like.
         </p>
         <MusicApp playlist={music} client:load/>
-
     </section>
-
-    </main>
-        <footer>&copy; 2021 Tomasz Gospodarczyk | designed in the browser</footer>
-</body>
+    <section class="photos" id="photos">
+        <h2 class="section-title">My photos</h2>
+             <p class="chunk">
+        From time to time I create music using DAW, MIDI software instruments, MIDI keyboard and occasionally also my voice. I will probably never consider any of my tracks finished, but you can enjoy the latest drafts if you like.
+        </p>
+        <PhotoGallery photos ={photos} client:visible/>
+     </section>
+</Body>
 </html>

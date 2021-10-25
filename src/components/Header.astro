@@ -1,0 +1,80 @@
+---
+
+---
+<header>
+<a href="#top"><div class="logo">gotomi.info</div></a>
+<nav>
+<ul>
+<li><a href="#top">about</a></li>
+<li><a href="#projects">projects</a></li>
+<li><a href="#music">after work</a></li>
+</ul> 
+</nav>
+</header>
+
+<style>
+
+header {
+
+    display: grid;
+    grid-template-columns: 1fr 20fr 0.5rem;
+    align-items: center;
+}
+
+
+.logo {
+    display: inline-block;
+    background-image: url('/assets/gotomi-logo.png'), var(--logo-gradient);
+    background-repeat: no-repeat, repeat;
+    background-position: 0 0, 0 0;
+    background-size: cover, auto;
+    width: 3rem;
+    height: 3rem;
+    line-height: 1;
+    text-align: center;
+    transition: 0.4s;
+    text-indent: -9999px;
+    font-size: 10px;
+    padding: 0;
+    margin: 0.5rem;
+    filter: drop-shadow(2px 2px 0 var(--main-bg-color2));
+    /* position: absolute; */
+    top: 0;
+    /* position: fixed;
+    z-index: 3;
+    left: 0.5rem;
+    top: 0.5rem */
+}
+
+nav {
+    justify-self: flex-end;
+    padding: 0.5rem 0;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+nav ul{
+    display: flex;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+nav li {
+    margin: 0 0.5rem;
+}
+nav li::after {
+    content: '';
+    display: block;
+    border-bottom: 2px solid var(--copy-color);
+    width: 0px;
+    transition: 0.6s;
+}
+
+
+nav li:hover::after {
+    width: 100%
+} 
+
+
+nav a{
+    text-decoration: none;
+}
+</style>

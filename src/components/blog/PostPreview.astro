@@ -14,7 +14,7 @@ import 'highlight.js/styles/a11y-dark.css';
   <PostAuthor authors={post.data.author}/>
   <article class="blog-post-content">
         {post.excerpt}
-        <a class="read-more" href={"/blog/" + post.slug}>read more →</a>
-          <PostTags tags={post.data.tags}/>
+        <p class="read-more" ><a href={"/blog/" + post.slug}>read more →</a></p>
+        <PostTags tags={post.data.tags}/>
   </article>
   </div>

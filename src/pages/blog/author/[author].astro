@@ -10,10 +10,6 @@ const authorsData = Object.entries(authors).map(entry =>{
     return Object.assign({author : entry[0]},entry[1]);
 })
 
-
-
-
-
 export async function getStaticPaths() {
     const authors = posts.map(item => item.data.author).reduce((a, b) => a.concat(b))
     return authors.map(author => {
@@ -25,27 +21,17 @@ export async function getStaticPaths() {
 
 const {author} = Astro.request.params;
 const authorData = authorsData.filter(item => item.author === author)[0];
-
 const postsWithAuthor = posts.filter(item => item.data.author.includes(author));
 
-let title = 'gotomi.info';
+import BaseHead from '../../../layouts/BaseHead.astro';
+import Body from '../../../layouts/Body.astro';
 ---
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<title>{title}</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="/style/global.css">
+<BaseHead title = "gotomi.info" description = "gotomi.info  - personal page" />
 </head>
-<body>
-    <main id="top">
-        <PostIndex  posts={postsWithAuthor} title={"All posts by " + authorData.name}/>
-        <Author {authorData}/>
-    </main>
-        <footer>&copy; 2021 Tomasz Gospodarczyk | designed in the browser</footer>
-</body>
+<Body>
+<PostIndex  posts={postsWithAuthor} title={"All posts by " + authorData.name}/>
+<Author {authorData}/>
+</Body>
 </html>
