@@ -126,6 +126,10 @@ p.chunk {
     margin-bottom: 1rem;
 }
 
+header{
+     background-color: rgba(255,255,255,0.7);
+}
+
 .logo {
     display: inline-block;
     background-image: url('/assets/gotomi-logo.png'), var(--logo-gradient);
@@ -226,10 +230,6 @@ footer {
 .intro .coffee {
     grid-column: 1/span 6;
     grid-row: 1/span 6;
-}
-
-.intro .coffee:hover {
-    transform: translate(0px, 2rem) rotate(70deg);
 }
 
 .intro .content {

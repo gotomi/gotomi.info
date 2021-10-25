@@ -58,6 +58,13 @@ function getData() {
     return posts.sort((a, b) => b.date - a.date)
 }
 
+function getDataAuthors(){
+    const dir = '../_data/';
+    const file = 'authors.json';
+    return fs.readFileSync(new URL(path.join(dir, file), import.meta.url), 'utf-8');
+
+}
+
 const AllPosts = getAllPosts();
 
 export function getPostBySlug(slug) {
@@ -91,9 +98,18 @@ export function getAllPosts() {
 }
 
 function writeAllPostsToJson() {
-    const dir = '../_data/posts';
+    const dir = '../_data';
     const file = 'posts.json';
     const AllPosts = getAllPosts();
+
+    const dataAuthors = JSON.parse(getDataAuthors());
+    AllPosts.map(item => {
+       const author = item.data.author.map(item => {
+            return Object.assign({author: item}, dataAuthors[item])
+        })
+        item.author = author;
+        return item;   
+    })
     fs.writeFileSync(new URL(path.join(dir, file), import.meta.url), JSON.stringify(AllPosts), 'utf-8')
 }
 

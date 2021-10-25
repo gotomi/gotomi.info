@@ -3,7 +3,7 @@
 
 
 import Post from '../../components/blog/Post.astro'
-import posts from '../../_data/posts/posts.json';
+import posts from '../../_data/posts.json';
 export async function getStaticPaths({rss}) {
 
     return posts.map(item => {
@@ -30,7 +30,6 @@ let title = 'gotomi.info';
 </head>
 <body>
     <main id="top">
-        <a href="#top"><div class="logo">gotomi.info</div></a>
    <Post post= {post}/>
         
 
