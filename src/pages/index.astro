@@ -1,19 +1,14 @@
 ---
 // Component Imports
-import photoSource from '../_data/photos.json';
-import music from '../_data/music.json';
-import projects from '../_data/projects.json';
-import MusicApp from '../components/MusicApp.svelte';
-import PhotoGallery from '../components/PhotoGallery.svelte';
-import ProjectGallery from '../components/ProjectGallery.svelte';
 
+import projects from '../_data/projects.json';
+import ProjectGallery from '../components/ProjectGallery.svelte';
 import BaseHead from '../layouts/BaseHead.astro';
 import Body from '../layouts/Body.astro';
 
-const photos = photoSource.reverse().slice(0, 7);
 
 ---
-<html lang="en">
+<html lang="en" class="variant1">
 <head>
 <BaseHead title = "gotomi.info" description = "gotomi.info  - personal page" />
 </head>
@@ -41,7 +36,7 @@ const photos = photoSource.reverse().slice(0, 7);
         </section>
 
 
-    <section class="music" id="music">
+    <!-- <section class="music" id="music">
         <h2 class="section-title">My music</h2>
         <p class="chunk">
         From time to time I create music using DAW, MIDI software instruments, MIDI keyboard and occasionally also my voice. I will probably never consider any of my tracks finished, but you can enjoy the latest drafts if you like.
@@ -54,6 +49,6 @@ const photos = photoSource.reverse().slice(0, 7);
         From time to time I create music using DAW, MIDI software instruments, MIDI keyboard and occasionally also my voice. I will probably never consider any of my tracks finished, but you can enjoy the latest drafts if you like.
         </p>
         <PhotoGallery photos ={photos} client:visible/>
-     </section>
+     </section> -->
 </Body>
 </html>

@@ -28,10 +28,17 @@
   */
 }
 
-:root.variant {
+:root.variant1 {
     --main-bg-color: tomato;
     --main-bg-color2: rgb(122, 23, 23);
     --copy-bg-color: #fff;
+    --copy-color: #111;
+}
+
+:root.variant2 {
+    --main-bg-color: #499b4a;
+    --main-bg-color2: #3a7c3b;
+    --copy-bg-color: #eef7ee;
     --copy-color: #111;
 }
 
