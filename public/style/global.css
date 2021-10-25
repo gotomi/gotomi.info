@@ -225,7 +225,7 @@ section {
 .intro .content img {
     filter: drop-shadow(2px 2px 0 tomato);
     float: left;
-    margin: -1.5rem 1rem 0 0;
+    margin: -1.6rem 1rem 0 -2.5rem;
 }
 
 .intro .coffee img {
