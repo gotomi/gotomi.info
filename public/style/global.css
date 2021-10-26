@@ -232,7 +232,7 @@ section {
     height: auto;
     display: block;
     width: 250px;
-    transition: 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform 4s cubic-bezier(0.075, 0.82, 0.165, 1);
     transform: translate(-3rem, 1rem) rotate(30deg);
     transform-origin: center;
 }

@@ -231,7 +231,7 @@
         transform-origin: 100% 100%;
         transform: translate(220%, 220%);
         width: 36%;
-        transition: 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+        transition: transform 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
     }
 
     .player.playing img.author {
