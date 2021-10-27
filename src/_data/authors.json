@@ -31,9 +31,16 @@
         "bio": "UX designer who let her curiosity be the driving force of her life. Introverted, but willing to discuss dogs. A lifelong bookworm with a black sense of humour included.",
         "linkedin": "katarzyna-wrobel-ux"
     },
-    "jerzy.jelinek":{
+    "jerzy.jelinek": {
         "name": "Jerzy Jelinek",
         "bio": "Webperf Team member. Performance enthusiast. Short sentences lover.",
         "twitter": "jerzyjelinek"
+    },
+    "volodymyr.khytskyi": {
+        "name": "Volodymyr Khytskyi",
+        "bio": "Senior Frontend Software Engineer with over 10 years in the field. Strives for software correctness and automation. A Rust enthusiast. At Allegro, he works in a team responsible for smooth operation of the home page, search, navigation and everything related.",
+        "twitter": "vkhytskyi",
+        "github": "vladmyr",
+        "linkedin": "volodymyrkhytskyi"
     }
-}  
+}
