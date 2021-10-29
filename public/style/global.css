@@ -83,8 +83,7 @@ img {
 
 a {
     color: inherit;
-    text-decoration-style: dashed;
-    text-underline-offset: 3px;
+    text-decoration: none;
 }
 
 h1,
@@ -150,6 +149,10 @@ footer {
 
 .blog-post {
     margin: 1rem 0;
+}
+
+.blog-post a {
+    text-decoration: underline
 }
 
 .blog-post .section-title {
