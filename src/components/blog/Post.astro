@@ -20,18 +20,9 @@ const { post} = Astro.props;
       {post.content}
       <PostTags tags={post.data.tags}/>
   </article>
-
-      {post.author.map((authorData) => (
-        <div class="post-authors">
-          <Author {authorData}/>
-        </div>
-      ))}
+  {post.author.map((authorData) => (
+    <>
+      <Author {authorData}/>
+    </>
+  ))}
   </div>
-
-  <style>
-  .post-authors {
-    margin: 1rem 0;
-    padding: 1rem;
-    background-color: #f5f5f5;
-  }
-  </style>

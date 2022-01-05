@@ -23,7 +23,7 @@ const socialItem = () => {
 }
 ---
 
-<div class="m-card">
+<div class="post-author">
     <img src={`/img/authors/${authorData.author}.jpg`} alt={authorData.name} class="avatar" />
     <div>
     <h3> {authorData.name}  {socialItem()}</h3>
@@ -32,7 +32,10 @@ const socialItem = () => {
 </div>
 
 <style>
-.m-card {
+.post-author {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #f5f5f5;
   display: grid;
   grid-template-columns: auto 3fr;
   grid-gap: 1rem;
