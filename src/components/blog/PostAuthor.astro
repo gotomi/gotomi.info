@@ -1,9 +1,9 @@
 ---
+import authorsData from '../../_data/authors.json';
 export interface Props {
   authors: any;
 }
 const { authors} = Astro.props;
-import authorsData from '../../_data/authors.json';
 ---
 <ul>
   {authors.map((author, i) => (

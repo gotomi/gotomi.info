@@ -1,9 +1,8 @@
 ---
-
 import posts from '../../../_data/posts.json';
 import PostIndex from '../../../components/blog/PostIndex.astro'
-
-
+import BaseHead from '../../../layouts/BaseHead.astro';
+import Body from '../../../layouts/Body.astro';
 
 
 
@@ -19,8 +18,7 @@ const {tag} = Astro.request.params;
 
 const postsWithTag = posts.filter(item => item.data.tags.includes(tag));
 
-import BaseHead from '../../../layouts/BaseHead.astro';
-import Body from '../../../layouts/Body.astro';
+
 ---
 <html lang="en">
 <head>

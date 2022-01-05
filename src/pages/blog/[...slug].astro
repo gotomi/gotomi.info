@@ -4,6 +4,8 @@
 
 import Post from '../../components/blog/Post.astro'
 import posts from '../../_data/posts.json';
+import BaseHead from '../../layouts/BaseHead.astro';
+import Body from '../../layouts/Body.astro';
 export async function getStaticPaths({rss}) {
 
     return posts.map(item => {
@@ -15,8 +17,7 @@ export async function getStaticPaths({rss}) {
 const {slug} = Astro.request.params;
 const post = posts.filter( item => item.slug === slug)[0];
 
-import BaseHead from '../../layouts/BaseHead.astro';
-import Body from '../../layouts/Body.astro';
+
 ---
 <html lang="en">
 <head>

@@ -1,12 +1,14 @@
 ---
+import PostTags from '../../components/blog/PostTags.astro';
+import PostAuthor from '../../components/blog/PostAuthor.astro';
+import 'highlight.js/styles/a11y-dark.css';
+
 export interface Props {
   post: any
 }
 const { post} = Astro.props;
 
-import PostTags from '../../components/blog/PostTags.astro';
-import PostAuthor from '../../components/blog/PostAuthor.astro';
-import 'highlight.js/styles/a11y-dark.css';
+
 
 ---
   <div class="blog-post">
