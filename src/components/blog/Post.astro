@@ -1,6 +1,7 @@
 ---
 import PostTags from '../../components/blog/PostTags.astro';
 import PostAuthor from '../../components/blog/PostAuthor.astro';
+import Author from '../../components/blog/Author.astro';
 import 'highlight.js/styles/a11y-dark.css';
 
 export interface Props {
@@ -19,4 +20,18 @@ const { post} = Astro.props;
       {post.content}
       <PostTags tags={post.data.tags}/>
   </article>
+
+      {post.author.map((authorData) => (
+        <div class="post-authors">
+          <Author {authorData}/>
+        </div>
+      ))}
   </div>
+
+  <style>
+  .post-authors {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #f5f5f5;
+  }
+  </style>

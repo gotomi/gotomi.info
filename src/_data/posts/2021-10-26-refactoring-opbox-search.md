@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How we refactored the search form UI component __"
+title: "How we refactored the search form UI component"
 author: [volodymyr.khytskyi]
 tags: [tech, frontend, architecture, refactoring, developmentexperience, typescript]
 ---
