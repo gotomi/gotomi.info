@@ -16,7 +16,7 @@
         "axios": "^0.21.2",
         "fs-extra": "^9.1.0",
         "hashmark": "^5.0.0",
-        "http-server": "^0.12.3",
+        "http-server": "^14.1.0",
         "node-fetch": "^2.6.1",
         "pug": "^3.0.1",
         "sharp": "^0.27.2"
