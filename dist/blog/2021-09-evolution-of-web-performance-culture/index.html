@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>gotomi.info</title>
+<meta name="description" content="gotomi.info  - personal page">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&amp;family=Source+Sans+Pro&amp;display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="/style/global.css">
+
+
+
+
+</head><body id="top">
+
+<link rel="stylesheet" href="../../assets/a11y-dark.e19cdc70.css"><link rel="stylesheet" href="../../assets/index.7748db66.css">
+
+    <header class="astro-B3H5ZD7Y">
+<a href="/#top" class="astro-B3H5ZD7Y"><div class="logo astro-B3H5ZD7Y">gotomi.info</div></a>
+<nav class="astro-B3H5ZD7Y">
+<ul class="astro-B3H5ZD7Y">
+<!-- <li><a href="/">about</a></li> -->
+<li class="astro-B3H5ZD7Y"><a href="/" class="astro-B3H5ZD7Y">home</a></li>
+<li class="astro-B3H5ZD7Y"><a href="/blog" class="astro-B3H5ZD7Y">blog</a></li>
+<li class="astro-B3H5ZD7Y"><a href="/after" class="astro-B3H5ZD7Y">after work</a></li>
+
+</ul> 
+</nav>
+</header>
+
+
+    <main>
+      <div class="blog-post astro-CGFIKQLZ">
+ <time class="entry-date astro-CGFIKQLZ" datetime="2021-09-23T00:00:00.000Z">Sep 23, 2021</time>
+  <h2 class="section-title astro-CGFIKQLZ">Evolution of web performance culture</h2>
+  <ul class="astro-VVMLGW7B">
+  <li class="astro-VVMLGW7B"><a href="/blog/author/jerzy.jelinek" class="astro-VVMLGW7B"><img src="/img/authors/jerzy.jelinek.jpg" alt="jerzy.jelinek" class="astro-VVMLGW7B">Jerzy Jelinek</a></li>
+</ul>
+
+
+  <article class="blog-post-content astro-CGFIKQLZ">
+      <p>The main goal of boosting website performance is to improve the user experience. In theory,
+a satisfied customer is more likely to use a particular company’s services, which is then reflected in business results.
+However, from my own experience I can say that not every change can be easily converted into money.
+I would like to tell you how to reconcile these two worlds, how to convince the business that the benefits of
+better performance are a long-term investment, and how to streamline the development process during the design or code writing process.</p>
+<!--more-->
+<p>Web performance is a challenging and complex subject. It involves working at the intersection of content management,
+frontend, backend and the network layer. Rarely does a single change make a dramatic difference in performance,
+only the cumulative effort of small improvements in each of these areas produces noticeable results.</p>
+<p>As the team responsible for the performance of Allegro, we are responsible for implementing various optimizations,
+but most of all we show other teams which modifications in their projects will positively affect the performance
+of the whole site. Our duty is to create the friendliest, performance-supporting work environment for developers
+and help non-technical people to understand the idea behind it.</p>
+<p>We would like to illustrate by our example how this can be achieved.</p>
+<h2>Stage One — Measuring The Web Performance</h2>
+<p>At Allegro, we want to know if and how a given functionality affects the user as well as our business metrics.
+In order to prove our hypothesis about performance impact we had to prepare a whole mechanism that allows us
+to track and analyze performance changes. I described it in greater detail in my first article titled
+<a href="/2021/06/measuring-web-performance.html">Measuring The Web Performance</a>.</p>
+<p>Only then we could start optimizing our pages. Our actions brought the expected effect — we made progress,
+but the pace was not sufficient. We lacked the support of business people, who would see profit in all of this.</p>
+<h2>Stage Two — Make it clear that performance is important</h2>
+<p>We have gone to great lengths to make the entire organization realize that the gains from web performance are long-term and important overall.</p>
+<p>Everyone subconsciously knows that a faster site improves user experience. The earlier users are able to see a page and use it,
+the more often they are likely to do so and return. However, we had a problem proving that it truly makes our company earn more,
+in the end this is what every business is about.</p>
+<p>The first milestone turned out to be a test conducted together with the SEO team. It was an A/B test,
+where some users got an optimized offers list page that was loading faster, and the rest got the original page.
+It turned out that all examined pages were added to Google cache (previously there were only a few of them),
+the number of clicks, average ranking position and number of views increased from a few to several percent
+and the expected business profit from such a change was at 13% of the current GMV originating from organic traffic.
+Although being only a proof of concept, this experiment turned out to be an enabler for our next steps.
+It helped us understand better what we were aiming for.</p>
+<p>This experiment has opened the way for us to make more optimizations, it also provided us with a solid argument
+that convinced other product teams. However, we still felt unsatisfied — if performance affects
+GMV indirectly through SEO then are we able to prove a direct correlation as well? We had plenty of data,
+but we lacked the analytical expertise to process it, therefore, we asked our business analysts to help us.
+Based on historical performance* and business data, they were able to confirm the impact on business metrics!</p>
+<blockquote>
+<p>Each 100ms slowdown of First Input Delay results in an average drop in GMV of 3%.<br>
+Each 100ms slowdown of First Contentful Paint results in an average drop in GMV of 1.5%.<br>
+Each 100ms slowdown of Largest Contentful Paint results in an average drop in GMV of 0.5%.</p>
+</blockquote>
+<p>*The data comes from our real user measurements, not from synthetic tests.</p>
+<h2>Stage Three — Support for both business and developers</h2>
+<p>After confirming our hypothesis, we had to implement a number of measures to ensure that web performance
+is taken into consideration throughout the entire process of delivery for all functionalities.</p>
+<h3>Teaching</h3>
+<p>One of the main tasks of my team is to prepare the awareness campaign of our colleagues.
+Therefore, we periodically conduct two types of training:</p>
+<ul>
+<li>For engineers, where we focus on the technical part including how to use the available tools to write optimal code.</li>
+<li>For other employees (especially Product Managers), where we explain why performance is important and what benefits it brings.</li>
+</ul>
+<p>We assume that knowledge should be shared, that is why we describe each interesting case, experiment or bug fix on our internal blog.
+Thanks to that we mitigate the risk that bad patterns will be repeated in the future.</p>
+<p>However, the best way to learn is to work with us directly, so we encourage everyone to visit us as part of the
+<a href="/2019/09/team-tourism-at-allegro.html">team tourism</a> initiative.</p>
+<h3>Supporting technical teams</h3>
+<p>In our team we believe that we should automate every task possible. We want our tools to support
+the work of our engineers, so that they don’t have to remember to run performance tests,
+check the size of the resulting files, etc. That is why we have prepared several checks that apply to components development
+in our <a href="/2016/03/Managing-Frontend-in-the-microservices-architecture.html">Micro Frontends architecture</a>.</p>
+<h4>Automatic page scanner</h4>
+<p>That’s where the whole automation story started. To detect problems with assets we had to check each page manually.
+This was neither convenient nor scalable, so we created our first bot, which used PageSpeed Insights to check if:</p>
+<ul>
+<li>assets are cached long enough,</li>
+<li>their sizes on the page are appropriate,</li>
+<li>there are any assets which are not minified,</li>
+<li>images are in the right format and size,</li>
+<li>some images should be loaded lazily.</li>
+</ul>
+<p>After detecting problems, we checked the owners of the asset or part of the page and notified them on Slack.</p>
+<p><img src="/img/articles/2021-09-23-evolution-of-web-performance-culture/brylant-bot.png" alt="Brylant Bot" title="Brylant Bot"></p>
+<h4>Automatic comments in pull requests</h4>
+<p>Two comments are generated while building the component. The first one presents a comparison of assets size
+with the target branch and the estimated cost of the change.</p>
+<p><img src="/img/articles/2021-09-23-evolution-of-web-performance-culture/gh-sizes.png" alt="Asset size comparison" title="Asset size comparison"></p>
+<p>If the size exceeds the declared threshold, our entire team is automatically added as reviewers to the pull request.</p>
+<p>Additionally, to detect the culprit faster, a
+<a href="https://github.com/webpack-contrib/webpack-bundle-analyzer">Webpack Bundle Analyzer</a> report is generated.</p>
+<p>In the second one, Lighthouse reports for target and feature branches are compared in order to catch performance metrics’ regressions at this early stage.
+Each component has a list of predefined presets (input data) and a server that displays them.
+This functionality is used for: development, visual regression, snapshot and performance testing.
+Lighthouse report is generated for one or more predefined states every time the component is built.</p>
+<p><img src="/img/articles/2021-09-23-evolution-of-web-performance-culture/lighthouse-report.png" alt="Lighthouse report" title="Lighthouse report"></p>
+<h4>Automatic notifications</h4>
+<p>My team is notified on Slack every time a new dependency is added to any of the components.
+We want to make sure that the libraries used are optimal and have no better (smaller, faster) replacements.</p>
+<p><img src="/img/articles/2021-09-23-evolution-of-web-performance-culture/bot-deps.png" alt="Dependencies notification" title="Dependencies notification"></p>
+<p>We get similar notifications when assets size changes by at least 5% compared to the target branch.
+We want to make sure that, for example, treeshaking hasn’t broken down or some other change affecting the size has not occurred.</p>
+<p><img src="/img/articles/2021-09-23-evolution-of-web-performance-culture/bot-sizes.png" alt="Size notification" title="Size notification"></p>
+<h4>ESlint</h4>
+<p>We use it not only for formatting but also for finding violations in our code using custom rules.
+We have created several rules to support engineers in their daily work. You can read about a sample implementation
+in the post “<a href="/2020/08/using-eslint.html">Using ESLint to improve your app’s performance</a>” on our blog.</p>
+<h4>Analyses</h4>
+<p>We get requests from other teams to analyze their components or sites. Sometimes they lack the time budget
+for such analysis, but would like to know what to improve.</p>
+<h3>Research and development</h3>
+<p>Keep in mind that working on web performance is a continuous work. Every now and then new solutions,
+which may have a positive impact on the loading speed, appear on the market. Therefore, together with our team,
+we run a series of tests to see if it makes sense to adopt a given solution.</p>
+<h3>Appreciation culture</h3>
+<p>We believe that the carrot is better than the stick, so we praise other teams for the achievements
+related to improving performance. Some time ago we used to write it down in the form of a newsletter,
+now we talk about it during our sprint summaries.</p>
+<h2>Summary</h2>
+<p>We are constantly working on data collection, monitoring, awareness raising, optimization and research,
+which leads to a situation where more and more managers come to us for consultation.
+They know that performance is important and needs to be taken care of. Allegro is constantly evolving,
+new content and features are being created, without working on performance the site will slow down.
+However, we already have a whole arsenal of capabilities to help us deal with this.
+We are no longer fighting alone as the Webperf team, but as an entire organization.</p>
+
+      
+
+
+  </article>
+
+      <div class="post-authors astro-CGFIKQLZ">
+          
+<div class="m-card astro-F3VDB6PQ">
+    <img src="/img/authors/jerzy.jelinek.jpg" alt="Jerzy Jelinek" class="avatar astro-F3VDB6PQ">
+    <div class="astro-F3VDB6PQ">
+    <h3 class="astro-F3VDB6PQ"> Jerzy Jelinek  <a class="username" href="https://twitter.com/jerzyjelinek">
+                <span class="social"><img src="/img/social/twitter.svg" alt="twitter"></span>
+            </a></h3>
+    <p class="astro-F3VDB6PQ">Webperf Team member. Performance enthusiast. Short sentences lover.</p>
+    </div>
+</div>
+
+
+        </div>
+  </div>
+
+  
+    </main>
+    <footer>© 2021 Tomasz Gospodarczyk | designed in the browser</footer>
+</body></html>
