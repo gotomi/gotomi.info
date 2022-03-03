@@ -41,6 +41,10 @@ function getData() {
             const fileContent = fs.readFileSync(new URL(path.join(dir, file),
                 import.meta.url), 'utf-8');
             const { data, content, excerpt } = matter(fileContent, { excerpt_separator: '<!--more-->' });
+
+            const author = Array.isArray(data.author) ? data.author : [data.author];
+            data.author = author;
+
             let date, year, month, day, slug;
 
             const dateString = file.slice(0, 10);
@@ -107,7 +111,8 @@ function writeAllPostsToJson() {
 
     const dataAuthors = JSON.parse(getDataAuthors());
     AllPosts.map(item => {
-        const author = item.data.author.map(item => {
+        const authors = Array.isArray(item.data.author) ? item.data.author : [item.data.author];
+        const author = authors.map(item => {
             return Object.assign({ author: item }, dataAuthors[item])
         })
         item.author = author;
