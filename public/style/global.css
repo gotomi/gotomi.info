@@ -125,14 +125,16 @@ p.chunk {
     margin-bottom: 1rem;
 }
 
-main {
+
+/* main {
     max-width: 780px;
     margin: 0 auto;
     padding: 0 0.5rem;
-}
+} */
 
 section {
     margin: 0 0 1rem 0;
+    padding: 1rem max(1rem, calc(50% - 780px/2));
 }
 
 footer {
@@ -147,16 +149,12 @@ footer {
     font-size: 90%;
 }
 
-.blog-post {
-    margin: 1rem 0;
+.blog-post>*:not(.blog-post-content) {
+    margin: 0.5rem max(1rem, calc(50% - 780px/2));
 }
 
 .blog-post a {
     text-decoration: underline
-}
-
-.blog-post .section-title {
-    margin: 0.5rem 0 1rem 0;
 }
 
 .hljs {
@@ -168,8 +166,8 @@ footer {
 
 .blog-post-content {
     margin-top: 1rem;
-    padding: 0.5rem 1rem 1rem 1rem;
-    background-color: var(--copy-bg-color);
+    padding: 1rem max(1rem, calc(50% - 780px/2));
+    background: var(--copy-bg-color);
     color: var(--copy-color)
 }
 
