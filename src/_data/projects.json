@@ -4,13 +4,15 @@
         "name": "kruk",
         "description": "Command Line Tool for CrUX Rest API",
         "homepage": "",
-        "svn_url": "https://github.com/gotomi/kruk"
+        "svn_url": "https://github.com/gotomi/kruk",
+        "thumbnail": "/projects/kruk.png"
     },
     {
         "name": "crux-dashboard",
         "description": "Crux Dashboard",
         "homepage": null,
-        "svn_url": "https://github.com/gotomi/crux-dashboard"
+        "svn_url": "https://github.com/gotomi/crux-dashboard",
+        "thumbnail": "/projects/crux-dashboard.png"
     }
 
 ]
