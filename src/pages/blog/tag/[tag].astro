@@ -1,0 +1,30 @@
+---
+import posts from '../../../_data/posts.json';
+import PostIndex from '../../../components/blog/PostIndex.astro'
+import BaseHead from '../../../layouts/BaseHead.astro';
+import Body from '../../../layouts/Body.astro';
+
+
+
+export async function getStaticPaths() {
+    const tags = posts.map(item => item.data.tags).reduce((a, b) => a.concat(b))
+    return tags.map(tag => {
+        return {
+            params : {tag: tag}
+        }
+    })
+}
+const {tag} = Astro.request.params;
+
+const postsWithTag = posts.filter(item => item.data.tags.includes(tag));
+
+
+---
+<html lang="en">
+<head>
+<BaseHead title = "gotomi.info" description = "gotomi.info  - personal page" />
+</head>
+<Body>
+<PostIndex  posts={postsWithTag} title={"Post for tag: " + tag}></PostIndex>
+</Body>
+</html>

@@ -1,0 +1,29 @@
+---
+// Component Imports
+
+
+import Post from '../../components/blog/Post.astro'
+import posts from '../../_data/posts.json';
+import BaseHead from '../../layouts/BaseHead.astro';
+import Body from '../../layouts/Body.astro';
+export async function getStaticPaths({rss}) {
+
+    return posts.map(item => {
+        return {
+            params : {slug: item.slug}
+        }
+    })
+}
+const {slug} = Astro.request.params;
+const post = posts.filter( item => item.slug === slug)[0];
+
+
+---
+<html lang="en">
+<head>
+<BaseHead title = "gotomi.info" description = "gotomi.info  - personal page" />
+</head>
+<Body>
+<Post post= {post}/>
+</Body>
+</html>

@@ -1,0 +1,15 @@
+---
+// Component Imports
+import PostIndex from '../../components/blog/PostIndex.astro'
+import posts from '../../_data/posts.json';
+import BaseHead from '../../layouts/BaseHead.astro';
+import Body from '../../layouts/Body.astro';
+---
+<html lang="en">
+<head>
+<BaseHead title = "gotomi.info" description = "gotomi.info  - personal page" />
+</head>
+<Body>
+ <PostIndex  posts={posts} title="Latest posts"></PostIndex>
+</Body>
+</html>

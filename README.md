@@ -1,2 +1,1 @@
-# gotomi.info website
-
+# gotomi.info next

@@ -1,24 +1,20 @@
 {
-    "name": "gotomi_info",
-    "version": "2.0.0",
-    "description": "gotomi.info homepage",
-    "main": "index.js",
+    "name": "gotomi.info",
+    "version": "3.0.0 ",
+    "private": true,
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build:assets": "hashmark -s -l 8 -m ./assets.json src/**/*.{jpg,png,woff2,ico,css} dist/{name}.{hash}{ext}",
-        "build": " npm run build:assets && node src/index.js",
-        "serve": "cd dist && http-server -p 3003",
-        "clean": "rm -rf dist"
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "node src/lib/generate-json-posts.mjs && astro build",
+        "preview": "astro preview"
     },
-    "author": "Tomasz Gospodarczyk",
-    "license": "ISC",
-    "dependencies": {
-        "axios": "^0.21.2",
-        "fs-extra": "^9.1.0",
-        "hashmark": "^5.0.0",
-        "http-server": "^14.1.0",
-        "node-fetch": "^2.0.0",
-        "pug": "^3.0.1",
-        "sharp": "^0.27.2"
+
+    "devDependencies": {
+        "@astrojs/renderer-svelte": "^0.3.1",
+        "astro": "^0.22.5",
+        "gray-matter": "^4.0.3",
+        "highlight.js": "^11.3.1",
+        "markdown-it": "^12.2.0",
+        "postcss-load-config": "^3.1.1"
     }
 }

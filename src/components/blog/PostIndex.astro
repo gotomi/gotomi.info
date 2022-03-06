@@ -1,0 +1,19 @@
+---
+import PostPreview from '../../components/blog/PostPreview.astro'
+import Author from '../../components/blog/Author.astro'
+
+export interface Props {
+  posts: any,
+  title: any,
+}
+const { posts, title} = Astro.props;
+
+
+
+---
+
+
+<h2 class="section-title">{title}</h2>
+  {posts.map((post) => (
+    <PostPreview {post}/>
+  ))}

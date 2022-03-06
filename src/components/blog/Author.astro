@@ -1,0 +1,59 @@
+---
+export interface Props {
+  authot: any
+}
+const { authorData } = Astro.props;
+
+const socialItem = () => {
+    const socialDict = {
+        "twitter": "https://twitter.com/",
+        "github": "https://github.com/",
+        "linkedin": "https://www.linkedin.com/in/",
+    }
+
+    return Object.keys(socialDict).map(service => {
+            if (!!authorData[service]) {
+        return `<a class="username" href="${socialDict[service]}${authorData[service]}">
+                <span class="social"><img src="/img/social/${service}.svg" alt="${service}" /></span>
+            </a>`
+    } else {
+        return '';
+    }
+    }).join('')
+}
+---
+
+<div class="post-author">
+    <img src={`/img/authors/${authorData.author}.jpg`} alt={authorData.name} class="avatar" />
+    <div>
+    <h3> {authorData.name}  {socialItem()}</h3>
+    <p>{authorData.bio}</p>
+    </div>
+</div>
+
+<style>
+.post-author {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  display: grid;
+  grid-template-columns: auto 3fr;
+  grid-gap: 1rem;
+}
+.avatar{
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(2px 2px 0 tomato);
+}
+
+:global(.social) {
+  background: #ffffff85;
+  display: inline-block;
+  padding: 3px;
+  border-radius: 50%;
+}
+:global(.social img){
+  width: 16px;
+  display: block;
+}
+
+</style>
