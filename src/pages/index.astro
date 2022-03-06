@@ -14,7 +14,7 @@ const photos = photoSource.slice(0, 7);
 ---
 <html lang="en">
 <head>
-<BaseHead title = "Tomasz Gospodarczyk - home page" description = "Tomasz Gospodarczyk  - personal page" />
+<BaseHead title = "Tomasz Gospodarczyk - personal page" description = "Tomasz Gospodarczyk  - personal page" />
 </head>
 <Body>
   <section class="intro">
@@ -29,19 +29,19 @@ const photos = photoSource.slice(0, 7);
   </section>
 
   <section class="projects" id="">
-  <h2 class="section-title">My projects</h2>
+  <h2 class="section-title">Projects</h2>
   <ProjectGallery projects = {projects}/>
   </section>
 
   <section class="photos" id="photos">
-      <h2 class="section-title">My photos</h2>
+      <h2 class="section-title">Photos</h2>
       <PhotoGallery photos ={photos} client:visible/>
   </section>
 
   <section class="music" id="music">
-      <h2 class="section-title">My music</h2>
+      <h2 class="section-title">Music</h2>
       <p class="chunk">
-      From time to time I create music using DAW, MIDI software instruments, MIDI keyboard and occasionally also my voice. I will probably never consider any of my tracks finished, but you can enjoy the latest drafts if you like.
+      From time to time I create music using DAW, software instruments, MIDI and computer keyboard and sometimes my voice. I will probably never consider any of my tracks finished, but you can enjoy the latest drafts if you like.
       </p>
       <MusicApp playlist={music} client:load/>
   </section>
