@@ -8,6 +8,7 @@
         "build": "node src/lib/generate-json-posts.mjs && astro build",
         "preview": "astro preview"
     },
+
     "devDependencies": {
         "@astrojs/renderer-svelte": "^0.3.1",
         "astro": "^0.22.5",

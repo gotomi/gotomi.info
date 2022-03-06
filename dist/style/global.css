@@ -1,0 +1,234 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    font: 400 1rem/1.5 'Source Sans Pro', sans-serif;
+    /* --user-font-scale: 1rem - 16px;
+    font-size: clamp(1rem, 1rem + var(--user-font-scale), 1.125rem); */
+}
+
+:root {
+    --main-bg-color: #ffbf00;
+    --main-bg-color2: tomato;
+    --copy-bg-color: hsl(45, 100%, 90%);
+    --copy-color: #111;
+    --player-theme-bg-color: var(--main-bg-color);
+    --player-theme-color: var(--copy-color);
+    --player-theme-progress-bg-color: #fff;
+    --player-theme-progress-color: var(--main-bg-color2);
+    --logo-gradient: linear-gradient(rgba(155, 55, 60, 0.6), rgba(155, 55, 60, 0.9));
+    /* --main-color: hsl(45, 100%, 50%);
+  --main-bg-color3: #3ff;
+  --main-gradient: radial-gradient(circle at 5vw 10vh, #fff 0, var(--main-bg-color) 50%, var(--main-bg-color2) 100%);
+  --main-color-left: hsl(45, 100%, 90%);
+  --main-color-right: hsl(45, 100%, 40%);
+  --main-gradient2: radial-gradient(circle at 5vw 10vh, var(--main-color-left) 0, var(--main-color) 50%, var(--main-color-right) 100%);
+  */
+}
+
+:root.variant1 {
+    --main-bg-color: tomato;
+    --main-bg-color2: rgb(122, 23, 23);
+    --copy-bg-color: #fff;
+    --copy-color: #111;
+}
+
+:root.variant2 {
+    --main-bg-color: #499b4a;
+    --main-bg-color2: #3a7c3b;
+    --copy-bg-color: #eef7ee;
+    --copy-color: #111;
+}
+
+@media (prefers-color-scheme: dark) {
+     :root,
+     :root.variant1,
+     :root.variant2 {
+        --main-bg-color: #333;
+        --main-bg-color2: tomato;
+        --copy-color: hsl(45, 100%, 90%);
+        --copy-bg-color: #111;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%
+}
+
+body {
+    color: var(--copy-color);
+    background-color: var(--main-bg-color);
+    background-image: url(/assets/cups/cup2b.png);
+    background-repeat: no-repeat;
+    background-position: -50px calc(100% + 50px);
+    background-attachment: fixed;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+header {
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+.section-title {
+    background: var(--copy-bg-color);
+    display: inline-block;
+    padding: 0 0.5rem;
+    margin: 2rem 0;
+    transform: rotate(-0.25deg);
+    filter: drop-shadow(3px 3px 0 #333);
+}
+
+.box-title {
+    background: var(--main-bg-color);
+    display: inline-block;
+    padding: 0 0.25rem;
+    margin: 0 0 0.5rem 0;
+    transform: rotate(-0.25deg);
+    filter: drop-shadow(3px 3px 0 var(--main-bg-color2));
+}
+
+.shadow {
+    filter: drop-shadow(6px 6px 0 #fff) drop-shadow(-6px -6px 0 var(--main-bg-color2));
+}
+
+.chunk {
+    background: var(--copy-bg-color);
+    color: var(--copy-color);
+    padding: 1rem;
+}
+
+p.chunk {
+    margin-bottom: 1rem;
+}
+
+
+/* main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+} */
+
+section {
+    margin: 0 0 1rem 0;
+    padding: 1rem max(1rem, calc(50% - 780px/2));
+}
+
+footer {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: inline-block;
+}
+
+.blog-post .entry-date {
+    display: block;
+    font-size: 90%;
+}
+
+.blog-post>*:not(.blog-post-content) {
+    margin: 0.5rem max(1rem, calc(50% - 780px/2));
+}
+
+.blog-post a {
+    text-decoration: underline
+}
+
+.hljs {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.blog-post-content {
+    margin-top: 1rem;
+    padding: 1rem max(1rem, calc(50% - 780px/2));
+    background: var(--copy-bg-color);
+    color: var(--copy-color)
+}
+
+.blog-post-content p,
+.blog-post-content h3 {
+    margin: 1rem 0;
+}
+
+.blog-post-content ol,
+.blog-post-content ul,
+.blog-post-content li {
+    list-style-type: unset;
+}
+
+.blog-post-content ol {
+    list-style-type: decimal;
+}
+
+.blog-post-content li {
+    margin: 0 0 5px 20px;
+}
+
+.blog-post-content .read-more {
+    color: tomato;
+    text-align: right;
+}
+
+.blog-post-content blockquote {
+    border-left: 1rem solid;
+    padding-left: 1rem;
+}
+
+section {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* into section */
+
+.intro {
+    position: relative;
+}
+
+.intro .coffee {
+    position: absolute;
+    z-index: 1;
+    left: -100px;
+}
+
+.intro .content {
+    position: relative;
+    z-index: 2;
+}
+
+.intro .content img {
+    filter: drop-shadow(2px 2px 0 tomato);
+    float: left;
+    margin: 0 1rem 0 0;
+}
