@@ -7,7 +7,7 @@
         <li class="chunk">
             <a href={item.svn_url}><h3 class="box-title">{item.name}</h3></a>
             <p>{item.description} - <a href={item.svn_url}>github</a></p>
-            <a href="{item.thumbnail}"><img src="{item.thumbnail}" alt="{item.name}"></a>
+            <a href="{item.thumbnail}"><img src="{item.thumbnail}" alt="{item.name}" width="350" height="132"></a>
          
         </li>
     {/each}
