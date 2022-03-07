@@ -15,8 +15,8 @@
         >
             <img
                 src={item.src}
-                width="100"
-                height="100"
+                width="305"
+                height="305"
                 loading="lazy"
                 alt=""
             />
