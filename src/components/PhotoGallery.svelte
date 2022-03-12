@@ -14,11 +14,10 @@
             on:click={() => setActive(index)}
         >
             <img
-                src={item.src}
-                width="305"
-                height="305"
-                loading="lazy"
-                alt=""
+                src={`/photos/${item.id}.webp`}
+                width="400"
+                height="400"
+                alt={item.text}
             />
         </li>
     {/each}
@@ -30,6 +29,7 @@
         height: auto;
         display: block;
         cursor: pointer;
+        aspect-ratio: 1;
     }
 
     .photo-gallery {
