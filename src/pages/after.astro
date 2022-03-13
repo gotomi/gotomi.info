@@ -19,15 +19,12 @@ const photos = photoSource.slice(0, 7);
     <section class="music" id="music">
         <h2 class="section-title">My music</h2>
         <p class="chunk">
-        From time to time I create music using DAW, MIDI software instruments, MIDI keyboard and occasionally also my voice. I will probably never consider any of my tracks finished, but you can enjoy the latest drafts if you like.
+            From time to time I create music using DAW, software instruments, MIDI and computer keyboard and sometimes my voice. I will probably never consider any of my tracks finished, but you can enjoy the latest drafts if you like.
         </p>
         <MusicApp playlist={music} client:load/>
     </section>
     <section class="photos" id="photos">
         <h2 class="section-title">My photos</h2>
-             <p class="chunk">
-        From time to time I create music using DAW, MIDI software instruments, MIDI keyboard and occasionally also my voice. I will probably never consider any of my tracks finished, but you can enjoy the latest drafts if you like.
-        </p>
         <PhotoGallery photos ={photos} client:visible/>
      </section>
 </Body>
