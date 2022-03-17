@@ -42,12 +42,12 @@
         .photo-gallery {
             grid-template-columns: repeat(3, 1fr);
         }
-        .photo-gallery li:last-child {
+        /* .photo-gallery li:last-child {
             display: none;
-        }
+        } */
     }
     .featured {
-        grid-column: 1/3;
-        grid-row: 1/3;
+        grid-column: 1/4;
+        grid-row: 1/4;
     }
 </style>
