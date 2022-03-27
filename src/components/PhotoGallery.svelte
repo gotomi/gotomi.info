@@ -30,6 +30,7 @@
         display: block;
         cursor: pointer;
         aspect-ratio: 1;
+        object-fit: contain;
     }
 
     .photo-gallery {
