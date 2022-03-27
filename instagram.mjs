@@ -93,7 +93,7 @@ const convertImages = function (filename, dest) {
         .resize(400)
         .webp()
         .toFile(`${path}.webp`, (err, info) => {
-            //  console.log(info, err);
+            console.log(info, err);
         })
 }
 
