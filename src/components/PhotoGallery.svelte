@@ -24,6 +24,7 @@
 </ul>
 
 <style>
+
     .photo-gallery img {
         width: 100%;
         height: auto;
@@ -43,12 +44,15 @@
         .photo-gallery {
             grid-template-columns: repeat(3, 1fr);
         }
-        /* .photo-gallery li:last-child {
-            display: none;
-        } */
     }
     .featured {
         grid-column: 1/4;
         grid-row: 1/4;
+        background: orange;
+        transform: scale(0.95);
+    }
+
+    .featured img{
+        transform: scale(1.05);
     }
 </style>
