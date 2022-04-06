@@ -21,7 +21,7 @@ export async function getStaticPaths() {
     })
 }
 
-const {author} = Astro.request.params;
+const {author} = Astro.params;
 const authorData = authorsData.filter(item => item.author === author)[0];
 const postsWithAuthor = posts.filter(item => item.data.author.includes(author));
 

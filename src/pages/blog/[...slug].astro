@@ -14,7 +14,7 @@ export async function getStaticPaths({rss}) {
         }
     })
 }
-const {slug} = Astro.request.params;
+const {slug} = Astro.params;
 const post = posts.filter( item => item.slug === slug)[0];
 
 
