@@ -14,7 +14,7 @@
             on:click={() => setActive(index)}
         >
             <img
-                src={`/photos/${item.id}.webp`}
+                src={`/photos/${item.id}.jpg`}
                 width="400"
                 height="400"
                 alt={item.text}
