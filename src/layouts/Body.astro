@@ -6,5 +6,11 @@ import Header from '../components/Header.astro';
     <main>
     <slot />
     </main>
-    <footer>&copy; 2022 Tomasz Gospodarczyk | designed in the browser</footer>
+    <footer>&copy; 2022 Tomasz Gospodarczyk | designed in the browser | built with <a href="https://astro.build/" rel="noopener"><img class="astro-logo" src="/assets/astro.svg" alt="astro build"/></a></footer>
 </body>
+<style>
+.astro-logo {
+    height: 1rem;
+    vertical-align: middle;
+}
+</style>
