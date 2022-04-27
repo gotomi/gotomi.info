@@ -11,13 +11,13 @@
     },
     "devDependencies": {
         "@astrojs/sitemap": "^0.1.0",
-        "@astrojs/svelte": "^0.1.1",
-        "astro": "^1.0.0-beta.17",
-        "axios": "^0.26.1",
+        "@astrojs/svelte": "^0.1.2",
+        "astro": "^1.0.0-beta.19",
+        "axios": "^0.27.2",
         "fs-extra": "^10.1.0",
         "gray-matter": "^4.0.3",
         "highlight.js": "^11.5.1",
-        "markdown-it": "^12.2.0",
+        "markdown-it": "^13.0.0",
         "node-fetch": "^3.2.3",
         "sharp": "^0.30.4"
     }
