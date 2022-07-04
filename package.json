@@ -20,5 +20,10 @@
         "markdown-it": "^13.0.1",
         "node-fetch": "^3.2.4",
         "sharp": "^0.30.5"
+    },
+    "dependencies": {
+        "@astrojs/deno": "^0.1.6",
+        "@astrojs/node": "^0.1.2",
+        "express": "^4.18.1"
     }
 }
