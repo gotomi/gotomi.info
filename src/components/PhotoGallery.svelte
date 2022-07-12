@@ -14,7 +14,7 @@
             on:click={() => setActive(index)}
         >
             <img
-                src={`/photos/${item.id}.jpg`}
+                src={`/photos/${item.id}-400.jpg`}
                 width="400"
                 height="400"
                 alt={item.text}
