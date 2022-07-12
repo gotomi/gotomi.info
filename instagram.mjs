@@ -72,12 +72,12 @@ const downloadImage = async (image, dest) => {
 const convertImages = function (filename, dest) {
     const path = Path.join(dest, filename);
 
-    // sharp(path + '.jpg')
-    //     .resize(400)
-    //     .jpeg()
-    //     .toFile(`${path}-400.jpg`, (err, info) => {
-    //         //   console.log(info, err);
-    //     });
+    sharp(path + '.jpg')
+        .resize(400)
+        .jpeg()
+        .toFile(`${path}-400.jpg`, (err, info) => {
+              console.log(info, err);
+        });
 
     // sharp(path + '.jpg')
     //     .resize(20)
@@ -89,12 +89,12 @@ const convertImages = function (filename, dest) {
     //         //   console.log(info, err);
     //     });
 
-    sharp(path + '.jpg')
-        .resize(400)
-        .webp()
-        .toFile(`${path}.webp`, (err, info) => {
-            console.log(info, err);
-        })
+    // sharp(path + '.jpg')
+    //     .resize(400)
+    //     .webp()
+    //     .toFile(`${path}.webp`, (err, info) => {
+    //         console.log(info, err);
+    //     })
 }
 
 
