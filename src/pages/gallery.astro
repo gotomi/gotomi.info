@@ -1,0 +1,30 @@
+---
+// Component Imports
+import photoSource from '../_data/photos-morze.json';
+import PhotoGallery from '../components/PhotoGalleryExtended.svelte';
+
+
+import BaseHead from '../layouts/BaseHead.astro';
+import Body from '../layouts/Body.astro';
+
+const photos = photoSource.map(photo => {
+    return { url: `/gallery/nadmorskie-klimaty/${photo}`, text: photo }
+});
+---
+
+<html lang="en" class="variant2">
+
+<head>
+    <BaseHead title="gotomi.info" description="gotomi.info  - personal page" />
+</head>
+
+<Body>
+
+    <section class="photos" id="photos">
+        <h2 class="section-title">nadmorskie klimaty</h2>
+        <p>Przeglądaj galerię za pomocą strzałek ⇦ ⇨ lub klikając w miniaturki</p>
+        <PhotoGallery photos={photos} client:visible />
+    </section>
+</Body>
+
+</html>
