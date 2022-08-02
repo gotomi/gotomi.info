@@ -21,15 +21,29 @@
     }
   }
 </script>
+
 <svelte:window on:keydown={handleKeydown} />
 {#if activeItem}
-  <div class="featured"><img src={activeItem.normal} style={`aspect-ratio:${activeItem.width}/${activeItem.height}`} alt={activeItem.alt} title={JSON.stringify(activeItem.exif)} /></div>
+  <div class="featured">
+    <span class="prev" on:click={() => setActive(activeIndex - 1)}></span>
+    <span class="next" on:click={() => setActive(activeIndex + 1)}></span>
+    <img
+      src={activeItem.normal}
+      style={`aspect-ratio:${activeItem.width}/${activeItem.height}`}
+      alt={activeItem.alt}
+      title={JSON.stringify(activeItem.exif)}
+    />
+  </div>
 {/if}
 <div class="photo-gallery-container">
   <ul class="photo-gallery">
     {#each photos as item, index}
       <li on:click={() => setActive(index)}>
-        <img src={item.thumbnail}  alt={item.alt} title={JSON.stringify(item.exif)} />
+        <img
+          src={item.thumbnail}
+          alt={item.alt}
+          title={JSON.stringify(item.exif)}
+        />
       </li>
     {/each}
   </ul>
@@ -71,12 +85,28 @@
     margin: 1rem 0;
     /* display: flex; */
     justify-content: center;
+    position: relative;
   }
   .featured img {
     max-width: 100%;
     max-height: 100%;
-    border:0.25rem solid #99999980;
+    border: 0.25rem solid #99999980;
     border-radius: 0.5rem;
     vertical-align: middle;
+  }
+
+  .next,
+  .prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+  .next {
+    right: 0;
+    left: 50%;
+  }
+  .prev {
+    left: 0;
+    right: 50%;
   }
 </style>
