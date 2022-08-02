@@ -6,7 +6,7 @@
   function setActive(index) {
     if (index < 0 || index >= photos.length) return;
     activeIndex = index;
-    activeItem = photos[index].url;
+    activeItem = photos[index];
   }
 
   setActive(0);
@@ -21,16 +21,15 @@
     }
   }
 </script>
-
 <svelte:window on:keydown={handleKeydown} />
 {#if activeItem}
-  <div class="featured"><img src={activeItem} alt="" /></div>
+  <div class="featured"><img src={activeItem.normal} style={`aspect-ratio:${activeItem.width}/${activeItem.height}`} alt={activeItem.alt} title={JSON.stringify(activeItem.exif)} /></div>
 {/if}
 <div class="photo-gallery-container">
   <ul class="photo-gallery">
     {#each photos as item, index}
       <li on:click={() => setActive(index)}>
-        <img src={item.url} width="400" height="400" alt={item.text} />
+        <img src={item.thumbnail}  alt={item.alt} title={JSON.stringify(item.exif)} />
       </li>
     {/each}
   </ul>
@@ -63,7 +62,8 @@
   }
 
   :global(section) {
-    padding: 1rem max(1rem, calc(30% - 780px / 2));
+    /* padding: 1rem max(1rem, calc(30% - 780px / 2)); */
+    padding: 1rem;
   }
   .featured {
     height: 70vh;
@@ -74,10 +74,9 @@
   }
   .featured img {
     max-width: 100%;
-    background-color: #ffffff80;
+    max-height: 100%;
+    border:0.25rem solid #99999980;
+    border-radius: 0.5rem;
     vertical-align: middle;
-    object-fit: contain;
-    height: 70vh;
-    padding: 1rem;
   }
 </style>

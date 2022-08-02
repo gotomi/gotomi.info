@@ -14,6 +14,8 @@
         "@astrojs/svelte": "^0.5.1",
         "astro": "^1.0.0-rc.3",
         "axios": "^0.27.2",
+        "exif-reader": "^1.0.3",
+        "fraction.js": "^4.2.0",
         "fs-extra": "^10.1.0",
         "gray-matter": "^4.0.3",
         "highlight.js": "^11.6.0",

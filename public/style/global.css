@@ -42,10 +42,20 @@
     --copy-color: #111;
 }
 
+:root.variant3 {
+    --main-bg-color: #2a6b71;
+    --main-bg-color2: #3a7c3b;
+    --copy-bg-color: #0c2e31;
+    --copy-color: #fff;
+}
+
+
+
 @media (prefers-color-scheme: dark) {
      :root,
      :root.variant1,
-     :root.variant2 {
+     :root.variant2,
+     :root.variant3 {
         --main-bg-color: #333;
         --main-bg-color2: tomato;
         --copy-color: hsl(45, 100%, 90%);
