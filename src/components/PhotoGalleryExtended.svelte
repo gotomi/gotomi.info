@@ -25,8 +25,8 @@
 <svelte:window on:keydown={handleKeydown} />
 {#if activeItem}
   <div class="featured">
-    <span class="prev" on:click={() => setActive(activeIndex - 1)}></span>
-    <span class="next" on:click={() => setActive(activeIndex + 1)}></span>
+    <span class="prev" on:click={() => setActive(activeIndex - 1)}><span>⇦</span></span>
+    <span class="next" on:click={() => setActive(activeIndex + 1)}><span>⇨</span></span>
     <img
       src={activeItem.normal}
       style={`aspect-ratio:${activeItem.width}/${activeItem.height}`}
@@ -62,17 +62,17 @@
   .photo-gallery {
     display: flex;
     overflow: scroll;
-    grid-gap: 1rem;
+    grid-gap: 5px;
   }
   .photo-gallery li {
-    flex: 1 0 100px;
+    flex: 1 0 50px;
   }
   .photo-gallery-container {
-    position: fixed;
-    bottom: 1rem;
+    /* position: fixed; */
+    bottom: 0;
     left: 0;
     background-color: #ffffff80;
-    padding: 1rem;
+    padding: 5px;
   }
 
   :global(section) {
@@ -109,4 +109,21 @@
     left: 0;
     right: 50%;
   }
+
+  .next span,
+  .prev span{
+    font-size: 2rem;
+    color: #555;
+    background-color: #ffffff50;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    position: relative;
+    top: 50%;
+    display: none;
+  }
+  .next:hover span,
+  .prev:hover span {
+    display: initial;
+  }
+
 </style>
