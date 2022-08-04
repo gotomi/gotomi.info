@@ -21,6 +21,7 @@
         "highlight.js": "^11.6.0",
         "markdown-it": "^13.0.1",
         "node-fetch": "^3.2.10",
-        "sharp": "^0.30.7"
+        "sharp": "^0.30.7",
+        "svelte-swipe": "^1.8.2"
     }
 }

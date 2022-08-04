@@ -4,7 +4,7 @@ import { join } from 'path';
 const { gallery } = Astro.params;
 
 
-import PhotoGallery from '../../components/PhotoGalleryExtended.svelte';
+import PhotoGallery from '../../components/PhotoGallerySwipe.svelte';
 
 import BaseHead from '../../layouts/BaseHead.astro';
 import Body from '../../layouts/BodyWide.astro';
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
 <Body title={photoSource.title}>
     <section class="photos" id="photos">
         <p class="tip">Przeglądaj galerię za pomocą strzałek ⇦ ⇨ lub klikając w miniaturki</p>
-        <PhotoGallery photos={photoSource.items} client:visible />
+        <PhotoGallery photos={photoSource.items} client:load />
 
     </section>
 </Body>
