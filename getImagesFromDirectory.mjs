@@ -9,8 +9,8 @@ const { Fraction } = pkg;
 
 const slug = argv[2];
 // const slug = "nadmorskie-klimaty";
-const title = "title " + slug;
-const description = "description " + slug;
+const title = slug;
+const description = slug;
 
 // const sourceDirectory = './gallery-source'
 
@@ -78,6 +78,10 @@ const imageMetaTask = files.map((item, index) => {
 });
 
 Promise.all(imageMetaTask).then(() => {
+  const photoSorted = photos.items.sort((a, b) => {
+    return a.normal.localeCompare(b.normal);
+  });
+  photos.items = photoSorted;
   writeFile(
     `./src/_data/galleries/${slug}.json`,
     JSON.stringify(photos),

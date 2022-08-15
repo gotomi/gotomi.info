@@ -42,7 +42,10 @@
 <div class="photo-gallery-container">
   <ul class="photo-gallery">
     {#each photos as item, index}
-      <li on:click={() => setActive(index)}>
+      <li
+        on:click={() => setActive(index)}
+        class={index === activeIndex ? "active" : ""}
+      >
         <img
           src={item.thumbnail}
           alt={item.alt}
@@ -133,5 +136,9 @@
   }
   .featured:hover span {
     display: initial;
+  }
+  .active img {
+    border: 5px solid #333;
+    border-radius: 5px;
   }
 </style>

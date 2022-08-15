@@ -1,0 +1,26 @@
+---
+// Component Imports
+
+import projects from '../_data/projects.json';
+import ProjectGallery from '../components/ProjectGallery.svelte';
+import photoSource from '../_data/instagram.json';
+import music from '../_data/music.json';
+import MusicApp from '../components/MusicApp.svelte';
+import PhotoGallery from '../components/PhotoGallery.svelte';
+import BaseHead from '../layouts/BaseHead.astro';
+import Body from '../layouts/BodyWide.astro';
+
+const photos = photoSource;
+---
+<html lang="en">
+<head>
+<BaseHead title = "Tomasz Gospodarczyk - personal page" description = "Tomasz Gospodarczyk  - personal page" />
+</head>
+<Body title="Instagram">
+
+      <PhotoGallery photos ={photos} client:visible/>
+
+
+
+</Body>
+</html>

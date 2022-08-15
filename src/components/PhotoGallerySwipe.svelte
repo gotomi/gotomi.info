@@ -130,7 +130,7 @@
     visibility: hidden;
   }
 
-  .next,
+  /* .next,
   .prev {
     position: absolute;
     top: 0;
@@ -165,5 +165,5 @@
   }
   .featured:hover span {
     display: initial;
-  }
+  } */
 </style>

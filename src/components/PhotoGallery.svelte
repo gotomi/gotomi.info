@@ -1,31 +1,38 @@
 <script>
     export let photos = [];
-    let activeIndex = 0;
-
-    function setActive(index) {
-        activeIndex = index;
-    }
 </script>
 
 <ul class="photo-gallery">
     {#each photos as item, index}
-        <li
-            class={activeIndex === index ? "featured" : ""}
-            on:click={() => setActive(index)}
-        >
+        <li>
+        {#if item.uri.endsWith(".jpg") || item.uri.endsWith(".webp")}
+     
             <img
-                src={`/photos/${item.id}-400.jpg`}
+                src={`${item.uri}`}
                 width="400"
                 height="400"
-                alt={item.text}
+                alt={item.title}
+                title={item.title}
             />
+            {:else}
+            <!-- svelte-ignore a11y-media-has-caption -->
+            <video
+                src={`${item.uri}`}
+                width="400"
+                height="400"
+                alt={item.title}
+                loop
+                autoplay
+            />
+            {/if}
         </li>
     {/each}
 </ul>
 
 <style>
 
-    .photo-gallery img {
+    .photo-gallery img,
+    .photo-gallery video {
         width: 100%;
         height: auto;
         display: block;
@@ -36,23 +43,7 @@
 
     .photo-gallery {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-gap: 1rem;
-    }
-
-    @media (max-width: 480px) {
-        .photo-gallery {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-    .featured {
-        grid-column: 1/4;
-        grid-row: 1/4;
-        background: orange;
-        transform: scale(0.95);
-    }
-
-    .featured img{
-        transform: scale(1.05);
+        grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+        grid-gap: 5px;
     }
 </style>
