@@ -1,8 +1,9 @@
 ---
 import Header from '../components/Header.astro';
+const {title} = Astro.props || '';
 ---
 <body id="top">
-    <Header />
+    <Header title={title} />
     <main>
     <slot />
     </main>
