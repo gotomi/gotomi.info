@@ -12,15 +12,19 @@ import Body from '../layouts/BodyWide.astro';
 
 const photos = photoSource;
 ---
+
 <html lang="en">
+
 <head>
-<BaseHead title = "Tomasz Gospodarczyk - personal page" description = "Tomasz Gospodarczyk  - personal page" />
+  <BaseHead title="Tomasz Gospodarczyk - personal page" description="Tomasz Gospodarczyk  - personal page" />
 </head>
+
 <Body title="Instagram">
 
-      <PhotoGallery photos ={photos} client:visible/>
+  <PhotoGallery photos={photos} showFeatured={true} client:visible />
 
 
 
 </Body>
+
 </html>
