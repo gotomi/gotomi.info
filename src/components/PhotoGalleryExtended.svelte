@@ -3,13 +3,13 @@
   export let photos = [];
 
   let activeIndex = 0;
-  let activeItem = "";
-  let nextItem = "";
+  let photoContainer;
   let bigImages = [];
 
-  function setActive(index) {
+  function setActive(index, move = true) {
+    console.log("setActive: " + index, move);
     if (index < 0 || index >= photos.length) return;
-    if (bigImages.length) {
+    if (bigImages.length && move) {
       bigImages[index].scrollIntoView({
         behavior: "smooth",
         block: "end",
@@ -17,34 +17,29 @@
       });
     }
     activeIndex = index;
-    activeItem = photos[index];
-    nextItem = photos[index + 1];
   }
 
-  let counter = 1;
   let featuredPhotos = photos;
 
-  let trigger;
-  // element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
   onMount(() => {
     const intersectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          let elem = entry.target;
-          elem.src = elem.src.replace("thumbnails", "normal");
+      entries.forEach(
+        (entry) => {
+          if (entry.isIntersecting) {
+            let elem = entry.target;
+            elem.src = elem.src.replace("thumbnails", "normal");
+            const current = parseInt(elem.getAttribute("data-id"));
+            setActive(current, false);
+          }
+        },
+        {
+          root: photoContainer,
         }
-      });
-      if (entries.some((entry) => entry.intersectionRatio > 0)) {
-        // setActive(counter);
-        // featuredPhotos = [...featuredPhotos, photos[counter]];
-        // counter++;
-      }
+      );
     });
 
     bigImages.forEach((image) => intersectionObserver.observe(image));
   });
-
-  setActive(0);
 
   let key = 0;
   function handleKeydown(event) {
@@ -58,28 +53,31 @@
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
-{#if activeItem}
-  <div class="featured" id="scroller">
-    <!-- <span class="prev" on:click={() => setActive(activeIndex - 1)}
+<div class="featured" id="scroller" bind:this={photoContainer}>
+  <!-- <span class="prev" on:click={() => setActive(activeIndex - 1)}
       ><span>⇦</span></span
     >
     <span class="next" on:click={() => setActive(activeIndex + 1)}
       ><span>⇨</span></span
     > -->
 
-    {#each featuredPhotos as item, index}
-      <img src={item.thumbnail} alt={item.alt} bind:this={bigImages[index]} />
-    {/each}
-    <span bind:this={trigger}>x</span>
-    <!-- <p>{JSON.stringify(activeItem.exif)}</p> -->
-  </div>
-{/if}
+  {#each featuredPhotos as item, index}
+    <img
+      src={item.thumbnail}
+      alt={item.alt}
+      bind:this={bigImages[index]}
+      data-id={index}
+    />
+  {/each}
+  <!-- <p>{JSON.stringify(activeItem.exif)}</p> -->
+</div>
+
 <div class="photo-gallery-container">
   <ul class="photo-gallery">
     {#each photos as item, index}
       <li
         on:click={() => setActive(index)}
-        class={index === activeIndex ? "active" : ""}
+        class={index === activeIndex ? "active" : "normal"}
       >
         <img
           src={item.thumbnail}
@@ -141,6 +139,7 @@
     vertical-align: middle;
     scroll-snap-align: start;
     object-fit: contain;
+    margin-right: 100px;
   }
 
   .next,
@@ -165,9 +164,10 @@
     text-shadow: 2px 3px 4px var(--copy-bg-color);
     padding: 0.75rem;
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
     top: 50%;
     display: none;
+    z-index: 3;
   }
   .prev span {
     left: 0;
