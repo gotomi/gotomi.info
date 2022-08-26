@@ -1,13 +1,48 @@
 <script>
+  import { onMount } from "svelte";
   export let photos = [];
 
   let activeIndex = 0;
   let activeItem = "";
+  let nextItem = "";
+  let bigImages = [];
+
   function setActive(index) {
     if (index < 0 || index >= photos.length) return;
+    if (bigImages.length) {
+      bigImages[index].scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
+    }
     activeIndex = index;
     activeItem = photos[index];
+    nextItem = photos[index + 1];
   }
+
+  let counter = 1;
+  let featuredPhotos = photos;
+
+  let trigger;
+  // element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
+  onMount(() => {
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          let elem = entry.target;
+          elem.src = elem.src.replace("thumbnails", "normal");
+        }
+      });
+      if (entries.some((entry) => entry.intersectionRatio > 0)) {
+        // setActive(counter);
+        // featuredPhotos = [...featuredPhotos, photos[counter]];
+        // counter++;
+      }
+    });
+
+    bigImages.forEach((image) => intersectionObserver.observe(image));
+  });
 
   setActive(0);
 
@@ -24,19 +59,19 @@
 
 <svelte:window on:keydown={handleKeydown} />
 {#if activeItem}
-  <div class="featured">
-    <span class="prev" on:click={() => setActive(activeIndex - 1)}
+  <div class="featured" id="scroller">
+    <!-- <span class="prev" on:click={() => setActive(activeIndex - 1)}
       ><span>⇦</span></span
     >
     <span class="next" on:click={() => setActive(activeIndex + 1)}
       ><span>⇨</span></span
-    >
-    <img
-      src={activeItem.normal}
-      style={`aspect-ratio:${activeItem.width}/${activeItem.height}`}
-      alt={activeItem.alt}
-      title={JSON.stringify(activeItem.exif)}
-    />
+    > -->
+
+    {#each featuredPhotos as item, index}
+      <img src={item.thumbnail} alt={item.alt} bind:this={bigImages[index]} />
+    {/each}
+    <span bind:this={trigger}>x</span>
+    <!-- <p>{JSON.stringify(activeItem.exif)}</p> -->
   </div>
 {/if}
 <div class="photo-gallery-container">
@@ -90,16 +125,22 @@
     height: 70vh;
     text-align: center;
     margin: 1rem 0;
-    /* display: flex; */
     justify-content: center;
     position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    white-space: nowrap;
   }
   .featured img {
-    max-width: 100%;
-    max-height: 100%;
-    border: 0.25rem solid #99999980;
+    width: 100%;
+    height: 100%;
+    /* border: 0.25rem solid #99999980; */
     border-radius: 0.5rem;
     vertical-align: middle;
+    scroll-snap-align: start;
+    object-fit: contain;
   }
 
   .next,
