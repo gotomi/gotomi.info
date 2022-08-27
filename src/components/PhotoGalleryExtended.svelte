@@ -211,8 +211,6 @@
     border-radius: 0.5rem;
     vertical-align: middle;
     scroll-snap-align: start;
-
-    /* margin-right: 100px; */
   }
   .featured-item img {
     object-fit: contain;
@@ -227,6 +225,9 @@
     .featured {
       white-space: nowrap;
       height: 70vh;
+    }
+    .featured-item {
+      margin-right: 100px;
     }
   }
 </style>
