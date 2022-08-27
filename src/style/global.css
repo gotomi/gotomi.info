@@ -78,10 +78,13 @@ html {
 body {
   color: var(--copy-color);
   background-color: var(--main-bg-color);
-  background-image: url(/assets/cups/cup2b.png);
   background-repeat: no-repeat;
   background-position: -50px calc(100% + 50px);
   background-attachment: fixed;
+}
+
+.variant0 body {
+  background-image: url(/assets/cups/cup2b.png);
 }
 
 ul,
@@ -164,6 +167,8 @@ footer {
   margin: 0.5rem;
   background-color: rgba(255, 255, 255, 0.3);
   display: inline-block;
+  bottom: 0;
+  position: fixed;
 }
 
 .blog-post .entry-date {

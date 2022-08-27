@@ -7,7 +7,6 @@
   let bigImages = [];
 
   function setActive(index, move = true) {
-    console.log("setActive: " + index, move);
     if (index < 0 || index >= photos.length) return;
     if (bigImages.length && move) {
       bigImages[index].scrollIntoView({
@@ -62,14 +61,39 @@
     > -->
 
   {#each featuredPhotos as item, index}
-    <img
-      src={item.thumbnail}
-      alt={item.alt}
-      bind:this={bigImages[index]}
-      data-id={index}
-    />
+    <div class="featured-item">
+      <img
+        src={item.thumbnail}
+        alt={item.alt}
+        bind:this={bigImages[index]}
+        data-id={index}
+      />
+      {#if item.exif}
+        <div class="exif-info ">
+          <!-- {JSON.stringify(item?.exif)}
+        {"FFNumber":2.8,"ISO":160,"exposureTime":"1/4000","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"} -->
+
+          <ul>
+            <li>
+              <span class="icon lens">lens</span>
+              <!-- {item?.exif?.LensMake} -->
+              {item?.exif?.LensModel}
+            </li>
+            <li>
+              <span class="icon exposure">exposure</span>
+              {item?.exif?.exposureTime}
+            </li>
+
+            <li>
+              <span class="icon aperture">aperture</span>F {item?.exif
+                ?.FFNumber}
+            </li>
+            <li><span class="icon iso">ISO</span> {item?.exif?.ISO}</li>
+          </ul>
+        </div>
+      {/if}
+    </div>
   {/each}
-  <!-- <p>{JSON.stringify(activeItem.exif)}</p> -->
 </div>
 
 <div class="photo-gallery-container">
@@ -82,7 +106,6 @@
         <img
           src={item.thumbnail}
           alt={item.alt}
-          title={JSON.stringify(item.exif)}
         />
       </li>
     {/each}
@@ -114,6 +137,45 @@
     background-color: #ffffff80;
     padding: 5px;
   }
+  .exif-info {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    color: #222;
+    background-color: #c0c0c080;
+    backdrop-filter: blur(3px);
+    z-index: 33;
+    text-align: center;
+    border-radius: 5px;
+  }
+  .exif-info li,
+  .exif-info ul {
+    display: inline-block;
+  }
+  .icon {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-indent: -99999px;
+    background-size: cover;
+    margin: 0 5px;
+    filter: contrast(0.5);
+  }
+
+  .aperture {
+    background-image: url("/assets/icons8-aperture-50.png");
+  }
+  .iso {
+    background-image: url("/assets/icons8-iso-50.png");
+  }
+  .exposure {
+    background-image: url("/assets/icons8-exposure-50.png");
+  }
+  .lens {
+    background-image: url("/assets/icons8-lens-50.png");
+  }
 
   :global(section) {
     /* padding: 1rem max(1rem, calc(30% - 780px / 2)); */
@@ -131,15 +193,22 @@
     width: 100%;
     white-space: nowrap;
   }
-  .featured img {
+  .featured-item {
+    display: inline-block;
+    position: relative;
     width: 100%;
     height: 100%;
     /* border: 0.25rem solid #99999980; */
     border-radius: 0.5rem;
     vertical-align: middle;
     scroll-snap-align: start;
-    object-fit: contain;
+
     margin-right: 100px;
+  }
+  .featured-item img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
   }
 
   .next,
@@ -174,9 +243,6 @@
   }
   .next span {
     right: 0;
-  }
-  .featured:hover span {
-    display: initial;
   }
   .active img {
     border: 5px solid #333;
