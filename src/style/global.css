@@ -115,7 +115,8 @@ header {
   color: #ff6347;
   color: #b64939;
   color: var(--copy-bg-color);
-  font-size: 2rem;
+
+  font-size: clamp(1.5rem, 2.5vw, 4rem); 
   display: inline-block;
   padding: 0 0.5rem;
   margin: 2rem 0;

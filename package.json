@@ -13,7 +13,7 @@
         "@astrojs/netlify": "^1.0.1",
         "@astrojs/sitemap": "^1.0.0",
         "@astrojs/svelte": "^1.0.0",
-        "astro": "^1.0.9",
+        "astro": "^1.1.1",
         "axios": "^0.27.2",
         "exif-reader": "^1.0.3",
         "fraction.js": "^4.2.0",

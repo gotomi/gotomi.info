@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   export let photos = [];
 
+  let displayExif = false;
   let activeIndex = 0;
   let photoContainer;
   let bigImages = [];
@@ -18,6 +19,9 @@
     activeIndex = index;
   }
 
+  function showExif() {
+    displayExif = !displayExif;
+  }
   let featuredPhotos = photos;
 
   onMount(() => {
@@ -52,14 +56,14 @@
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
-<div class="featured" id="scroller" bind:this={photoContainer}>
-  <!-- <span class="prev" on:click={() => setActive(activeIndex - 1)}
-      ><span>⇦</span></span
-    >
-    <span class="next" on:click={() => setActive(activeIndex + 1)}
-      ><span>⇨</span></span
-    > -->
+<p class="tip">
+  Przeglądaj galerię za pomocą strzałek ⇦ ⇨ lub klikając w miniaturki. <span
+    on:click={() => showExif()}
+    >Pokaż EXIF <span class="icon info" title="Exif Info">info</span></span
+  >
+</p>
 
+<div class="featured" id="scroller" bind:this={photoContainer}>
   {#each featuredPhotos as item, index}
     <div class="featured-item">
       <img
@@ -69,27 +73,26 @@
         data-id={index}
       />
       {#if item.exif}
-        <div class="exif-info ">
-          <!-- {JSON.stringify(item?.exif)}
-        {"FFNumber":2.8,"ISO":160,"exposureTime":"1/4000","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"} -->
+        <div class="exif-info">
+          {#if displayExif}
+            <ul>
+              <li>
+                <span class="icon lens">lens</span>
+                <!-- {item?.exif?.LensMake} -->
+                {item?.exif?.LensModel}
+              </li>
+              <li>
+                <span class="icon exposure">exposure</span>
+                {item?.exif?.exposureTime}
+              </li>
 
-          <ul>
-            <li>
-              <span class="icon lens">lens</span>
-              <!-- {item?.exif?.LensMake} -->
-              {item?.exif?.LensModel}
-            </li>
-            <li>
-              <span class="icon exposure">exposure</span>
-              {item?.exif?.exposureTime}
-            </li>
-
-            <li>
-              <span class="icon aperture">aperture</span>F {item?.exif
-                ?.FFNumber}
-            </li>
-            <li><span class="icon iso">ISO</span> {item?.exif?.ISO}</li>
-          </ul>
+              <li>
+                <span class="icon aperture">aperture</span>F {item?.exif
+                  ?.FFNumber}
+              </li>
+              <li><span class="icon iso">ISO</span> {item?.exif?.ISO}</li>
+            </ul>
+          {/if}
         </div>
       {/if}
     </div>
@@ -103,10 +106,7 @@
         on:click={() => setActive(index)}
         class={index === activeIndex ? "active" : "normal"}
       >
-        <img
-          src={item.thumbnail}
-          alt={item.alt}
-        />
+        <img src={item.thumbnail} alt={item.alt} />
       </li>
     {/each}
   </ul>
@@ -140,15 +140,17 @@
   .exif-info {
     position: absolute;
     bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.5rem;
+    left: 5px;
+
     color: #222;
-    background-color: #c0c0c080;
-    backdrop-filter: blur(3px);
     z-index: 33;
     text-align: center;
+  }
+  .exif-info ul {
+    background-color: #c0c0c080;
+    backdrop-filter: blur(3px);
     border-radius: 5px;
+    padding: 0.25rem;
   }
   .exif-info li,
   .exif-info ul {
@@ -176,22 +178,29 @@
   .lens {
     background-image: url("/assets/icons8-lens-50.png");
   }
+  .info {
+    background-image: url("/assets/icons8-info-50.png");
+    cursor: pointer;
+    transform: scale(0.75);
+    filter: contrast(1);
+    background-color: #eeeeee80;
+    border-radius: 50%;
+    margin: 0;
+  }
 
   :global(section) {
     /* padding: 1rem max(1rem, calc(30% - 780px / 2)); */
     padding: 1rem;
   }
   .featured {
-    height: 70vh;
     text-align: center;
     margin: 1rem 0;
     justify-content: center;
     position: relative;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     width: 100%;
-    white-space: nowrap;
   }
   .featured-item {
     display: inline-block;
@@ -203,49 +212,21 @@
     vertical-align: middle;
     scroll-snap-align: start;
 
-    margin-right: 100px;
+    /* margin-right: 100px; */
   }
   .featured-item img {
     object-fit: contain;
     width: 100%;
     height: 100%;
   }
-
-  .next,
-  .prev {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-  }
-  .next {
-    right: 0;
-    left: 50%;
-  }
-  .prev {
-    left: 0;
-    right: 50%;
-  }
-
-  .next span,
-  .prev span {
-    font-size: 2rem;
-    color: #fff;
-    text-shadow: 2px 3px 4px var(--copy-bg-color);
-    padding: 0.75rem;
-    box-sizing: border-box;
-    position: fixed;
-    top: 50%;
-    display: none;
-    z-index: 3;
-  }
-  .prev span {
-    left: 0;
-  }
-  .next span {
-    right: 0;
-  }
   .active img {
     border: 5px solid #333;
     border-radius: 5px;
+  }
+  @media (min-width: 1024px) {
+    .featured {
+      white-space: nowrap;
+      height: 70vh;
+    }
   }
 </style>
