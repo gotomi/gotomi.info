@@ -124,8 +124,9 @@
 
   .photo-gallery {
     display: flex;
-    overflow: scroll;
+    overflow: auto;
     grid-gap: 5px;
+    overflow-y: hidden;
   }
   .photo-gallery li {
     flex: 1 0 50px;
@@ -200,7 +201,12 @@
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
+    scrollbar-width: none;
     width: 100%;
+  }
+
+  .featured::-webkit-scrollbar {
+    display: none;
   }
   .featured-item {
     display: inline-block;
