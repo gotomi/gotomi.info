@@ -10,11 +10,11 @@
         "preview": "astro preview"
     },
     "devDependencies": {
-        "@astrojs/netlify": "^1.0.1",
+        "@astrojs/netlify": "^1.1.0",
         "@astrojs/sitemap": "^1.0.0",
-        "@astrojs/svelte": "^1.0.0",
-        "astro": "^1.1.1",
-        "axios": "^0.27.2",
+        "@astrojs/svelte": "^1.0.1",
+        "astro": "^1.4.5",
+        "axios": "^1.1.2",
         "exif-reader": "^1.0.3",
         "fraction.js": "^4.2.0",
         "fs-extra": "^10.1.0",
@@ -22,7 +22,12 @@
         "highlight.js": "^11.6.0",
         "markdown-it": "^13.0.1",
         "node-fetch": "^3.2.10",
-        "sharp": "^0.30.7",
+        "sharp": "^0.31.1",
         "svelte-swipe": "^1.8.2"
+    },
+    "dependencies": {
+        "@fontsource/poppins": "^4.5.10",
+        "@fontsource/source-sans-pro": "^4.5.11",
+        "canvas": "^2.10.1"
     }
 }

@@ -1,5 +1,7 @@
 ---
 const {title, description} = Astro.props;
+import '@fontsource/poppins/700.css';
+import '@fontsource/source-sans-pro';
 import '../style/global.css';
 ---
 
@@ -8,6 +10,3 @@ import '../style/global.css';
 <title>{title}</title>
 <meta name="description" content={description}>
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Source+Sans+Pro" rel="stylesheet"> 
