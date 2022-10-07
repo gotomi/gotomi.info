@@ -1,48 +1,71 @@
 ---
 // Component Imports
 
-import projects from '../_data/projects.json';
-import ProjectGallery from '../components/ProjectGallery.svelte';
-import photoSource from '../_data/instagram.json';
-import music from '../_data/music.json';
-import MusicApp from '../components/MusicApp.svelte';
-import PhotoGallery from '../components/PhotoGallery.svelte';
-import BaseHead from '../layouts/BaseHead.astro';
-import Body from '../layouts/Body.astro';
+import projects from "../_data/projects.json";
+import ProjectGallery from "../components/ProjectGallery.svelte";
 
-const photos = photoSource.slice(0, 10);
+import music from "../_data/music.json";
+import MusicApp from "../components/MusicApp.svelte";
+import PhotoGallery from "../components/PhotoGallery.svelte";
+import BaseHead from "../layouts/BaseHead.astro";
+import Body from "../layouts/Body.astro";
+
+// import photoSource from '../_data/instagram.json';
+// const photos = photoSource.slice(0, 10);
+import photoSource from "../_data/photos.json";
+const photos = photoSource
+  .filter(item => item.type === 'image')
+  .map((item) => {
+    return {
+      uri: `/photos/${item.id}-400.jpg`,
+      text: item.text,
+    };
+  })
+  .slice(0, 10);
 ---
+
 <html lang="en" class="variant0">
-<head>
-<BaseHead title = "Tomasz Gospodarczyk - personal page" description = "Tomasz Gospodarczyk  - personal page" />
-</head>
-<Body title="Hi, I'm Tomasz">
-  <section class="intro">
-    <div class="content">
-      <p class="chunk">
-      <img src="/assets/me.jpg" alt="me" width="70" height="70" > 
-      I am a front-end engineer and team leader of the team responsible for offer page and navigation components at Allegro. Web Performance enthusiast, occasional music creator and photographer.
-      If you want to contact me, you can easily find me on <a href="http://twitter.com/gotomi">Twitter</a>,
-      <a href="http://github.com/gotomi">GitHub</a> or <a href="http://linkedin.com/in/gotomi">Linkedin</a>.</p>
-    </div>
-  </section>
+  <head>
+    <BaseHead
+      title="Tomasz Gospodarczyk - personal page"
+      description="Tomasz Gospodarczyk  - personal page"
+    />
+  </head>
+  <Body title="Hi, I'm Tomasz">
+    <section class="intro">
+      <div class="content">
+        <p class="chunk">
+          <img src="/assets/me.jpg" alt="me" width="70" height="70" />
+          I am a front-end engineer and team leader of the team responsible for offer
+          page and navigation components at Allegro. Web Performance enthusiast,
+          occasional music creator and photographer. If you want to contact me, you
+          can easily find me on <a href="http://twitter.com/gotomi">Twitter</a>,
+          <a href="http://github.com/gotomi">GitHub</a> or <a
+            href="http://linkedin.com/in/gotomi">Linkedin</a
+          >.
+        </p>
+      </div>
+    </section>
 
-  <section class="projects" id="">
-  <h2 class="section-title">Projects</h2>
-  <ProjectGallery projects = {projects}/>
-  </section>
+    <section class="projects" id="">
+      <h2 class="section-title">Projects</h2>
+      <ProjectGallery projects={projects} />
+    </section>
 
-  <section class="photos" id="photos">
+    <section class="photos" id="photos">
       <h2 class="section-title">Photos</h2>
-      <PhotoGallery photos ={photos} client:visible/>
-  </section>
+      <PhotoGallery photos={photos} client:visible />
+    </section>
 
-  <section class="music" id="music">
+    <section class="music" id="music">
       <h2 class="section-title">Music</h2>
       <p class="chunk">
-      From time to time I create music using DAW, software instruments, MIDI and computer keyboard and sometimes my voice. I will probably never consider any of my tracks finished, but you can enjoy the latest drafts if you like.
+        From time to time I create music using DAW, software instruments, MIDI
+        and computer keyboard and sometimes my voice. I will probably never
+        consider any of my tracks finished, but you can enjoy the latest drafts
+        if you like.
       </p>
-      <MusicApp playlist={music} client:load/>
-  </section>
-</Body>
+      <MusicApp playlist={music} client:load />
+    </section>
+  </Body>
 </html>

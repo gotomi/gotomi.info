@@ -16,7 +16,7 @@
       class={activeIndex === index ? "featured" : ""}
       on:click={() => setActive(index)}
     >
-      {#if item.uri.endsWith(".jpg") || item.uri.endsWith(".webp")}
+      {#if item.uri.endsWith(".jpg") || item.uri.endsWith(".webp") || item.type === "image"}
         <img
           src={`${item.uri}`}
           width="400"
