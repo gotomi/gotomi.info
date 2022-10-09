@@ -125,18 +125,23 @@
   .photo-gallery {
     display: flex;
     overflow: auto;
-    grid-gap: 5px;
     overflow-y: hidden;
+    justify-content: center;
+
   }
   .photo-gallery li {
-    flex: 1 0 50px;
+    flex: 0 1 100px;
+    padding: 5px 0 5px 5px;
+    background-color: #ffffff20;
+
+  }
+  .photo-gallery li:last-child{
+    padding: 5px;
   }
   .photo-gallery-container {
     /* position: fixed; */
     bottom: 0;
     left: 0;
-    background-color: #ffffff80;
-    padding: 5px;
   }
   .exif-info {
     position: absolute;
