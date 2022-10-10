@@ -25,21 +25,26 @@
   let featuredPhotos = photos;
 
   onMount(() => {
-    const intersectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(
-        (entry) => {
-          if (entry.isIntersecting) {
-            let elem = entry.target;
-            elem.src = elem.src.replace("thumbnails", "normal");
-            const current = parseInt(elem.getAttribute("data-id"));
-            setActive(current, false);
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(
+          (entry) => {
+            if (entry.isIntersecting) {
+              let elem = entry.target;
+              elem.src = elem.src.replace("thumbnails", "normal");
+              const current = parseInt(elem.getAttribute("data-id"));
+              setActive(current, false);
+            }
+          },
+          {
+            root: photoContainer,
           }
-        },
-        {
-          root: photoContainer,
-        }
-      );
-    });
+        );
+      },
+      {
+        threshold: 0.25,
+      }
+    );
 
     bigImages.forEach((image) => intersectionObserver.observe(image));
   });
@@ -63,7 +68,7 @@
   >
 </p>
 
-<div class="featured" id="scroller" bind:this={photoContainer}>
+<div class="featured" bind:this={photoContainer}>
   {#each featuredPhotos as item, index}
     <div class="featured-item">
       <img
@@ -127,15 +132,13 @@
     overflow: auto;
     overflow-y: hidden;
     justify-content: center;
-
   }
   .photo-gallery li {
     flex: 0 1 100px;
     padding: 5px 0 5px 5px;
     background-color: #ffffff20;
-
   }
-  .photo-gallery li:last-child{
+  .photo-gallery li:last-child {
     padding: 5px;
   }
   .photo-gallery-container {
@@ -218,7 +221,6 @@
     position: relative;
     width: 100%;
     height: 100%;
-    /* border: 0.25rem solid #99999980; */
     border-radius: 0.5rem;
     vertical-align: middle;
     scroll-snap-align: start;
@@ -236,9 +238,6 @@
     .featured {
       white-space: nowrap;
       height: 70vh;
-    }
-    .featured-item {
-      margin-right: 100px;
     }
   }
 </style>
