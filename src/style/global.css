@@ -3,10 +3,10 @@
   margin: 0;
 }
 
-:root {
-  font: 400 1.1rem/1.5 "Source Sans Pro", sans-serif;
-  /* --user-font-scale: 1rem - 16px;
-    font-size: clamp(1rem, 1rem + var(--user-font-scale), 1.125rem); */
+@font-face {
+  font-family: "Arial Adjusted";
+  src: local("Arial");
+  size-adjust: 93.3%;
 }
 
 :root {
@@ -76,6 +76,7 @@ html {
 }
 
 body {
+  font: 400 1.1rem/1.5 "Source Sans Pro", "Arial Adjusted", sans-serif;
   color: var(--copy-color);
   background-color: var(--main-bg-color);
   background-repeat: no-repeat;
@@ -116,7 +117,7 @@ header {
   color: #b64939;
   color: var(--copy-bg-color);
 
-  font-size: clamp(1.5rem, 2.5vw, 2rem); 
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   display: inline-block;
   padding: 0 0.5rem;
   margin: 2rem 0;
