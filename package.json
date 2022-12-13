@@ -10,14 +10,14 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/netlify": "^1.2.1",
+    "@astrojs/netlify": "^1.2.2",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/svelte": "^1.0.2",
-    "astro": "^1.6.10",
-    "axios": "^1.2.0",
+    "astro": "^1.6.15",
+    "axios": "^1.2.1",
     "exif-reader": "^1.0.3",
     "fraction.js": "^4.2.0",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.1.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.7.0",
     "markdown-it": "^13.0.1",
