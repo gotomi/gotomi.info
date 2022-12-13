@@ -169,8 +169,8 @@ footer {
   margin: 0.5rem;
   background-color: rgba(255, 255, 255, 0.3);
   display: inline-block;
-  bottom: 0;
-  position: fixed;
+  /* bottom: 0;
+  position: fixed; */
 }
 
 .blog-post .entry-date {
