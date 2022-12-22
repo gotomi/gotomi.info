@@ -10,6 +10,7 @@ const photos = [
   { url: "/marta/m_01.jpg", title: "Marta" },
   { url: "/marta/m_02.jpg", title: "Marta" },
   { url: "/marta/m_03.jpg", title: "Marta" },
+  { url: "/marta/m_04.jpg", title: "Marta" },
 ];
 ---
 
@@ -20,21 +21,4 @@ const photos = [
   <Body title="Hello Marta!" showFooter={false}>
     <PhotoSwipe photos={photos} />
   </Body>
-  <style>
-    .container {
-      margin: auto;
-      display: flex;
-      white-space: nowrap;
-      overflow-x: auto;
-      overflow-y: hidden;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      width: calc(100vw / 3 - 1.5rem);
-    }
-    .container img {
-      flex: 1;
-      scroll-snap-align: start;
-      max-width: calc(100vw / 3 - 1.5rem);
-    }
-  </style>
 </html>
