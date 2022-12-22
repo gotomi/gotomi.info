@@ -52,6 +52,13 @@
   --copy-color: #fff;
 }
 
+:root.variant4 {
+  --main-bg-color: #000;
+  --main-bg-color2: #222;
+  --copy-bg-color: #cacaca;
+  --copy-color: #fafafa;
+}
+
 @media (prefers-color-scheme: dark) {
   :root,
   :root.variant1,

@@ -1,17 +1,33 @@
 ---
-import Header from '../components/Header.astro';
-const {title} = Astro.props || '';
+import Header from "../components/Header.astro";
+const { title } = Astro.props || "";
+const { showFooter } = Astro.props || true;
 ---
+
 <body id="top">
-    <Header title={title} />
-    <main>
+  <Header title={title} />
+  <main>
     <slot />
-    </main>
-    <footer>&copy; 2022 <a rel="me" href="https://webperf.social/@gotomi">Tomasz</a> Gospodarczyk | designed in the browser | built with <a href="https://astro.build/" rel="noopener"><img class="astro-logo" src="/assets/astro.svg" alt="astro build"/></a></footer>
+  </main>
+
+  {
+    showFooter && (
+      <footer>
+        &copy; 2022{" "}
+        <a rel="me" href="https://webperf.social/@gotomi">
+          Tomasz
+        </a>{" "}
+        Gospodarczyk | designed in the browser | built with{" "}
+        <a href="https://astro.build/" rel="noopener">
+          <img class="astro-logo" src="/assets/astro.svg" alt="astro build" />
+        </a>
+      </footer>
+    )
+  }
 </body>
 <style>
-.astro-logo {
+  .astro-logo {
     height: 1rem;
     vertical-align: middle;
-}
+  }
 </style>
