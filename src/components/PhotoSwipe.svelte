@@ -40,7 +40,18 @@
 
     images.forEach((image) => intersectionObserver.observe(image));
   });
+  let key = 0;
+  function handleKeydown(event) {
+    key = event.key;
+    if (key === "ArrowLeft") {
+      setActive(activeIndex - 1);
+    } else if (key === "ArrowRight") {
+      setActive(activeIndex + 1);
+    }
+  }
 </script>
+
+<svelte:window on:keydown={handleKeydown} />
 
 <div class="wrapper">
   <div class="counter">{activeIndex + 1} / {photos.length}</div>
@@ -59,7 +70,7 @@
   <div class="navi">
     <span
       on:click={() => setActive(activeIndex - 1, true)}
-      class={activeIndex === 0 ? "disabled" : ""}>⇐</span
+      class={activeIndex === 0 ? "disabled" : ""}> &lt;&lt; </span
     >
     <ul class="indicator">
       {#each photos as item, index}
@@ -68,7 +79,7 @@
     </ul>
     <span
       on:click={() => setActive(activeIndex + 1, true)}
-      class={activeIndex === photos.length - 1 ? "disabled" : ""}>⇒</span
+      class={activeIndex === photos.length - 1 ? "disabled" : ""}> &gt;&gt; </span
     >
   </div>
 </div>
@@ -135,7 +146,7 @@
     justify-content: space-between;
   }
   .navi span {
-    cursor: pointer;  
+    cursor: pointer;
   }
 
   .navi span.disabled {
