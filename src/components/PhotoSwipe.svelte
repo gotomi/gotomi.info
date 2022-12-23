@@ -70,17 +70,21 @@
   <div class="navi">
     <span
       on:click={() => setActive(activeIndex - 1, true)}
-      class={activeIndex === 0 ? "disabled" : ""}> &lt;&lt; </span
+      class={activeIndex === 0 ? "left disabled" : "left"}
     >
+      <img src="/assets/arrows/arrow_circle_left_FILL.svg" alt="" />
+    </span>
+    <span
+      on:click={() => setActive(activeIndex + 1, true)}
+      class={activeIndex === photos.length - 1 ? "right disabled" : "right"}
+    >
+      <img src="/assets/arrows/arrow_circle_right_FILL.svg" alt="" />
+    </span>
     <ul class="indicator">
       {#each photos as item, index}
         <li class={activeIndex === index ? "active" : ""}>{index + 1}</li>
       {/each}
     </ul>
-    <span
-      on:click={() => setActive(activeIndex + 1, true)}
-      class={activeIndex === photos.length - 1 ? "disabled" : ""}> &gt;&gt; </span
-    >
   </div>
 </div>
 
@@ -125,14 +129,14 @@
 
   .indicator {
     display: flex;
-    gap: 5px;
+    gap: 8px;
     margin: 10px auto;
     align-items: center;
     justify-content: center;
   }
   .indicator li {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     text-indent: -9999px;
     background-color: #fff9;
@@ -145,12 +149,31 @@
     display: flex;
     justify-content: space-between;
   }
-  .navi span {
+
+
+  span {
     cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    opacity: 0.6;
+    color: #fff;
   }
 
-  .navi span.disabled {
-    opacity: 0.5;
+  span.left {
+    left: 8px;
+  }
+  span.right {
+    right: 8px;
+  }
+
+  span img {
+    width: 100%;
+  }
+
+  span.disabled {
+    opacity: 0;
     cursor: default;
   }
 </style>
