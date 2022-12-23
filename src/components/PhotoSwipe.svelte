@@ -69,13 +69,13 @@
 
   <div class="navi">
     <span
-      on:click={() => setActive(activeIndex - 1, true)}
+      on:click={() => setActive(activeIndex - 1)}
       class={activeIndex === 0 ? "left disabled" : "left"}
     >
       <img src="/assets/arrows/arrow_circle_left_FILL.svg" alt="" />
     </span>
     <span
-      on:click={() => setActive(activeIndex + 1, true)}
+      on:click={() => setActive(activeIndex + 1)}
       class={activeIndex === photos.length - 1 ? "right disabled" : "right"}
     >
       <img src="/assets/arrows/arrow_circle_right_FILL.svg" alt="" />
@@ -102,6 +102,9 @@
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+  }
+  .container::-webkit-scrollbar {
+    display: none;
   }
   .container img {
     flex: 1;
@@ -149,7 +152,6 @@
     display: flex;
     justify-content: space-between;
   }
-
 
   span {
     cursor: pointer;
