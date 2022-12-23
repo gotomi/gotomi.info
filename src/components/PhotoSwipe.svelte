@@ -1,22 +1,75 @@
 <script>
+  import { onMount } from "svelte";
   export let photos = [];
-  export let showFeatured = false;
-  let activeIndex = -1;
+  let container;
+  let activeIndex = 0;
+  let images = [];
 
-  function setActive(index) {
-    if (showFeatured) {
-      activeIndex = index;
+  function setActive(index, move = true) {
+    if (index < 0 || index >= photos.length) return;
+    if (images.length && move) {
+      images[index].scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
     }
+    activeIndex = index;
   }
+
+  onMount(() => {
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(
+          (entry) => {
+            if (entry.isIntersecting) {
+              let elem = entry.target;
+              const current = parseInt(elem.getAttribute("data-id"));
+              setActive(current, false);
+            }
+          },
+          {
+            root: container,
+          }
+        );
+      },
+      {
+        threshold: 0.25,
+      }
+    );
+
+    images.forEach((image) => intersectionObserver.observe(image));
+  });
 </script>
 
 <div class="wrapper">
-  <div class="counter">1 / {photos.length}</div>
+  <div class="counter">{activeIndex + 1} / {photos.length}</div>
 
-  <div class="container" id="photos">
+  <div class="container" bind:this={container}>
     {#each photos as item, index}
-      <img src={item.url} alt={item.title} id={"item" + index} />
+      <img
+        src={item.url}
+        alt={item.title}
+        bind:this={images[index]}
+        data-id={index}
+      />
     {/each}
+  </div>
+
+  <div class="navi">
+    <span
+      on:click={() => setActive(activeIndex - 1, true)}
+      class={activeIndex === 0 ? "disabled" : ""}>⇐</span
+    >
+    <ul class="indicator">
+      {#each photos as item, index}
+        <li class={activeIndex === index ? "active" : ""}>{index + 1}</li>
+      {/each}
+    </ul>
+    <span
+      on:click={() => setActive(activeIndex + 1, true)}
+      class={activeIndex === photos.length - 1 ? "disabled" : ""}>⇒</span
+    >
   </div>
 </div>
 
@@ -26,6 +79,7 @@
     width: min(900px, 100vw);
     margin: auto;
   }
+
   .container {
     display: flex;
     white-space: nowrap;
@@ -49,5 +103,43 @@
     right: 1rem;
     z-index: 2;
     border-radius: 3px;
+  }
+
+  .indicator,
+  .indicator li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .indicator {
+    display: flex;
+    gap: 5px;
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .indicator li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    text-indent: -9999px;
+    background-color: #fff9;
+  }
+  .indicator li.active {
+    background-color: #ed380090;
+  }
+
+  .navi {
+    display: flex;
+    justify-content: space-between;
+  }
+  .navi span {
+    cursor: pointer;  
+  }
+
+  .navi span.disabled {
+    opacity: 0.5;
+    cursor: default;
   }
 </style>
