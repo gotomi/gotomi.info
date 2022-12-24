@@ -91,7 +91,9 @@
 <style>
   .wrapper {
     position: relative;
-    width: min(900px, 100vw);
+    max-width: min(900px, 100vw);
+    max-height: calc(100vh - 150px);
+    aspect-ratio: 4/5;
     margin: auto;
   }
 
@@ -109,7 +111,7 @@
   .container img {
     flex: 1;
     scroll-snap-align: start;
-    max-width: min(900px, 100vw);
+    object-fit: contain;
   }
   .counter {
     background: #0009;
