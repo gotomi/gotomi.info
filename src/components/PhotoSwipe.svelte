@@ -1,16 +1,18 @@
 <script>
   import { onMount } from "svelte";
   export let photos = [];
+  export let ratio = "4/5";
   let container;
   let activeIndex = 0;
   let images = [];
+  let inViewport = false;
 
   function setActive(index, move = true) {
     if (index < 0 || index >= photos.length) return;
     if (images.length && move) {
       images[index].scrollIntoView({
         behavior: "smooth",
-        block: "end",
+        block: "center",
         inline: "nearest",
       });
     }
@@ -38,10 +40,23 @@
       }
     );
 
+    const galleryInView = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          inViewport = entry.isIntersecting;
+        });
+      },
+      {
+        threshold: 0.25,
+      }
+    );
+
     images.forEach((image) => intersectionObserver.observe(image));
+    galleryInView.observe(container);
   });
   let key = 0;
   function handleKeydown(event) {
+    if (!inViewport) return;
     key = event.key;
     if (key === "ArrowLeft") {
       setActive(activeIndex - 1);
@@ -52,66 +67,75 @@
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
-
-<div class="wrapper">
-  <div class="counter">{activeIndex + 1} / {photos.length}</div>
-
-  <div class="container" bind:this={container}>
-    {#each photos as item, index}
-      <img
-        src={item.url}
-        alt={item.title}
-        bind:this={images[index]}
-        data-id={index}
-      />
-    {/each}
-  </div>
-
-  <div class="navi">
-    <span
-      on:click={() => setActive(activeIndex - 1)}
-      class={activeIndex === 0 ? "left disabled" : "left"}
-    >
-      <img src="/assets/arrows/arrow_circle_left_FILL.svg" alt="" />
-    </span>
-    <span
-      on:click={() => setActive(activeIndex + 1)}
-      class={activeIndex === photos.length - 1 ? "right disabled" : "right"}
-    >
-      <img src="/assets/arrows/arrow_circle_right_FILL.svg" alt="" />
-    </span>
-    <ul class="indicator">
+<div class="container" style="--ratio: {ratio}">
+  <div class="wrapper">
+    <div class="counter">{activeIndex + 1} / {photos.length}</div>
+    <div class="box" bind:this={container}>
       {#each photos as item, index}
-        <li class={activeIndex === index ? "active" : ""}>{index + 1}</li>
+        <img
+          src={item.url}
+          alt={item.alt}
+          bind:this={images[index]}
+          data-id={index}
+          loading="lazy"
+        />
       {/each}
-    </ul>
+    </div>
+
+    <div class="navi">
+      <span
+        on:click={() => setActive(activeIndex - 1)}
+        class={activeIndex === 0 ? "left disabled" : "left"}
+      >
+        <img src="/assets/arrows/arrow_circle_left_FILL.svg" alt="" />
+      </span>
+      <span
+        on:click={() => setActive(activeIndex + 1)}
+        class={activeIndex === photos.length - 1 ? "right disabled" : "right"}
+      >
+        <img src="/assets/arrows/arrow_circle_right_FILL.svg" alt="" />
+      </span>
+      <ul class="indicator">
+        {#each photos as item, index}
+          <li class={activeIndex === index ? "active" : ""}>{index + 1}</li>
+        {/each}
+      </ul>
+    </div>
   </div>
 </div>
 
 <style>
-  .wrapper {
+  .box {
     position: relative;
-    max-width: min(900px, 100vw);
+    max-width: 100%;
     max-height: calc(100vh - 150px);
-    aspect-ratio: 4/5;
     margin: auto;
-  }
-
-  .container {
-    display: flex;
+    background-color: #fafafa90;
+    overflow: auto;
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    aspect-ratio: var(--ratio);
   }
-  .container::-webkit-scrollbar {
-    display: none;
-  }
-  .container img {
-    flex: 1;
+
+  .box img {
+    width: 100%;
+    max-height: 100%;
     scroll-snap-align: start;
     object-fit: contain;
+    display: inline-block;
+    aspect-ratio: var(--ratio);
+  }
+
+  .wrapper {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+  }
+  .container {
+    text-align: center;
   }
   .counter {
     background: #0009;
