@@ -4,8 +4,7 @@ import exifReader from "exif-reader";
 import sharp from "sharp";
 import { readdirSync, writeFile, existsSync, mkdirSync } from "fs";
 import { join } from "path";
-import pkg from "fraction.js";
-const { Fraction } = pkg;
+import { format, fraction } from "mathjs";
 
 const slug = argv[2];
 // const slug = "nadmorskie-klimaty";
@@ -94,12 +93,10 @@ Promise.all(imageMetaTask).then(() => {
 });
 
 function exifMapper(exif) {
-  const x = new Fraction(exif.ExposureTime);
-  const ExposureTime = x.toFraction(true);
   return {
     FFNumber: exif.FNumber,
     ISO: exif.ISO,
-    exposureTime: ExposureTime,
+    exposureTime: format(fraction(exif.ExposureTime), { fraction: "ratio" }),
     LensMake: exif.LensMake,
     FocalLength: exif.FocalLength,
     FocalLengthIn35mmFormat: exif.FocalLengthIn35mmFormat,
