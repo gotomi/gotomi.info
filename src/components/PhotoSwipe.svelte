@@ -119,6 +119,9 @@
     scrollbar-width: none;
     aspect-ratio: var(--ratio);
   }
+  .box::-webkit-scrollbar {
+    display: none;
+  }
 
   .box img {
     width: 100%;
