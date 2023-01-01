@@ -22,8 +22,28 @@ const photos = [
     <BaseHead title="gotomi.info" description="gotomi.info  - personal page" />
   </head>
   <Body title="Hello Marta!" showFooter={false}>
-    <PhotoSwipe photos={photos} client:load />
-    <PhotoSwipe photos={gdynia.items} client:load ratio="16/9" />
-    <PhotoSwipe photos={nadmorskie.items} client:load ratio="16/9" />
+    <div class="galleries">
+      <div class="gallery"><PhotoSwipe photos={photos} client:load /></div>
+      <div class="gallery">
+        <PhotoSwipe photos={gdynia.items} client:load ratio="16/9" />
+      </div>
+      <div class="gallery">
+        <PhotoSwipe photos={nadmorskie.items} client:load ratio="16/9" />
+      </div>
+    </div>
   </Body>
+  <style>
+    .galleries {
+      scroll-snap-type: y proximity;
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scroll-snap-type: y mandatory;
+    }
+
+    .galleries .gallery {
+      scroll-snap-align: start;
+      height: 100vh;
+    }
+  </style>
 </html>
