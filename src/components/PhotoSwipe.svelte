@@ -77,7 +77,7 @@
           alt={item.alt}
           bind:this={images[index]}
           data-id={index}
-          loading="lazy"
+          loading={index > 0 ? "lazy" : ""}
         />
       {/each}
     </div>
