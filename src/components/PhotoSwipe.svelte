@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import ExifData from "./exifData.svelte";
+  import ExifData from "./ExifData.svelte";
   export let photos = [];
   export let ratio = "4/5";
   let container;
