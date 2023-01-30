@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import ExifData from "./exifData.svelte";
   export let photos = [];
   export let ratio = "4/5";
   let container;
@@ -67,13 +68,14 @@
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
+
 <div class="container" style="--ratio: {ratio}">
   <div class="wrapper">
     <div class="counter">{activeIndex + 1} / {photos.length}</div>
     <div class="box" bind:this={container}>
       {#each photos as item, index}
         <img
-          src={item.url}
+          src={item.normal}
           alt={item.alt}
           bind:this={images[index]}
           data-id={index}
@@ -83,12 +85,14 @@
     </div>
 
     <div class="navi">
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
       <span
         on:click={() => setActive(activeIndex - 1)}
         class={activeIndex === 0 ? "left disabled" : "left"}
       >
         <img src="/assets/arrows/arrow_circle_left_FILL.svg" alt="" />
       </span>
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
       <span
         on:click={() => setActive(activeIndex + 1)}
         class={activeIndex === photos.length - 1 ? "right disabled" : "right"}
@@ -102,15 +106,16 @@
       </ul>
     </div>
   </div>
+  <ExifData exifData={photos[activeIndex].exif} />
 </div>
 
 <style>
   .box {
     position: relative;
     max-width: 100%;
-    max-height: calc(100vh - 150px);
+    max-height: calc(100vh - 200px);
     margin: auto;
-    background-color: #fafafa90;
+    background-color: #fafafa10;
     overflow: auto;
     white-space: nowrap;
     overflow-x: auto;
@@ -126,7 +131,7 @@
   .box img {
     width: 100%;
     max-height: 100%;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     object-fit: contain;
     display: inline-block;
     aspect-ratio: var(--ratio);

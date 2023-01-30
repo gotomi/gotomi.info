@@ -6,15 +6,9 @@ import PhotoSwipe from "../components/PhotoSwipe.svelte";
 import BaseHead from "../layouts/BaseHead.astro";
 import Body from "../layouts/Body.astro";
 
+import marta from "../_data/galleries/marta.json";
 import nadmorskie from "../_data/galleries/nadmorskie-klimaty.json";
 import gdynia from "../_data/galleries/Gdynia-2022.json";
-
-const photos = [
-  { url: "/marta/m_01.jpg", alt: "Marta" },
-  { url: "/marta/m_02.jpg", alt: "Marta" },
-  { url: "/marta/m_03.jpg", alt: "Marta" },
-  { url: "/marta/m_04.jpg", alt: "Marta" },
-];
 ---
 
 <html lang="en" class="variant4">
@@ -23,7 +17,9 @@ const photos = [
   </head>
   <Body title="Hello Marta!" showFooter={false}>
     <div class="galleries">
-      <!-- <div class="gallery"><PhotoSwipe photos={photos} client:load /></div> -->
+      <div class="gallery">
+        <PhotoSwipe photos={marta.items} ratio="2/3" client:load />
+      </div>
       <div class="gallery">
         <PhotoSwipe photos={gdynia.items} client:visible ratio="16/9" />
       </div>
