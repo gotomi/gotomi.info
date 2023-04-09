@@ -1,27 +1,29 @@
-<script>
-    export let exifData;
+<script lang="ts">
+  import type { ExifDataTypes } from "../types/photos";
+  export let exif: ExifDataTypes;
 </script>
 
 <div class="exif-info">
-    <ul>
-      <li>
-        <span class="icon lens">lens</span>
-        <!-- {exifData?.LensMake} -->
-        {exifData?.LensModel}
-      </li>
-      <li>
-        <span class="icon exposure">exposure</span>
-        {exifData?.exposureTime}
-      </li>
+  <ul>
+    <li>
+      <span class="icon lens">lens</span>
+      <!-- {exif?.LensMake} -->
+      {exif?.LensModel}
+    </li>
+    <li>
+      <span class="icon exposure">exposure</span>
+      {exif?.exposureTime}
+    </li>
 
-      <li>
-        <span class="icon aperture">aperture</span>F {exifData?.FFNumber}
-      </li>
-      <li><span class="icon iso">ISO</span> {exifData?.ISO}</li>
-    </ul>
+    <li>
+      <span class="icon aperture">aperture</span>F {exif?.FFNumber}
+    </li>
+    <li><span class="icon iso">ISO</span> {exif?.ISO}</li>
+  </ul>
 </div>
+
 <style>
-    .exif-info {
+  .exif-info {
     /* position: absolute;
     bottom: 25px;
     left: 5px; */
@@ -71,5 +73,4 @@
     border-radius: 50%;
     margin: 0;
   }
-
 </style>

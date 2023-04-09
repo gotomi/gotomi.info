@@ -1,14 +1,16 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
+  import type { photo } from "../types/photos";
   import ExifData from "./ExifData.svelte";
-  export let photos = [];
-  export let ratio = "4/5";
-  let container;
-  let activeIndex = 0;
-  let images = [];
-  let inViewport = false;
 
-  function setActive(index, move = true) {
+  export let photos: photo[] = [];
+  export let ratio: string = "4/5";
+  let container: HTMLElement;
+  let activeIndex: number = 0;
+  let images: HTMLElement[] = [];
+  let inViewport: boolean = false;
+
+  function setActive(index: number, move: boolean = true) {
     if (index < 0 || index >= photos.length) return;
     if (images.length && move) {
       images[index].scrollIntoView({
@@ -23,21 +25,16 @@
   onMount(() => {
     const intersectionObserver = new IntersectionObserver(
       (entries) => {
-        entries.forEach(
-          (entry) => {
-            if (entry.isIntersecting) {
-              let elem = entry.target;
-              const current = parseInt(elem.getAttribute("data-id"));
-              setActive(current, false);
-            }
-          },
-          {
-            root: container,
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            let elem = entry.target as HTMLElement;
+            const current = parseInt(elem.getAttribute("data-id") || "0");
+            setActive(current, false);
           }
-        );
+        });
       },
       {
-        threshold: 0.25,
+        root: container,
       }
     );
 
@@ -55,8 +52,9 @@
     images.forEach((image) => intersectionObserver.observe(image));
     galleryInView.observe(container);
   });
-  let key = 0;
-  function handleKeydown(event) {
+
+  let key: string | undefined = undefined;
+  function handleKeydown(event: KeyboardEvent): void {
     if (!inViewport) return;
     key = event.key;
     if (key === "ArrowLeft") {
@@ -79,7 +77,7 @@
           alt={item.alt}
           bind:this={images[index]}
           data-id={index}
-          loading={index > 0 ? "lazy" : ""}
+          loading={index > 0 ? "lazy" : "eager"}
         />
       {/each}
     </div>
@@ -106,7 +104,7 @@
       </ul>
     </div>
   </div>
-  <ExifData exifData={photos[activeIndex].exif} />
+  <ExifData exif={photos[activeIndex].exif} />
 </div>
 
 <style>
@@ -115,7 +113,6 @@
     max-width: 100%;
     max-height: calc(100vh - 200px);
     margin: auto;
-    background-color: #fafafa10;
     overflow: auto;
     white-space: nowrap;
     overflow-x: auto;
@@ -206,6 +203,7 @@
 
   span img {
     width: 100%;
+    filter: drop-shadow(0px 0px 5px #fff)
   }
 
   span.disabled {

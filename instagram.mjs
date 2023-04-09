@@ -1,4 +1,3 @@
-import fetch from "node-fetch";
 import axios from "axios";
 import fs from "fs-extra";
 import Path from "path";
@@ -111,12 +110,12 @@ const convertImages = function (filename, dest) {
   //         //   console.log(info, err);
   //     });
 
-  // sharp(path + '.jpg')
-  //     .resize(400)
-  //     .webp()
-  //     .toFile(`${path}.webp`, (err, info) => {
-  //         console.log(info, err);
-  //     })
+  sharp(path + '.jpg')
+      .resize(400)
+      .webp()
+      .toFile(`${path}.webp`, (err, info) => {
+          console.log(info, err);
+      })
 };
 
 getUserFeed().then((images) => {

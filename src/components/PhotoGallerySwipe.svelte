@@ -1,6 +1,4 @@
 <script>
-  import { Swipe, SwipeItem } from "svelte-swipe";
-
   export let photos = [];
   let active_item = 0; //readonly
   let SwipeComp;
@@ -33,12 +31,12 @@
     const images = document.querySelectorAll(".featured img");
     if (images[index].src !== photos[index].normal) {
       images[index].src = photos[index].normal;
-      images[index].className="";
+      images[index].className = "";
     }
 
     if (photos.length - 1 > index) {
       images[index + 1].src = photos[index + 1].normal;
-      images[index + 1].className="";
+      images[index + 1].className = "";
     }
   }
 </script>
@@ -55,7 +53,11 @@
   <Swipe bind:active_item bind:this={SwipeComp} on:change={slideChange}>
     {#each photos as item, i}
       <SwipeItem>
-        <img src={i < 2 ? item.normal : item.thumbnail} class={i < 1 ? '' : 'hide'} alt={item.alt} />
+        <img
+          src={i < 2 ? item.normal : item.thumbnail}
+          class={i < 1 ? "" : "hide"}
+          alt={item.alt}
+        />
       </SwipeItem>
     {/each}
   </Swipe>
@@ -64,6 +66,7 @@
 <div class="photo-gallery-container">
   <ul class="photo-gallery">
     {#each photos as item, i}
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
       <li
         on:click={() => setActive(i)}
         class={active_item == i ? "active" : ""}
@@ -126,7 +129,7 @@
     border-radius: 0.5rem;
     vertical-align: middle;
   }
-  .featured img.hide{
+  .featured img.hide {
     visibility: hidden;
   }
 

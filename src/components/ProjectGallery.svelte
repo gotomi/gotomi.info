@@ -1,31 +1,68 @@
 <script>
-    export let projects = [];
+  export let projects = [];
 </script>
 
-<ul class="projects-gallery">
-    {#each projects as item, index}
-        <li class="chunk">
-            <a href={item.svn_url}><h3 class="box-title">{item.name}</h3></a>
-            <p>{item.description} - <a href={item.svn_url}>github</a></p>
-            <a href="{item.thumbnail}"><img src="{item.thumbnail}" alt="{item.name}" width="350" height="132"></a>
-         
-        </li>
-    {/each}
-</ul>
+<div class="projects-gallery">
+  {#each projects as item, index}
+    <div class="chunk">
+      <div class="header">
+        <h3 class="box-title">{item.name}</h3>
+        <p>{item.description}</p>
+      </div>
+      <a href={item.thumbnail}
+        ><img
+          src={item.thumbnail}
+          alt={item.name}
+          width="350"
+          height="132"
+        /></a
+      >
+      <p class="more"><a href={item.svn_url}>see <strong>{item.name}</strong> on Github</a></p>
+    </div>
+  {/each}
+</div>
 
 <style>
-    .projects-gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        grid-gap: 1rem;
-    }
+  .box-title {
+    text-transform: uppercase;
+    background: tomato;
+    display: inline-block;
+    padding: 0 8px;
+    color: #fafafa;
+    filter: drop-shadow(1px 1px 0 #fff9);
+  }
+  .projects-gallery {
+    display: flex;
+    /* grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); */
+    grid-gap: 16px;
+    flex-wrap: wrap;
+  }
+  .chunk{
+    flex:1 1 300px
+  }
 
-    .projects-gallery p {
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        min-height: 2em;
-        overflow: hidden;
-    }
+  .header {
+    display: flex;
+    gap: 8px;
+    padding: 8px 0;
+    align-items: baseline;
+  }
+
+  .projects-gallery img {
+    border: 16px solid #fff6;
+    width: auto;
+    height: auto;
+  }
+
+  .projects-gallery p {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    min-height: 2em;
+    overflow: hidden;
+  }
+  .more{
+    text-align: right;
+  }
 </style>
