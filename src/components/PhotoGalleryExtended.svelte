@@ -132,6 +132,7 @@
     overflow: auto;
     overflow-y: hidden;
     justify-content: center;
+    list-style: none;
   }
   .photo-gallery li {
     flex: 0 1 100px;

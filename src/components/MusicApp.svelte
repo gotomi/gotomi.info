@@ -9,10 +9,11 @@
   }
 </script>
 
-<div class="music-app chunk">
+<div class="music-app">
   <div class="playlist">
     <ul>
       {#each playlist as item, index}
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <li
           class={index === curentSongIndex ? "active-song" : ""}
           on:click={() => changeSong(index)}
@@ -22,7 +23,7 @@
       {/each}
     </ul>
   </div>
-  <MusicPlayer {playlist} autoplay={autoplay} bind:curentSongIndex />
+  <MusicPlayer {playlist} {autoplay} bind:curentSongIndex />
 </div>
 
 <style>
@@ -41,24 +42,23 @@
     cursor: pointer;
   }
   .playlist li.active-song {
-    color: var(--main-bg-color2)
+    color: var(--main-bg-color2);
   }
 
   @media (max-width: 480px) {
     .music-app {
       grid-template-columns: 1fr;
     }
-    .playlist li{
+    .playlist li {
       display: inline;
     }
   }
 
   .playlist {
-    background-color: var(--main-bg-color);
     padding: 1rem;
-    border-radius: 5px;
-    font-size: 90%;
-    font-family: Poppins, Arial, Helvetica, sans-serif;
+    background-color: var(--player-theme-bg-color);
+    color: var(--player-theme-color);
+    height: 100%;
   }
 
   .playlist ul {

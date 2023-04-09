@@ -1,50 +1,42 @@
 ---
+import GalleryTeaser from "../../components/GalleryTeaser.svelte";
+const photoGalleryIndex = await Astro.glob("../../_data/galleries/*.json");
 
-const photoGalleryIndex = await Astro.glob('../../_data/galleries/*.json');
-
-
-
-
-
-
-import BaseHead from '../../layouts/BaseHead.astro';
-import Body from '../../layouts/Body.astro';
-
-
-
-
+import BaseHead from "../../layouts/BaseHead.astro";
+import Body from "../../layouts/Body.astro";
 ---
 
-<html lang="en" class="variant2">
+<html lang="en" class="variant4">
+  <head>
+    <BaseHead title="galeria | gotomi.info" description="Gallery" />
+  </head>
 
-<head>
-    <BaseHead title="galeria | gotomi.info" description="galeria" />
-</head>
-
-<Body>
-
+  <Body title="Gallery">
     <section class="photos" id="photos">
-
-        <div class="photos-container">
-            {photoGalleryIndex.map((gallery, index) => {
+      <div class="photos-container">
+        {
+          photoGalleryIndex.map((gallery, index) => {
             return (
-            <div class="photo-container">
-                <a href={gallery.slug}>
-                    <img src={gallery.thumbnail} alt={gallery.title}  width="150" height="150" style="aspect-ratio: 1; object-fit: cover ;"/>
-                </a>
-                <p>{gallery.title}</p>
-            </div>
+              <GalleryTeaser
+                title={gallery.title}
+                image={gallery.items[2].normal}
+                delay={index * 2}
+                href={gallery.slug}
+              />
             );
-            })}
-        </div>
+          })
+        }
+      </div>
     </section>
-</Body>
+  </Body>
 
-</html>
-
-<style>
-    .tip {
-        font-size: 0.8rem;
-        color: #222;
+  <style>
+    .photos-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-</style>
+  </style>
+</html>

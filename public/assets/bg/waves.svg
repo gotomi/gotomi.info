@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" width="500" height="500">
+    <defs>
+      <path id="wave" d="M0 50 Q 40 20, 80 50 T 160 50 Q 200 80, 240 50 T 320 50 Q 360 20, 400 50 T 480 50 V 100 H 0 Z" />
+    </defs>
+    <use xlink:href="#wave" fill="#abcdef">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="0 100" dur="3s" repeatCount="indefinite" />
+    </use>
+    <use xlink:href="#wave" fill="#fedcba">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="0 100" dur="2s" repeatCount="indefinite" />
+    </use>
+  </svg>
+  

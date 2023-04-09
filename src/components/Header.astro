@@ -1,65 +1,61 @@
 ---
-const {title} = Astro.props;
+import logo from "../assets/gotomi-logo.svg?raw";
+const { title } = Astro.props;
 ---
+
 <header>
-<a href="/#top"><div class="logo">gotomi.info</div></a>
-<h2 class="section-title">{title}</h2>
+  <a href="/#top"><div class="logo" set:html={logo} title="gotomi.info" /></a>
+  <h2 class="section-title">{title}</h2>
 </header>
 
 <style>
-
-header {
+  header {
     display: flex;
     align-items: center;
-}
+  }
 
-
-.logo {
+  .logo {
     display: inline-block;
-    background-image: url('/assets/gotomi-logo.png'), var(--logo-gradient);
-    background-repeat: no-repeat, repeat;
-    background-position: 0 0, 0 0;
-    background-size: cover, auto;
+
     width: 3rem;
     height: 3rem;
     line-height: 1;
-    text-align: center;
-    text-indent: -9999px;
-    font-size: 10px;
+
     padding: 0;
     margin: 0.5rem;
-    filter: drop-shadow(2px 2px 0 var(--main-bg-color2));
-}
+  }
 
-nav {
+  .logo svg {
+    max-height: 100%;
+  }
+
+  nav {
     justify-self: flex-end;
     padding: 0.5rem 0;
     background-color: rgba(255, 255, 255, 0.3);
-}
+  }
 
-nav ul{
+  nav ul {
     display: flex;
     text-transform: uppercase;
     font-size: 0.8rem;
-}
-nav li {
+  }
+  nav li {
     margin: 0 0.5rem;
-}
-nav li::after {
-    content: '';
+  }
+  nav li::after {
+    content: "";
     display: block;
     border-bottom: 2px solid var(--copy-color);
     width: 0px;
     transition: width 0.6s;
-}
+  }
 
+  nav li:hover::after {
+    width: 100%;
+  }
 
-nav li:hover::after {
-    width: 100%
-} 
-
-
-nav a{
+  nav a {
     text-decoration: none;
-}
+  }
 </style>

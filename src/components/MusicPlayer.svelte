@@ -112,7 +112,7 @@
         </div>
     </div>
     <div class="panel">
-        <h2 class="podcast-title">
+        <h2 class="track-title">
             <span class="icon" on:click={togglePlay}>{@html toggleButton}</span>
             {title}
         </h2>
@@ -155,11 +155,10 @@
         border-width: 0 0 0 1px;
         height: 10px;
         margin: 5px 0;
-        border-radius: 5px;
     }
 
-    .podcast-title {
-        font-size: 16px;
+    .track-title {
+        font-size: 1.4rem;
         font-weight: 900;
         padding: 1rem 0 0 0;
         margin: 0;
@@ -172,7 +171,6 @@
     .audioplayer span {
         display: inline-block;
         vertical-align: middle;
-        font-size: 13px;
     }
 
     .audioplayer .progress-display {
@@ -183,15 +181,14 @@
 
     .audioplayer {
         position: relative;
-        border-radius: 5px;
+        height: 100%;
         display: grid;
         grid-template-columns: auto 3fr;
         align-self: baseline;
         background-color: var(--player-theme-bg-color);
         color: var(--player-theme-color);
         max-width: 860px;
-        font-family: "Open Sans", Arial, sans-serif;
-        font-size: 13px;
+
         line-height: 1.5;
     }
 

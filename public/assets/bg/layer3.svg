@@ -1,0 +1,41 @@
+<svg width="900" height="127" viewBox="0 0 900 127" fill="none" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path
+        id="myPath"
+        d="M0 48.6492L129 39.9435L257 48.1371L386 26.1169L514 19.9718L643 6L771 18.4355L900 19.9718V127H771H643H514H386H257H129H0V48.6492Z"
+        fill="#F5730A40" />
+    <path
+        d="M0 62.9794L129 74.0052L257 82.1856L386 58L514 71.1598L643 66.5361L771 77.5619L900 69.3814V127H771H643H514H386H257H129H0V62.9794Z"
+        fill="#DA5B0940" />
+    <defs>
+        <rect id="dot" x="-1" y="-1" width="2.5" height="2.5" fill="#ff634790" stroke-width="0.2"
+            stroke="#00000030" rx="0.5" ry="0.5">
+            <animate attributeType="XML" attributeName="width" from="2.5" to="3" dur="3s" repeatCount="indefinite" begin="0s"/>
+            <animate attributeType="XML" attributeName="height" from="2.5" to="3" dur="3s" repeatCount="indefinite" begin="0s"/>
+            <animate attributeType="XML" attributeName="fill" from="#ff634790" to="#ff6347" dur="3s" repeatCount="indefinite" begin="0s"/>
+            </rect>
+    </defs>
+    <use xlink:href="#dot" x="0" y="48.6492" />
+    <use xlink:href="#dot" x="129" y="39.9435" />
+    <use xlink:href="#dot" x="257" y="48.1371" />
+    <use xlink:href="#dot" x="386" y="26.1169" />
+    <use xlink:href="#dot" x="514" y="19.9718" />
+    <use xlink:href="#dot" x="643" y="6" />
+    <use xlink:href="#dot" x="771" y="18.4355" />
+    <use xlink:href="#dot" x="900" y="19.9718" />
+    <use xlink:href="#dot" x="900" y="127" />
+    <use xlink:href="#dot" x="771" y="127" />
+    <use xlink:href="#dot" x="643" y="127" />
+    <use xlink:href="#dot" x="514" y="127" />
+    <use xlink:href="#dot" x="386" y="127" />
+    <use xlink:href="#dot" x="257" y="127" />
+    <use xlink:href="#dot" x="129" y="127" />
+    <use xlink:href="#dot" x="0" y="62.9794" />
+    <use xlink:href="#dot" x="129" y="74.0052" />
+    <use xlink:href="#dot" x="257" y="82.1856" />
+    <use xlink:href="#dot" x="386" y="58" />
+    <use xlink:href="#dot" x="514" y="71.1598" />
+    <use xlink:href="#dot" x="643" y="66.5361" />
+    <use xlink:href="#dot" x="771" y="77.5619" />
+    <use xlink:href="#dot" x="900" y="69.3814" />
+</svg>

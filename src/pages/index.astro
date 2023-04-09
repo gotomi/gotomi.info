@@ -14,14 +14,14 @@ import Body from "../layouts/Body.astro";
 // const photos = photoSource.slice(0, 10);
 import photoSource from "../_data/photos.json";
 const photos = photoSource
-  .filter(item => item.type === 'image')
+  .filter((item) => item.type === "image")
   .map((item) => {
     return {
-      uri: `/photos/${item.id}-400.jpg`,
+      uri: `/photos/${item.id}.webp`,
       text: item.text,
     };
   })
-  .slice(0, 10);
+  .slice(0, 12);
 ---
 
 <html lang="en" class="variant0">
@@ -32,14 +32,13 @@ const photos = photoSource
     />
   </head>
   <Body title="Hi, I'm Tomasz">
-    <section class="intro">
+    <section class="intro skew">
       <div class="content">
+        <img src="/assets/me.jpg" alt="me" width="120" height="120" />
         <p class="chunk">
-          <img src="/assets/me.jpg" alt="me" width="70" height="70" />
-          I am a front-end engineer and team leader of the team responsible for offer
-          page and navigation components at Allegro. Web Performance enthusiast,
-          occasional music creator and photographer. If you want to contact me, you
-          can easily find me on <a href="http://twitter.com/gotomi">Twitter</a>,
+          I am a front-end engineer, webperformance enthusiast, occasional music
+          creator and photographer. If you want to contact me, you can easily
+          find me on <a href="http://twitter.com/gotomi">Twitter</a>,
           <a href="http://github.com/gotomi">GitHub</a> or <a
             href="http://linkedin.com/in/gotomi">Linkedin</a
           >.
@@ -52,9 +51,11 @@ const photos = photoSource
       <ProjectGallery projects={projects} />
     </section>
 
-    <section class="photos" id="photos">
-      <h2 class="section-title">Photos</h2>
-      <PhotoGallery photos={photos} />
+    <section class="skew" id="photos">
+      <div class="content">
+        <h2 class="section-title">Photos</h2>
+        <PhotoGallery photos={photos} />
+      </div>
     </section>
 
     <section class="music" id="music">
@@ -68,4 +69,28 @@ const photos = photoSource
       <MusicApp playlist={music} client:load />
     </section>
   </Body>
+  <style>
+    section {
+      background: var(--copy-bg-color);
+      padding: calc(2 * var(--gap));
+      max-width: 1200px;
+      margin: 0 auto calc(4 * var(--gap)) auto;
+    }
+    .skew {
+      transform: skewX(-1deg) rotate(-1deg);
+    }
+    .skew .content {
+      transform: skewX(1deg) rotate(1deg);
+    }
+    .intro .content {
+      display: flex;
+      gap: var(--gap);
+      max-width: 500px;
+    }
+
+    .music {
+      display: grid;
+      gap: var(--gap);
+    }
+  </style>
 </html>
