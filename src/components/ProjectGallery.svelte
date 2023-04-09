@@ -38,7 +38,10 @@
     flex-wrap: wrap;
   }
   .chunk{
-    flex:1 1 300px
+    flex:1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .header {

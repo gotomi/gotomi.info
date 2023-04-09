@@ -9,21 +9,6 @@
     }
   }
 </script>
-<svg width="0" height="0">
-  <filter id="vhs-filter">
-    <feTurbulence type="fractalNoise" baseFrequency="0.8 0.8" numOctaves="1" result="noise"/>
-    <feColorMatrix in="noise" type="matrix"
-      values="1 0 0 0 0
-              0 0.9 0.5 0 0
-              0 0.5 1 0 0
-              0 0 0 1 0"/>
-    <feComposite operator="out" in2="SourceGraphic" result="mask"/>
-    <feFlood flood-color="#FFF" flood-opacity="0.8" result="stripe"/>
-    <feComposite operator="in" in2="stripe" in="mask"/>
-    <feComposite operator="over" in2="mask" in="SourceGraphic"/>
-  </filter>
-</svg>
-
 
 <ul class="photo-gallery">
   {#each photos as item, index}
@@ -33,13 +18,7 @@
       on:click={() => setActive(index)}
     >
       {#if item.uri.endsWith(".jpg") || item.uri.endsWith(".webp") || item.type === "image"}
-        <img
-          src={`${item.uri}`}
-          width="400"
-          height="400"
-          alt={item.title}
-          title={item.title}
-        />
+        <img src={`${item.uri}`} width="400" height="400" alt={item.text} />
       {:else}
         <!-- svelte-ignore a11y-media-has-caption -->
         <video
@@ -56,8 +35,8 @@
 </ul>
 
 <style>
-  .photo-gallery, 
-  .photo-gallery li{
+  .photo-gallery,
+  .photo-gallery li {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -84,26 +63,26 @@
     grid-column: span 5;
   }
   @keyframes shake {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(-4px, -4px) rotate(-2deg);
+    }
+    50% {
+      transform: translate(4px, 4px) rotate(2deg);
+    }
+    75% {
+      transform: translate(-4px, 4px) rotate(-2deg);
+    }
+    100% {
+      transform: translate(4px, -4px) rotate(2deg);
+    }
   }
-  25% {
-    transform: translate(-4px, -4px) rotate(-2deg);
-  }
-  50% {
-    transform: translate(4px, 4px) rotate(2deg);
-  }
-  75% {
-    transform: translate(-4px, 4px) rotate(-2deg);
-  }
-  100% {
-    transform: translate(4px, -4px) rotate(2deg);
-  }
-}
 
-img:hover {
-  animation-name: shake;
-  animation-duration: .3s;
-  animation-iteration-count: 1;
-}
+  img:hover {
+    animation-name: shake;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+  }
 </style>
