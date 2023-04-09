@@ -42,7 +42,7 @@
     cursor: pointer;
   }
   .playlist li.active-song {
-    color: var(--main-bg-color2);
+    font-weight: bold;
   }
 
   @media (max-width: 480px) {

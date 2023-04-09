@@ -30,10 +30,10 @@
     padding: 0 8px;
     color: #fafafa;
     filter: drop-shadow(1px 1px 0 #fff9);
+    text-shadow: 1px 1px 0 #0009;
   }
   .projects-gallery {
     display: flex;
-    /* grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); */
     grid-gap: 16px;
     flex-wrap: wrap;
   }
