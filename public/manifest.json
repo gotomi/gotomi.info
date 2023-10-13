@@ -1,0 +1,25 @@
+{
+  "short_name": "merXu",
+  "name": "merXu",
+  "icons": [
+    {
+      "src": "/ic_allegro_256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/ic_allegro_384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "/ic_allegro_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "https://merxu.com/?launcher=true",
+  "prefer_related_applications": false,
+  "display": "standalone",
+  "theme_color": "#ffffff"
+}
