@@ -1,12 +1,13 @@
 ---
-const {title, description} = Astro.props;
+const { title, description } = Astro.props;
 // import '@fontsource/poppins/700.css';
 // import '@fontsource/source-sans-pro';
-import '../style/global.css';
+import "../style/global.css";
 ---
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
 <title>{title}</title>
-<meta name="description" content={description}>
+<meta name="description" content={description} />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json" />
