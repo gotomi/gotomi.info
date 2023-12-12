@@ -3,17 +3,17 @@
   "name": "merXu",
   "icons": [
     {
-      "src": "/native-app-icons/ic_merxu_256.png",
+      "src": "/page-assets/merxu_256.png",
       "type": "image/png",
       "sizes": "256x256"
     },
     {
-      "src": "/native-app-icons/ic_merxu_384.png",
+      "src": "/page-assets/merxu_384.png",
       "type": "image/png",
       "sizes": "384x384"
     },
     {
-      "src": "/native-app-icons/ic_merxu_512.png",
+      "src": "/page-assets/merxu_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
