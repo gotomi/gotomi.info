@@ -13,6 +13,7 @@
 <ul class="photo-gallery">
   {#each photos as item, index}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
     <li
       class={activeIndex === index ? "featured" : ""}
       on:click={() => setActive(index)}

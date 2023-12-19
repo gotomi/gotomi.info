@@ -62,8 +62,10 @@
 
 <svelte:window on:keydown={handleKeydown} />
 <p class="tip">
-  Przeglądaj galerię za pomocą strzałek ⇦ ⇨ lub klikając w miniaturki. <span
-    on:click={() => showExif()}
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  Przeglądaj galerię za pomocą strzałek ⇦ ⇨ lub klikając w miniaturki.
+  <span on:click={() => showExif()}
     >Pokaż EXIF <span class="icon info" title="Exif Info">info</span></span
   >
 </p>
@@ -107,6 +109,8 @@
 <div class="photo-gallery-container">
   <ul class="photo-gallery">
     {#each photos as item, index}
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <li
         on:click={() => setActive(index)}
         class={index === activeIndex ? "active" : "normal"}
@@ -150,8 +154,8 @@
   .exif-info {
     position: absolute;
     bottom: 25px;
-    left: 5px;
-
+    left: 0;
+    width: 100%;
     color: #222;
     z-index: 33;
     text-align: center;
