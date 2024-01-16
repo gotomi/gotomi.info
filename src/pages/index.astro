@@ -21,7 +21,7 @@ const photos = photoSource
       text: item.text,
     };
   })
-  .slice(0, 12);
+  .slice(0, 13);
 ---
 
 <html lang="en" class="variant0">
@@ -54,7 +54,7 @@ const photos = photoSource
     <section class="skew" id="photos">
       <div class="content">
         <h2 class="section-title">Photos</h2>
-        <PhotoGallery photos={photos} />
+        <PhotoGallery photos={photos} showFeatured={true} client:visible />
       </div>
     </section>
 

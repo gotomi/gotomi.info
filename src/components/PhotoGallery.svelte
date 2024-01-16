@@ -1,7 +1,7 @@
 <script>
   export let photos = [];
   export let showFeatured = false;
-  let activeIndex = -1;
+  let activeIndex = 0;
 
   function setActive(index) {
     if (showFeatured) {
@@ -18,19 +18,21 @@
       class={activeIndex === index ? "featured" : ""}
       on:click={() => setActive(index)}
     >
-      {#if item.uri.endsWith(".jpg") || item.uri.endsWith(".webp") || item.type === "image"}
-        <img src={`${item.uri}`} width="400" height="400" alt={item.text} />
-      {:else}
-        <!-- svelte-ignore a11y-media-has-caption -->
-        <video
-          src={`${item.uri}`}
-          width="400"
-          height="400"
-          alt={item.title}
-          loop
-          autoplay
-        />
-      {/if}
+      <span>
+        {#if item.uri.endsWith(".jpg") || item.uri.endsWith(".webp") || item.type === "image"}
+          <img src={`${item.uri}`} width="400" height="400" alt={item.text} />
+        {:else}
+          <!-- svelte-ignore a11y-media-has-caption -->
+          <video
+            src={`${item.uri}`}
+            width="400"
+            height="400"
+            alt={item.title}
+            loop
+            autoplay
+          />
+        {/if}</span
+      >
     </li>
   {/each}
 </ul>
@@ -41,13 +43,30 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    position: relative;
   }
+
+  .photo-gallery span::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    background-color: #fff5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 100%;
+    transition: 0.3s;
+  }
+
+  .photo-gallery li:hover span::after {
+    right: 0;
+  }
+
   .photo-gallery img,
   .photo-gallery video {
     width: 100%;
     height: auto;
     display: block;
-    cursor: pointer;
     aspect-ratio: 1;
     object-fit: cover;
     display: block;
@@ -55,35 +74,29 @@
 
   .photo-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
     grid-gap: 8px;
     padding-block: 16px;
   }
-  .featured {
-    grid-row: span 5;
-    grid-column: span 5;
-  }
-  @keyframes shake {
-    0% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-    25% {
-      transform: translate(-4px, -4px) rotate(-2deg);
-    }
-    50% {
-      transform: translate(4px, 4px) rotate(2deg);
-    }
-    75% {
-      transform: translate(-4px, 4px) rotate(-2deg);
-    }
-    100% {
-      transform: translate(4px, -4px) rotate(2deg);
-    }
+
+  .photo-gallery li:last-child {
+    display: none;
   }
 
-  img:hover {
-    animation-name: shake;
-    animation-duration: 0.3s;
-    animation-iteration-count: 1;
+  @media (min-width: 800px) {
+    .photo-gallery li {
+      cursor: pointer;
+    }
+    .featured {
+      grid-row: span 2;
+      grid-column: span 2;
+      order: -1;
+    }
+    .photo-gallery {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .photo-gallery li:last-child {
+      display: initial;
+    }
   }
 </style>

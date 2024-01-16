@@ -14,6 +14,7 @@
     <ul>
       {#each playlist as item, index}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
         <li
           class={index === curentSongIndex ? "active-song" : ""}
           on:click={() => changeSong(index)}
