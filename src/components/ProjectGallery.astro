@@ -1,25 +1,30 @@
-<script>
-    let { projects = []} = $props();
-</script>
+---
+import { Image } from "astro:assets";
+const { projects } = Astro.props;
+import myImage from "../../public/projects/crux-dashboard.png";
+---
 
 <div class="projects-gallery">
-  {#each projects as item, index}
-    <div class="chunk">
-      <div class="header">
-        <h3 class="box-title">{item.name}</h3>
-        <p>{item.description}</p>
-      </div>
-      <a href={item.thumbnail}
-        ><img
-          src={item.thumbnail}
-          alt={item.name}
-          width="350"
-          height="132"
-        /></a
-      >
-      <p class="more"><a href={item.svn_url}>see <strong>{item.name}</strong> on Github</a></p>
-    </div>
-  {/each}
+  <ul>
+    {
+      projects.map((item) => (
+        <div class="chunk">
+          <div class="header">
+            <h3 class="box-title">{item.name}</h3>
+            <p>{item.description}</p>
+          </div>
+          <a href={item.thumbnail}>
+            <Image src={myImage} alt="test" width="350" height="132" />
+          </a>
+          <p class="more">
+            <a href={item.svn_url}>
+              see <strong>{item.name}</strong> on Github
+            </a>
+          </p>
+        </div>
+      ))
+    }
+  </ul>
 </div>
 
 <style>
@@ -37,8 +42,8 @@
     grid-gap: 16px;
     flex-wrap: wrap;
   }
-  .chunk{
-    flex:1 1 300px;
+  .chunk {
+    flex: 1 1 300px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -65,7 +70,7 @@
     min-height: 2em;
     overflow: hidden;
   }
-  .more{
+  .more {
     text-align: right;
   }
 </style>

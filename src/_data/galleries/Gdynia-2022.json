@@ -1,1 +1,195 @@
-{"slug":"Gdynia-2022","title":"Gdynia-2022","description":"Gdynia-2022","thumbnail":"/gallery/Gdynia-2022/thumbnails/DSCF5965.jpg","items":[{"url":"/gallery/Gdynia-2022/DSCF5965.jpg","normal":"/gallery/Gdynia-2022/normal/DSCF5965.jpg","thumbnail":"/gallery/Gdynia-2022/thumbnails/DSCF5965.jpg","exif":{"FFNumber":4,"ISO":160,"exposureTime":"1/4000","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"},"alt":"DSCF5965.jpg","width":4551,"height":2560},{"url":"/gallery/Gdynia-2022/DSCF5966.jpg","normal":"/gallery/Gdynia-2022/normal/DSCF5966.jpg","thumbnail":"/gallery/Gdynia-2022/thumbnails/DSCF5966.jpg","exif":{"FFNumber":4,"ISO":160,"exposureTime":"1/4000","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"},"alt":"DSCF5966.jpg","width":4551,"height":2560},{"url":"/gallery/Gdynia-2022/DSCF5971.jpg","normal":"/gallery/Gdynia-2022/normal/DSCF5971.jpg","thumbnail":"/gallery/Gdynia-2022/thumbnails/DSCF5971.jpg","exif":{"FFNumber":4,"ISO":160,"exposureTime":"1/4000","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"},"alt":"DSCF5971.jpg","width":4551,"height":2560},{"url":"/gallery/Gdynia-2022/DSCF5972.jpg","normal":"/gallery/Gdynia-2022/normal/DSCF5972.jpg","thumbnail":"/gallery/Gdynia-2022/thumbnails/DSCF5972.jpg","exif":{"FFNumber":2.8,"ISO":160,"exposureTime":"1/5000","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"},"alt":"DSCF5972.jpg","width":4551,"height":2560},{"url":"/gallery/Gdynia-2022/DSCF5976.jpg","normal":"/gallery/Gdynia-2022/normal/DSCF5976.jpg","thumbnail":"/gallery/Gdynia-2022/thumbnails/DSCF5976.jpg","exif":{"FFNumber":2.8,"ISO":160,"exposureTime":"1/4000","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"},"alt":"DSCF5976.jpg","width":4551,"height":2560},{"url":"/gallery/Gdynia-2022/DSCF5977.jpg","normal":"/gallery/Gdynia-2022/normal/DSCF5977.jpg","thumbnail":"/gallery/Gdynia-2022/thumbnails/DSCF5977.jpg","exif":{"FFNumber":2.8,"ISO":160,"exposureTime":"1/4000","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"},"alt":"DSCF5977.jpg","width":4551,"height":2560},{"url":"/gallery/Gdynia-2022/DSCF5978.jpg","normal":"/gallery/Gdynia-2022/normal/DSCF5978.jpg","thumbnail":"/gallery/Gdynia-2022/thumbnails/DSCF5978.jpg","exif":{"FFNumber":2.8,"ISO":160,"exposureTime":"1/4000","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"},"alt":"DSCF5978.jpg","width":4551,"height":2560},{"url":"/gallery/Gdynia-2022/DSCF5979.jpg","normal":"/gallery/Gdynia-2022/normal/DSCF5979.jpg","thumbnail":"/gallery/Gdynia-2022/thumbnails/DSCF5979.jpg","exif":{"FFNumber":5,"ISO":160,"exposureTime":"1/4000","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"},"alt":"DSCF5979.jpg","width":4551,"height":2560},{"url":"/gallery/Gdynia-2022/DSCF5981.jpg","normal":"/gallery/Gdynia-2022/normal/DSCF5981.jpg","thumbnail":"/gallery/Gdynia-2022/thumbnails/DSCF5981.jpg","exif":{"FFNumber":3.6,"ISO":160,"exposureTime":"1/4000","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"},"alt":"DSCF5981.jpg","width":2560,"height":3840},{"url":"/gallery/Gdynia-2022/DSCF5993.jpg","normal":"/gallery/Gdynia-2022/normal/DSCF5993.jpg","thumbnail":"/gallery/Gdynia-2022/thumbnails/DSCF5993.jpg","exif":{"FFNumber":2.8,"ISO":160,"exposureTime":"1/4000","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"},"alt":"DSCF5993.jpg","width":4551,"height":2560},{"url":"/gallery/Gdynia-2022/DSCF5994.jpg","normal":"/gallery/Gdynia-2022/normal/DSCF5994.jpg","thumbnail":"/gallery/Gdynia-2022/thumbnails/DSCF5994.jpg","exif":{"FFNumber":4,"ISO":160,"exposureTime":"1/2500","LensMake":"FUJIFILM","FocalLength":27,"FocalLengthIn35mmFormat":41,"LensModel":"XF27mmF2.8 R WR"},"alt":"DSCF5994.jpg","width":4551,"height":2560}]}
+{
+  "slug": "Gdynia-2022",
+  "title": "Gdynia-2022",
+  "description": "Gdynia-2022",
+  "thumbnail": "/gallery/Gdynia-2022/thumbnails/DSCF5965.jpg",
+  "items": [
+    {
+      "url": "/gallery/Gdynia-2022/DSCF5965.jpg",
+      "normal": "/gallery/Gdynia-2022/normal/DSCF5965.jpg",
+      "thumbnail": "/gallery/Gdynia-2022/thumbnails/DSCF5965.jpg",
+      "exif": {
+        "FFNumber": 4,
+        "ISO": 160,
+        "exposureTime": "1/4000",
+        "LensMake": "FUJIFILM",
+        "FocalLength": 27,
+        "FocalLengthIn35mmFormat": 41,
+        "LensModel": "XF27mmF2.8 R WR"
+      },
+      "alt": "DSCF5965.jpg",
+      "width": 4551,
+      "height": 2560
+    },
+    {
+      "url": "/gallery/Gdynia-2022/DSCF5966.jpg",
+      "normal": "/gallery/Gdynia-2022/normal/DSCF5966.jpg",
+      "thumbnail": "/gallery/Gdynia-2022/thumbnails/DSCF5966.jpg",
+      "exif": {
+        "FFNumber": 4,
+        "ISO": 160,
+        "exposureTime": "1/4000",
+        "LensMake": "FUJIFILM",
+        "FocalLength": 27,
+        "FocalLengthIn35mmFormat": 41,
+        "LensModel": "XF27mmF2.8 R WR"
+      },
+      "alt": "DSCF5966.jpg",
+      "width": 4551,
+      "height": 2560
+    },
+    {
+      "url": "/gallery/Gdynia-2022/DSCF5971.jpg",
+      "normal": "/gallery/Gdynia-2022/normal/DSCF5971.jpg",
+      "thumbnail": "/gallery/Gdynia-2022/thumbnails/DSCF5971.jpg",
+      "exif": {
+        "FFNumber": 4,
+        "ISO": 160,
+        "exposureTime": "1/4000",
+        "LensMake": "FUJIFILM",
+        "FocalLength": 27,
+        "FocalLengthIn35mmFormat": 41,
+        "LensModel": "XF27mmF2.8 R WR"
+      },
+      "alt": "DSCF5971.jpg",
+      "width": 4551,
+      "height": 2560
+    },
+    {
+      "url": "/gallery/Gdynia-2022/DSCF5972.jpg",
+      "normal": "/gallery/Gdynia-2022/normal/DSCF5972.jpg",
+      "thumbnail": "/gallery/Gdynia-2022/thumbnails/DSCF5972.jpg",
+      "exif": {
+        "FFNumber": 2.8,
+        "ISO": 160,
+        "exposureTime": "1/5000",
+        "LensMake": "FUJIFILM",
+        "FocalLength": 27,
+        "FocalLengthIn35mmFormat": 41,
+        "LensModel": "XF27mmF2.8 R WR"
+      },
+      "alt": "DSCF5972.jpg",
+      "width": 4551,
+      "height": 2560
+    },
+    {
+      "url": "/gallery/Gdynia-2022/DSCF5976.jpg",
+      "normal": "/gallery/Gdynia-2022/normal/DSCF5976.jpg",
+      "thumbnail": "/gallery/Gdynia-2022/thumbnails/DSCF5976.jpg",
+      "exif": {
+        "FFNumber": 2.8,
+        "ISO": 160,
+        "exposureTime": "1/4000",
+        "LensMake": "FUJIFILM",
+        "FocalLength": 27,
+        "FocalLengthIn35mmFormat": 41,
+        "LensModel": "XF27mmF2.8 R WR"
+      },
+      "alt": "DSCF5976.jpg",
+      "width": 4551,
+      "height": 2560
+    },
+    {
+      "url": "/gallery/Gdynia-2022/DSCF5977.jpg",
+      "normal": "/gallery/Gdynia-2022/normal/DSCF5977.jpg",
+      "thumbnail": "/gallery/Gdynia-2022/thumbnails/DSCF5977.jpg",
+      "exif": {
+        "FFNumber": 2.8,
+        "ISO": 160,
+        "exposureTime": "1/4000",
+        "LensMake": "FUJIFILM",
+        "FocalLength": 27,
+        "FocalLengthIn35mmFormat": 41,
+        "LensModel": "XF27mmF2.8 R WR"
+      },
+      "alt": "DSCF5977.jpg",
+      "width": 4551,
+      "height": 2560
+    },
+    {
+      "url": "/gallery/Gdynia-2022/DSCF5978.jpg",
+      "normal": "/gallery/Gdynia-2022/normal/DSCF5978.jpg",
+      "thumbnail": "/gallery/Gdynia-2022/thumbnails/DSCF5978.jpg",
+      "exif": {
+        "FFNumber": 2.8,
+        "ISO": 160,
+        "exposureTime": "1/4000",
+        "LensMake": "FUJIFILM",
+        "FocalLength": 27,
+        "FocalLengthIn35mmFormat": 41,
+        "LensModel": "XF27mmF2.8 R WR"
+      },
+      "alt": "DSCF5978.jpg",
+      "width": 4551,
+      "height": 2560
+    },
+    {
+      "url": "/gallery/Gdynia-2022/DSCF5979.jpg",
+      "normal": "/gallery/Gdynia-2022/normal/DSCF5979.jpg",
+      "thumbnail": "/gallery/Gdynia-2022/thumbnails/DSCF5979.jpg",
+      "exif": {
+        "FFNumber": 5,
+        "ISO": 160,
+        "exposureTime": "1/4000",
+        "LensMake": "FUJIFILM",
+        "FocalLength": 27,
+        "FocalLengthIn35mmFormat": 41,
+        "LensModel": "XF27mmF2.8 R WR"
+      },
+      "alt": "DSCF5979.jpg",
+      "width": 4551,
+      "height": 2560
+    },
+    {
+      "url": "/gallery/Gdynia-2022/DSCF5981.jpg",
+      "normal": "/gallery/Gdynia-2022/normal/DSCF5981.jpg",
+      "thumbnail": "/gallery/Gdynia-2022/thumbnails/DSCF5981.jpg",
+      "exif": {
+        "FFNumber": 3.6,
+        "ISO": 160,
+        "exposureTime": "1/4000",
+        "LensMake": "FUJIFILM",
+        "FocalLength": 27,
+        "FocalLengthIn35mmFormat": 41,
+        "LensModel": "XF27mmF2.8 R WR"
+      },
+      "alt": "DSCF5981.jpg",
+      "width": 2560,
+      "height": 3840
+    },
+    {
+      "url": "/gallery/Gdynia-2022/DSCF5993.jpg",
+      "normal": "/gallery/Gdynia-2022/normal/DSCF5993.jpg",
+      "thumbnail": "/gallery/Gdynia-2022/thumbnails/DSCF5993.jpg",
+      "exif": {
+        "FFNumber": 2.8,
+        "ISO": 160,
+        "exposureTime": "1/4000",
+        "LensMake": "FUJIFILM",
+        "FocalLength": 27,
+        "FocalLengthIn35mmFormat": 41,
+        "LensModel": "XF27mmF2.8 R WR"
+      },
+      "alt": "DSCF5993.jpg",
+      "width": 4551,
+      "height": 2560
+    },
+    {
+      "url": "/gallery/Gdynia-2022/DSCF5994.jpg",
+      "normal": "/gallery/Gdynia-2022/normal/DSCF5994.jpg",
+      "thumbnail": "/gallery/Gdynia-2022/thumbnails/DSCF5994.jpg",
+      "exif": {
+        "FFNumber": 4,
+        "ISO": 160,
+        "exposureTime": "1/2500",
+        "LensMake": "FUJIFILM",
+        "FocalLength": 27,
+        "FocalLengthIn35mmFormat": 41,
+        "LensModel": "XF27mmF2.8 R WR"
+      },
+      "alt": "DSCF5994.jpg",
+      "width": 4551,
+      "height": 2560
+    }
+  ]
+}

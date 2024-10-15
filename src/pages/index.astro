@@ -4,8 +4,9 @@
 import projects from "../_data/projects.json";
 import ProjectGallery from "../components/ProjectGallery.svelte";
 
-import music from "../_data/music.json";
-import MusicApp from "../components/MusicApp.svelte";
+import playlist from "../_data/music.json";
+
+import { MusicPlayer, MusicApp } from "../components/MusicApp";
 import PhotoGallery from "../components/PhotoGallery.svelte";
 import BaseHead from "../layouts/BaseHead.astro";
 import Body from "../layouts/Body.astro";
@@ -47,26 +48,29 @@ const photos = photoSource
     </section>
 
     <section class="projects" id="">
-      <h2 class="section-title">Projects</h2>
+      <h2 class="section-title" title="Projects">Projects</h2>
       <ProjectGallery projects={projects} />
     </section>
 
     <section class="skew" id="photos">
       <div class="content">
-        <h2 class="section-title">Photos</h2>
+        <h2 class="section-title" title="Photos">Photos</h2>
         <PhotoGallery photos={photos} showFeatured={true} client:visible />
       </div>
     </section>
 
     <section class="music" id="music">
-      <h2 class="section-title">Music</h2>
+      <h2 class="section-title" title="Music">Music</h2>
       <p class="chunk">
         From time to time I create music using DAW, software instruments, MIDI
         and computer keyboard and sometimes my voice. I will probably never
         consider any of my tracks finished, but you can enjoy the latest drafts
         if you like.
       </p>
-      <MusicApp playlist={music} client:load />
+      <MusicApp
+        {playlist}
+        client:load
+      />
     </section>
   </Body>
   <style>

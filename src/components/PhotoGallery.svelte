@@ -1,7 +1,8 @@
 <script>
-  export let photos = [];
-  export let showFeatured = false;
-  let activeIndex = 0;
+  let { photos = [], showFeatured = false } = $props();
+
+
+  let activeIndex = $state(0);
 
   function setActive(index) {
     if (showFeatured) {
@@ -12,17 +13,14 @@
 
 <ul class="photo-gallery">
   {#each photos as item, index}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
     <li
       class={activeIndex === index ? "featured" : ""}
-      on:click={() => setActive(index)}
+      onclick={() => setActive(index)}
     >
       <span>
         {#if item.uri.endsWith(".jpg") || item.uri.endsWith(".webp") || item.type === "image"}
           <img src={`${item.uri}`} width="400" height="400" alt={item.text} />
         {:else}
-          <!-- svelte-ignore a11y-media-has-caption -->
           <video
             src={`${item.uri}`}
             width="400"
@@ -30,7 +28,7 @@
             alt={item.title}
             loop
             autoplay
-          />
+></video>
         {/if}</span
       >
     </li>

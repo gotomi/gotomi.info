@@ -49,7 +49,6 @@ a {
   color: inherit;
 }
 
-
 :root {
   --main-bg-color: #ffbf00;
   --copy-bg-color: hsla(44.7, 100%, 90%, 0.47);
@@ -58,10 +57,7 @@ a {
   --main-bg-color2: tomato;
   --gap: 16px;
 
-  --player-theme-bg-color: var(--main-bg-color);
-  --player-theme-color: var(--copy-color);
-  --player-theme-progress-bg-color: var(--copy-color);
-  --player-theme-progress-color: var(--main-bg-color2);
+
 }
 
 @media (max-width: 480px) {
@@ -101,8 +97,6 @@ a {
   --copy-shadow: #0009;
 }
 
-
-
 @media (prefers-color-scheme: dark) {
   :root,
   :root.variant1,
@@ -118,8 +112,14 @@ a {
 }
 
 html {
-  font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
-    source-sans-pro, sans-serif;
+  font-family:
+    Seravek,
+    "Gill Sans Nova",
+    Ubuntu,
+    Calibri,
+    "DejaVu Sans",
+    source-sans-pro,
+    sans-serif;
   font-size: 1.1rem;
   background: var(--main-bg-color) url("/assets/bg/layer4.svg") no-repeat;
   color: var(--copy-color);
@@ -131,4 +131,14 @@ html {
 .section-title {
   filter: drop-shadow(1px 1px 0 var(--copy-shadow));
   font-size: 1.8rem;
+}
+
+.section-title::after {
+  content: attr(title);
+  color: #ffc160;
+  position: absolute;
+  left: -16px;
+  z-index: -1;
+  top: -72px;
+  font-size: 150%;
 }

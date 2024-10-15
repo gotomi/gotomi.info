@@ -110,12 +110,12 @@ const convertImages = function (filename, dest) {
   //         //   console.log(info, err);
   //     });
 
-  sharp(path + '.jpg')
-      .resize(400)
-      .webp()
-      .toFile(`${path}.webp`, (err, info) => {
-          console.log(info, err);
-      })
+  sharp(path + ".jpg")
+    .resize(400)
+    .webp()
+    .toFile(`${path}.webp`, (err, info) => {
+      console.log(info, err);
+    });
 };
 
 getUserFeed().then((images) => {
@@ -125,7 +125,7 @@ getUserFeed().then((images) => {
     "utf8",
     (err) => {
       console.log(err);
-    }
+    },
   );
   images.forEach((image) => {
     downloadImage(image, "./public/photos").then(() => {

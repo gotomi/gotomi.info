@@ -1,7 +1,0 @@
-@container my-container (max-width: 360px) {
-  .container .lead {
-    font-size: 48px!important;
-    color: red;
-    background-color: blue;
-  }
-}
