@@ -12,20 +12,20 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^3.2.0",
-    "@astrojs/svelte": "^6.0.0-beta.1",
-    "@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
-    "astro": "^5.0.0-beta.4",
-    "axios": "^1.7.7",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/svelte": "^7.0.1",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "astro": "^5.1.0",
+    "axios": "^1.7.9",
     "exif-reader": "^2.0.1",
     "exifr": "^7.1.3",
     "fs-extra": "^11.2.0",
-    "mathjs": "^13.1.1",
+    "mathjs": "^14.0.1",
     "sharp": "0.33.5",
-    "svelte": "^5.0.0-next.265",
-    "svelte-check": "^4.0.1"
+    "svelte": "^5.15.0",
+    "svelte-check": "^4.1.1"
   },
   "overrides": {
-    "@sveltejs/vite-plugin-svelte": "^4.0.0-next.6"
+    "@sveltejs/vite-plugin-svelte": "^5.0.3"
   }
 }
