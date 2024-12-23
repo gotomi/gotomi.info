@@ -5,33 +5,39 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 * {
-  margin: 0;
+    margin: 0;
 }
+
 html,
 body {
-  height: 100%;
+    height: 100%;
 }
+
 body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
 }
+
 img,
 picture,
 video,
 canvas,
 svg {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
+
 input,
 button,
 textarea,
 select {
-  font: inherit;
+    font: inherit;
 }
+
 p,
 h1,
 h2,
@@ -39,106 +45,117 @@ h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
+    overflow-wrap: break-word;
 }
+
 #root,
 #__next {
-  isolation: isolate;
+    isolation: isolate;
 }
+
 a {
-  color: inherit;
+    color: inherit;
 }
 
 :root {
-  --main-bg-color: #ffbf00;
-  --copy-bg-color: hsla(44.7, 100%, 90%, 0.47);
-  --copy-color: #111;
-  --copy-shadow: #fff9;
-  --main-bg-color2: tomato;
-  --gap: 16px;
+    --main-bg-color: #ffbf00;
+    --copy-bg-color: hsla(44.7, 100%, 90%, 0.47);
+    --copy-color: #111;
+    --copy-shadow: #fff9;
+    --main-bg-color2: tomato;
+    --gap: 16px;
+
+
+
+    --hdr-gradient: linear-gradient(130deg in oklch,
+            color(display-p3 1 .1 0) 0%, 10%, color(display-p3 1 .3 0) 0% 0%, 26%, color(display-p3 1 .45 0) 0% 0%, 46%, color(display-p3 1 .6 0) 0% 0%, 72%, color(display-p3 1 .8 0) 0% 0%);
+    --sdr-gradient: linear-gradient(130deg, #f00 0%, 10%, #ff3400 0% 0%, 26%, #ff6700 0% 0%, 46%, #ff9300 0% 0%, 72%, #ffc900 0% 0%);
 
 
 }
 
 @media (max-width: 480px) {
-  :root {
-    --gap: 8px;
-  }
+    :root {
+        --gap: 8px;
+    }
 }
 
 :root.variant1 {
-  --main-bg-color: tomato;
-  --main-bg-color2: #fafafa;
-  --copy-bg-color: #fff;
-  --copy-shadow: #fff9;
-  --copy-color: #111;
+    --main-bg-color: tomato;
+    --main-bg-color2: #fafafa;
+    --copy-bg-color: #fff;
+    --copy-shadow: #fff9;
+    --copy-color: #111;
 }
+
 :root.variant2 {
-  --main-bg-color: #384938;
-  --main-bg-color2: #cc0;
-  --copy-bg-color: #eef7ee;
-  --copy-color: #111;
-  --copy-shadow: #fff9;
+    --main-bg-color: #384938;
+    --main-bg-color2: #cc0;
+    --copy-bg-color: #eef7ee;
+    --copy-color: #111;
+    --copy-shadow: #fff9;
 }
 
 :root.variant3 {
-  --main-bg-color: #2a6b71;
-  --main-bg-color2: #cdcd0e;
-  --copy-bg-color: #0c2e31;
-  --copy-color: #fff;
-  --copy-shadow: #1f1f1f90;
+    --main-bg-color: #2a6b71;
+    --main-bg-color2: #cdcd0e;
+    --copy-bg-color: #0c2e31;
+    --copy-color: #fff;
+    --copy-shadow: #1f1f1f90;
 }
 
 :root.variant4 {
-  --main-bg-color: #1f1f1f;
-  --main-bg-color2: #fc4400;
-  --copy-bg-color: #fafafa60;
-  --copy-color: #fafafa;
-  --copy-shadow: #0009;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root,
-  :root.variant1,
-  :root.variant2,
-  :root.variant3,
-  :root.variant4 {
     --main-bg-color: #1f1f1f;
     --main-bg-color2: #fc4400;
     --copy-bg-color: #fafafa60;
     --copy-color: #fafafa;
     --copy-shadow: #0009;
-  }
+}
+
+@media (prefers-color-scheme: dark) {
+
+    :root,
+    :root.variant1,
+    :root.variant2,
+    :root.variant3,
+    :root.variant4 {
+        --main-bg-color: #1f1f1f;
+        --main-bg-color2: #fc4400;
+        --copy-bg-color: #fafafa60;
+        --copy-color: #fafafa;
+        --copy-shadow: #0009;
+    }
 }
 
 html {
-  font-family:
-    Seravek,
-    "Gill Sans Nova",
-    Ubuntu,
-    Calibri,
-    "DejaVu Sans",
-    source-sans-pro,
-    sans-serif;
-  font-size: 1.1rem;
-  background: var(--main-bg-color) url("/assets/bg/layer4.svg") no-repeat;
-  color: var(--copy-color);
-  background-size: 100%;
-  background-position: top;
-  min-height: 100vh;
+    font-family:
+        Seravek,
+        "Gill Sans Nova",
+        Ubuntu,
+        Calibri,
+        "DejaVu Sans",
+        source-sans-pro,
+        sans-serif;
+    font-size: 1.1rem;
+    /* background: var(--main-bg-color) url("/assets/bg/layer4.svg") no-repeat; */
+    background: var(--hdr-gradient);
+    color: var(--copy-color);
+    background-size: 100%;
+    background-position: top;
+    min-height: 100vh;
 }
 
 .section-title {
-  filter: drop-shadow(1px 1px 0 var(--copy-shadow));
-  font-size: 1.8rem;
+    filter: drop-shadow(1px 1px 0 var(--copy-shadow));
+    font-size: 1.8rem;
 }
 
 .section-title::after {
-  content: attr(title);
-  color: #ffc160;
-  position: absolute;
-  left: -16px;
-  z-index: -1;
-  top: -72px;
-  font-size: 150%;
+    content: attr(title);
+    color: #ffc160;
+    position: absolute;
+    left: -16px;
+    z-index: -1;
+    top: -72px;
+    font-size: 150%;
 }
