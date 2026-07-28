@@ -1,9 +1,8 @@
-import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
-import react from "@astrojs/react";
+import { defineConfig } from "astro/config";
 // import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  integrations: [svelte(), react()],
+  integrations: [svelte()],
   site: "http://gotomi.info/",
 });
