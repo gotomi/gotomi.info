@@ -14,83 +14,119 @@ import Body from "../layouts/Body.astro";
 // const photos = photoSource.slice(0, 10);
 import photoSource from "../_data/photos.json";
 const photos = photoSource
-  .filter((item) => item.type === "image")
-  .map((item) => {
-    return {
-      uri: `/photos/${item.id}.webp`,
-      text: item.text,
-    };
-  })
-  .slice(0, 13);
+    .filter((item) => item.type === "image")
+    .map((item) => {
+        return {
+            uri: `/photos/${item.id}.webp`,
+            text: item.text,
+        };
+    })
+    .slice(0, 13);
 ---
 
 <html lang="en" class="variant0">
-  <head>
-    <BaseHead
-      title="Tomasz Gospodarczyk - personal page"
-      description="Tomasz Gospodarczyk  - personal page"
-    />
-  </head>
-  <Body title="Hi, I'm Tomasz">
-    <section class="intro skew">
-      <div class="content">
-        <img src="/assets/me.jpg" alt="me" width="120" height="120" />
-        <p class="chunk">
-          I am a front-end engineer, webperformance enthusiast, occasional music
-          creator and photographer. If you want to contact me, you can easily
-          find me on <a href="http://twitter.com/gotomi">Twitter</a>,
-          <a href="http://github.com/gotomi">GitHub</a> or <a
-            href="http://linkedin.com/in/gotomi">Linkedin</a
-          >.
-        </p>
-      </div>
-    </section>
+    <head>
+        <BaseHead
+            title="Tomasz Gospodarczyk - personal page"
+            description="Tomasz Gospodarczyk  - personal page"
+        />
+    </head>
+    <Body title="Hi, I'm Tomasz">
+        <section class="intro skew">
+            <div class="content">
+                <img src="/assets/me.jpg" alt="me" width="120" height="120" />
+                <p class="chunk">
+                    I am a engineering manager, front-end engineer and
+                    webperformance enthusiast, occasional music creator and
+                    photographer. If you want to contact me, you can easily find
+                    me on <a href="http://twitter.com/gotomi">Twitter</a>,
+                    <a href="http://github.com/gotomi">GitHub</a> or <a
+                        href="http://linkedin.com/in/gotomi">Linkedin</a
+                    >.
+                </p>
+            </div>
+        </section>
 
-    <section class="projects" id="">
-      <h2 class="section-title">Projects</h2>
-      <ProjectGallery projects={projects} />
-    </section>
+        <section class="projects mask" id="">
+            <div class="content">
+                <h2 class="section-title">Projects</h2>
+                <ProjectGallery projects={projects} />
+            </div>
+        </section>
 
-    <section class="skew" id="photos">
-      <div class="content">
-        <h2 class="section-title">Photos</h2>
-        <PhotoGallery photos={photos} showFeatured={true} client:visible />
-      </div>
-    </section>
+        <section class="mask" id="photos">
+            <div class="content">
+                <h2 class="section-title">Photos</h2>
+                <PhotoGallery
+                    photos={photos}
+                    showFeatured={true}
+                    client:visible
+                />
+            </div>
+        </section>
 
-    <section class="music" id="music">
-      <h2 class="section-title">Music</h2>
-      <p class="chunk">
-        From time to time I create music using DAW, software instruments, MIDI
-        and computer keyboard and sometimes my voice. I will probably never
-        consider any of my tracks finished, but you can enjoy the latest drafts
-        if you like.
-      </p>
-      <MusicApp playlist={music} client:load />
-    </section>
-  </Body>
-  <style>
-    section {
-      background: var(--copy-bg-color);
-      padding: calc(2 * var(--gap));
-      max-width: 1200px;
-      margin: 0 auto calc(4 * var(--gap)) auto;
-    }
-    .skew {
-      transform: skewX(-1deg) rotate(-1deg);
-    }
-    .skew .content {
-      transform: skewX(1deg) rotate(1deg);
-    }
-    .intro .content {
-      display: flex;
-      gap: var(--gap);
-      max-width: 500px;
-    }
+        <section class="music mask" id="music">
+            <div class="content">
+                <h2 class="section-title">Music</h2>
+                <p class="chunk">
+                    From time to time I create music using DAW, software
+                    instruments, MIDI and computer keyboard and sometimes my
+                    voice. I will probably never consider any of my tracks
+                    finished, but you can enjoy the latest drafts if you like.
+                </p>
+                <MusicApp playlist={music} client:load />
+            </div>
+        </section>
+    </Body>
+    <style>
+        section {
+            background: var(--copy-bg-color);
+            padding: calc(2 * var(--gap));
+            max-width: 1200px;
+            margin: 0 auto calc(4 * var(--gap)) auto;
+            border-radius: 0 0 16px 16px;
+            > .content {
+                position: relative;
+                z-index: 2;
+            }
+        }
 
-    .music {
-      display: grid;
-      gap: var(--gap);
-    }
-  </style>
+        .mask {
+            position: relative;
+        }
+
+        .mask::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -1px;
+            width: calc(100% + 2px);
+            height: 127px;
+            background: #ffbf00;
+            mask-image: url("/assets/bg/wave.svg");
+            mask-size: cover;
+            mask-repeat: no-repeat;
+            transform: translateY(-25%) scaleY(0.5);
+            z-index: 1;
+        }
+
+        .intro {
+            background: none;
+            padding: 0;
+            .content {
+                display: flex;
+                gap: var(--gap);
+                max-width: 500px;
+                background: var(--copy-bg-color);
+                padding: calc(2 * var(--gap));
+                border-radius: 0 0 16px 16px;
+                margin: 0 calc(-1 * var(--gap));
+            }
+        }
+
+        .music {
+            display: grid;
+            gap: var(--gap);
+        }
+    </style>
 </html>

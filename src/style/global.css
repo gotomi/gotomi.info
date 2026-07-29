@@ -121,7 +121,7 @@ html {
   font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
     source-sans-pro, sans-serif;
   font-size: 1.1rem;
-  background: var(--main-bg-color) url("/assets/bg/layer4.svg") no-repeat;
+  background: var(--main-bg-color) url("/assets/bg/layer5.svg") no-repeat;
   color: var(--copy-color);
   background-size: 100%;
   background-position: top;

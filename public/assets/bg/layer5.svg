@@ -1,0 +1,86 @@
+<svg width="900" height="127" viewBox="0 0 900 127" fill="none" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" class="wave">
+
+    <!-- <path
+        d="M0 48.6492
+           C43 45.7473, 86.1667 40.0289, 129 39.9435
+           C171.8333 39.8582, 214.1667 50.4415, 257 48.1371
+           C299.8333 45.8327, 343.1667 30.8111, 386 26.1169
+           C428.8333 21.4227, 471.1667 23.3246, 514 19.9718
+           C556.8333 16.619, 600.1667 6.2561, 643 6
+           C685.8333 5.744, 728.1667 16.1069, 771 18.4355
+           C813.8333 20.7641, 857 19.4597, 900 19.9718
+           V127H771H643H514H386H257H129H0V48.6492Z"
+        fill="#F5730A40" />
+
+    <path
+        id="myPath"
+        d="M0 48.6492
+           C43 45.7473, 86.1667 40.0289, 129 39.9435
+           C171.8333 39.8582, 214.1667 50.4415, 257 48.1371
+           C299.8333 45.8327, 343.1667 30.8111, 386 26.1169
+           C428.8333 21.4227, 471.1667 23.3246, 514 19.9718
+           C556.8333 16.619, 600.1667 6.2561, 643 6
+           C685.8333 5.744, 728.1667 16.1069, 771 18.4355
+           C813.8333 20.7641, 857 19.4597, 900 19.9718"
+        fill="none"
+        stroke-width="0.1"
+        stroke="#F5730A90" /> -->
+
+    <path
+        id="myPath2"
+        d="M0 62.9794
+           C43 66.6547, 86.1667 70.8042, 129 74.0052
+           C171.8333 77.2062, 214.1667 84.8531, 257 82.1856
+           C299.8333 79.5181, 343.1667 59.8376, 386 58
+           C428.8333 56.1624, 471.1667 69.7371, 514 71.1598
+           C556.8333 72.5825, 600.1667 65.4691, 643 66.5361
+           C685.8333 67.6031, 728.1667 77.0877, 771 77.5619
+           C813.8333 78.0361, 857 72.1082, 900 69.3814"
+        fill="none"
+        stroke-width="0.1"
+    />
+
+    <path
+        d="M0 62.9794
+           C43 66.6547, 86.1667 70.8042, 129 74.0052
+           C171.8333 77.2062, 214.1667 84.8531, 257 82.1856
+           C299.8333 79.5181, 343.1667 59.8376, 386 58
+           C428.8333 56.1624, 471.1667 69.7371, 514 71.1598
+           C556.8333 72.5825, 600.1667 65.4691, 643 66.5361
+           C685.8333 67.6031, 728.1667 77.0877, 771 77.5619
+           C813.8333 78.0361, 857 72.1082, 900 69.3814
+           V127H771H643H514H386H257H129H0V62.9794Z"
+        fill="#DA5B0940" />
+
+    <!-- <defs>
+        <rect id="dot" x="-1" y="-1" width="2.5" height="2.5" fill="#ff63479" stroke-width="0.2"
+            stroke="#00000030" rx="0.5" ry="0.5">
+            <animate attributeType="XML" attributeName="width" from="2.5" to="3" dur="1s"
+                repeatCount="indefinite" begin="0s" />
+            <animate attributeType="XML" attributeName="height" from="2.5" to="3" dur="1s"
+                repeatCount="indefinite" begin="0s" />
+            <animate attributeType="XML" attributeName="fill" from="#ff634790" to="#ff6347" dur="3s"
+                repeatCount="indefinite" begin="0s" />
+        </rect>
+    </defs>
+
+
+    <circle cx="0" cy="0" transform-origin="50% 50%" r="1.6" fill="#ff634790" stroke-width="0.2"
+        id="myRect">
+        <animateMotion dur="30s" repeatCount="indefinite">
+            <mpath xlink:href="#myPath" />
+        </animateMotion>
+    </circle>
+    <use xlink:href="#dot" x="0" y="0">
+        <animateMotion dur="25s" repeatCount="indefinite" begin="1.5s">
+            <mpath xlink:href="#myPath2" />
+        </animateMotion>
+    </use> -->
+
+    <style type="text/css">
+        .wave{
+        transform: scale(-1)
+        }
+    </style>
+</svg>
