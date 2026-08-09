@@ -8,6 +8,13 @@
     SwipeComp.goTo(index);
   }
 
+  function handleThumbnailKeydown(e, i) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setActive(i);
+    }
+  }
+
   let key = 0;
   function handleKeydown(event) {
     key = event.key;
@@ -66,16 +73,20 @@
 <div class="photo-gallery-container">
   <ul class="photo-gallery">
     {#each photos as item, i}
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
       <li
-        on:click={() => setActive(i)}
         class={active_item == i ? "active" : ""}
       >
-        <img
-          src={item.thumbnail}
-          alt={item.alt}
-          title={JSON.stringify(item.exif)}
-        />
+        <button
+          class="thumb-btn"
+          on:click={() => setActive(i)}
+          on:keydown={(e) => handleThumbnailKeydown(e, i)}
+        >
+          <img
+            src={item.thumbnail}
+            alt={item.alt}
+            title={JSON.stringify(item.exif)}
+          />
+        </button>
       </li>
     {/each}
   </ul>
@@ -89,6 +100,13 @@
     cursor: pointer;
     object-fit: cover;
     aspect-ratio: 1;
+  }
+
+  .thumb-btn {
+    all: unset;
+    cursor: pointer;
+    display: block;
+    width: 100%;
   }
 
   .photo-gallery {

@@ -64,13 +64,4 @@
   .lens {
     background-image: url("/assets/icons8-lens-50.png");
   }
-  .info {
-    background-image: url("/assets/icons8-info-50.png");
-    cursor: pointer;
-    transform: scale(0.75);
-    filter: contrast(1);
-    background-color: #eeeeee80;
-    border-radius: 50%;
-    margin: 0;
-  }
 </style>

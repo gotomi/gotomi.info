@@ -8,31 +8,42 @@
       activeIndex = index;
     }
   }
+
+  function handleThumbnailKeydown(e, index) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setActive(index);
+    }
+  }
 </script>
 
 <ul class="photo-gallery">
   {#each photos as item, index}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
     <li
       class={activeIndex === index ? "featured" : ""}
-      on:click={() => setActive(index)}
     >
+      <button
+        class="thumb-btn"
+        on:click={() => setActive(index)}
+        on:keydown={(e) => handleThumbnailKeydown(e, index)}
+      >
       <span>
         {#if item.uri.endsWith(".jpg") || item.uri.endsWith(".webp") || item.type === "image"}
           <img src={`${item.uri}`} width="400" height="400" alt={item.text} />
         {:else}
-          <!-- svelte-ignore a11y-media-has-caption -->
           <video
+            aria-label={item.text}
+            muted
             src={`${item.uri}`}
             width="400"
             height="400"
             alt={item.title}
             loop
             autoplay
-          />
+          ></video>
         {/if}</span
       >
+      </button>
     </li>
   {/each}
 </ul>
@@ -44,6 +55,14 @@
     padding: 0;
     margin: 0;
     position: relative;
+  }
+
+  .thumb-btn {
+    all: unset;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .photo-gallery span::after {

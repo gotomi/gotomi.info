@@ -63,6 +63,13 @@
       setActive(activeIndex + 1);
     }
   }
+
+  function handleNaviKeydown(e: KeyboardEvent, direction: number) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setActive(activeIndex + direction);
+    }
+  }
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -83,17 +90,21 @@
     </div>
 
     <div class="navi">
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
       <span
         on:click={() => setActive(activeIndex - 1)}
+        on:keydown={(e) => handleNaviKeydown(e, -1)}
         class={activeIndex === 0 ? "left disabled" : "left"}
+        role="button"
+        tabindex="0"
       >
         <img src="/assets/arrows/arrow_circle_left_FILL.svg" alt="" />
       </span>
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
       <span
         on:click={() => setActive(activeIndex + 1)}
+        on:keydown={(e) => handleNaviKeydown(e, 1)}
         class={activeIndex === photos.length - 1 ? "right disabled" : "right"}
+        role="button"
+        tabindex="0"
       >
         <img src="/assets/arrows/arrow_circle_right_FILL.svg" alt="" />
       </span>

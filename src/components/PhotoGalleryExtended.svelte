@@ -22,6 +22,20 @@
   function showExif() {
     displayExif = !displayExif;
   }
+
+  function handleThumbnailKeydown(e, index) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setActive(index);
+    }
+  }
+
+  function handleExifKeydown(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      showExif();
+    }
+  }
   let featuredPhotos = photos;
 
   onMount(() => {
@@ -62,10 +76,8 @@
 
 <svelte:window on:keydown={handleKeydown} />
 <p class="tip">
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
   Przeglądaj galerię za pomocą strzałek ⇦ ⇨ lub klikając w miniaturki.
-  <span on:click={() => showExif()}
+  <span on:click={() => showExif()} on:keydown={handleExifKeydown} role="button" tabindex="0"
     >Pokaż EXIF <span class="icon info" title="Exif Info">info</span></span
   >
 </p>
@@ -109,13 +121,16 @@
 <div class="photo-gallery-container">
   <ul class="photo-gallery">
     {#each photos as item, index}
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <li
-        on:click={() => setActive(index)}
         class={index === activeIndex ? "active" : "normal"}
       >
-        <img src={item.thumbnail} alt={item.alt} />
+        <button
+          class="thumb-btn"
+          on:click={() => setActive(index)}
+          on:keydown={(e) => handleThumbnailKeydown(e, index)}
+        >
+          <img src={item.thumbnail} alt={item.alt} />
+        </button>
       </li>
     {/each}
   </ul>
@@ -129,6 +144,13 @@
     cursor: pointer;
     object-fit: cover;
     aspect-ratio: 1;
+  }
+
+  .thumb-btn {
+    all: unset;
+    cursor: pointer;
+    display: block;
+    width: 100%;
   }
 
   .photo-gallery {
