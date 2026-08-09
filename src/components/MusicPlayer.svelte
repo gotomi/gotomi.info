@@ -146,7 +146,7 @@
     </div>
     <div class="panel">
         <h2 class="track-title">
-            <span class="icon" on:click={togglePlay} on:keydown={(e) => handleButtonKeydown(e, togglePlay)} role="button" tabindex="0" aria-label={player.paused ? 'Play' : 'Pause'}>{@html toggleButton}</span>
+            <span class="icon" on:click={togglePlay} on:keydown={(e) => handleButtonKeydown(e, togglePlay)} role="button" tabindex="0" aria-label={player && !player.paused ? 'Pause' : 'Play'}>{@html toggleButton}</span>
             {title}
         </h2>
 
