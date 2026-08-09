@@ -5,7 +5,7 @@ export interface ExifDataTypes {
   LensMake: string;
   FocalLength: number;
   FocalLengthIn35mmFormat: number;
-  LensModel: number;
+  LensModel: string;
 }
 export interface photo {
   url: string;

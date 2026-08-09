@@ -20,7 +20,7 @@
         {/if}
       {/each}
     </div>
-    <div class="bg" style={`background-image: url(${image})`} />
+    <div class="bg" style={`background-image: url(${image})`}></div>
   </a>
 </div>
 
@@ -41,6 +41,7 @@
       background-position: 0 0;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
+      background-clip: text;
     }
 
     50% {
@@ -51,6 +52,7 @@
       background-position: 50%;
       -webkit-text-fill-color: #f5f5f5;
       -webkit-background-clip: text;
+      background-clip: text;
       background-size: 200%;
       white-space: inherit;
     }
@@ -92,6 +94,7 @@
     font-family: Poppins, sans-serif;
     font-weight: 900;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200%;
     background-position: 0;

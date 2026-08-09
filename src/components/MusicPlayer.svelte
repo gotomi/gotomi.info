@@ -20,6 +20,12 @@
     const forwardButton = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" width="28">
     <path d="M4.555 5.168A1 1 0 003 6v8a1 1 0 001.555.832L10 11.202V14a1 1 0 001.555.832l6-4a1 1 0 000-1.664l-6-4A1 1 0 0010 6v2.798l-5.445-3.63z" />
   </svg>`;
+    const skipPreviousButton = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" width="28">
+    <path d="M4 5a1 1 0 012 0v10a1 1 0 11-2 0V5zm4.445 9.832l6-4a1 1 0 000-1.664l-6-4A1 1 0 004 6v8a1 1 0 001.555.832z" />
+  </svg>`;
+    const skipNextButton = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" width="28">
+    <path d="M15 5a1 1 0 00-1 1v10a1 1 0 102 0V6a1 1 0 00-1-1zm-5.555.168l-6 4a1 1 0 000 1.664l6 4A1 1 0 0011 14V6a1 1 0 00-1.555-.832z" />
+  </svg>`;
 
     let toggleButton = playButton;
     let time = 0;
@@ -60,6 +66,24 @@
             playerClassName = "player";
         }
     }
+    function handleButtonKeydown(e, fn) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            fn();
+        }
+    }
+    function skipPrevious() {
+        if (curentSongIndex > 0) {
+            curentSongIndex = curentSongIndex - 1;
+            time = 0;
+        }
+    }
+    function skipNext() {
+        if (curentSongIndex < playlist.length - 1) {
+            curentSongIndex = curentSongIndex + 1;
+            time = 0;
+        }
+    }
     function onPlaying() {
         toggleButton = pauseButton;
         playerClassName = "player playing";
@@ -90,6 +114,13 @@
         progress = `${formatTime(time)} / ${formatTime(duration)}`;
         autoplay && togglePlay();
     }
+
+    function handleSeekKeydown(e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); time = Math.max(0, time - 5); }
+        else if (e.key === 'ArrowRight') { e.preventDefault(); time = Math.min(duration || 0, time + 5); }
+        else if (e.key === 'Home') { e.preventDefault(); time = 0; }
+        else if (e.key === 'End') { e.preventDefault(); time = duration || 0; }
+    }
 </script>
 
 <div class="audioplayer">
@@ -113,28 +144,42 @@
     </div>
     <div class="panel">
         <h2 class="track-title">
-            <span class="icon" on:click={togglePlay}>{@html toggleButton}</span>
+            <span class="icon" on:click={togglePlay} on:keydown={(e) => handleButtonKeydown(e, togglePlay)} role="button" tabindex="0">{@html toggleButton}</span>
             {title}
         </h2>
 
         <div
             class="progress-bar"
             on:click={setProgress}
+            on:keydown={handleSeekKeydown}
             bind:this={trackBar}
             id="track"
-        />
+            role="slider"
+            tabindex="0"
+            aria-label="Seek"
+            aria-valuemin="0"
+            aria-valuemax={duration ?? 0}
+            aria-valuenow={time ?? 0}
+            aria-valuetext={progress}
+        ></div>
 
         <div class="controls">
-            <span class="icon" on:click={() => (time -= 15)}
+            <span class="icon" on:click={skipPrevious} on:keydown={(e) => handleButtonKeydown(e, skipPrevious)} role="button" tabindex="0"
+                >{@html skipPreviousButton}</span
+            >
+            <span class="icon" on:click={() => (time -= 15)} on:keydown={(e) => handleButtonKeydown(e, () => time -= 15)} role="button" tabindex="0"
                 >{@html rewindButton}</span
             >
-            <span class="icon" on:click={() => (time += 15)}
+            <span class="icon" on:click={() => (time += 15)} on:keydown={(e) => handleButtonKeydown(e, () => time += 15)} role="button" tabindex="0"
                 >{@html forwardButton}</span
+            >
+            <span class="icon" on:click={skipNext} on:keydown={(e) => handleButtonKeydown(e, skipNext)} role="button" tabindex="0"
+                >{@html skipNextButton}</span
             >
             <span class="progress-display" id="progress">{progress}</span>
         </div>
-        <!-- svelte-ignore a11y-media-has-caption -->
         <audio
+            aria-label={title}
             src={audioSource}
             bind:this={player}
             bind:currentTime={time}
@@ -144,7 +189,7 @@
             on:playing={onPlaying}
             on:ended={onEnded}
             preload="metadata"
-        />
+        ></audio>
     </div>
 </div>
 
@@ -162,6 +207,12 @@
         font-weight: 900;
         padding: 1rem 0 0 0;
         margin: 0;
+    }
+
+    .audioplayer :focus-visible {
+        outline: 2px solid var(--player-theme-progress-color, #fff);
+        outline-offset: 2px;
+        border-radius: 2px;
     }
 
     .audioplayer .icon {
