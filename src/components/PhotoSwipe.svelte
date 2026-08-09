@@ -97,7 +97,7 @@
         role="button"
         tabindex="0"
       >
-        <img src="/assets/arrows/arrow_circle_left_FILL.svg" alt="" />
+        <img src="/assets/arrows/arrow_circle_left_FILL.svg" alt="Previous" />
       </span>
       <span
         on:click={() => setActive(activeIndex + 1)}
@@ -106,7 +106,7 @@
         role="button"
         tabindex="0"
       >
-        <img src="/assets/arrows/arrow_circle_right_FILL.svg" alt="" />
+        <img src="/assets/arrows/arrow_circle_right_FILL.svg" alt="Next" />
       </span>
       <ul class="indicator">
         {#each photos as item, index}

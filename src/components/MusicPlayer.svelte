@@ -132,6 +132,7 @@
                 alt=""
                 width="200"
                 height="200"
+                aria-hidden="true"
             />
             <img
                 src={albumCover}
@@ -139,12 +140,13 @@
                 alt=""
                 width="200"
                 height="200"
+                aria-hidden="true"
             />
         </div>
     </div>
     <div class="panel">
         <h2 class="track-title">
-            <span class="icon" on:click={togglePlay} on:keydown={(e) => handleButtonKeydown(e, togglePlay)} role="button" tabindex="0">{@html toggleButton}</span>
+            <span class="icon" on:click={togglePlay} on:keydown={(e) => handleButtonKeydown(e, togglePlay)} role="button" tabindex="0" aria-label={player.paused ? 'Play' : 'Pause'}>{@html toggleButton}</span>
             {title}
         </h2>
 
@@ -164,16 +166,16 @@
         ></div>
 
         <div class="controls">
-            <span class="icon" on:click={skipPrevious} on:keydown={(e) => handleButtonKeydown(e, skipPrevious)} role="button" tabindex="0"
+            <span class="icon" on:click={skipPrevious} on:keydown={(e) => handleButtonKeydown(e, skipPrevious)} role="button" tabindex="0" aria-label="Previous track"
                 >{@html skipPreviousButton}</span
             >
-            <span class="icon" on:click={() => (time -= 15)} on:keydown={(e) => handleButtonKeydown(e, () => time -= 15)} role="button" tabindex="0"
+            <span class="icon" on:click={() => (time -= 15)} on:keydown={(e) => handleButtonKeydown(e, () => time -= 15)} role="button" tabindex="0" aria-label="Rewind 15 seconds"
                 >{@html rewindButton}</span
             >
-            <span class="icon" on:click={() => (time += 15)} on:keydown={(e) => handleButtonKeydown(e, () => time += 15)} role="button" tabindex="0"
+            <span class="icon" on:click={() => (time += 15)} on:keydown={(e) => handleButtonKeydown(e, () => time += 15)} role="button" tabindex="0" aria-label="Forward 15 seconds"
                 >{@html forwardButton}</span
             >
-            <span class="icon" on:click={skipNext} on:keydown={(e) => handleButtonKeydown(e, skipNext)} role="button" tabindex="0"
+            <span class="icon" on:click={skipNext} on:keydown={(e) => handleButtonKeydown(e, skipNext)} role="button" tabindex="0" aria-label="Next track"
                 >{@html skipNextButton}</span
             >
             <span class="progress-display" id="progress">{progress}</span>
