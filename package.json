@@ -12,12 +12,12 @@
   },
   "devDependencies": {
     "@astrojs/svelte": "^9.0.1",
-    "astro": "^7.2.0",
+    "astro": "^7.3.8",
     "exif-reader": "^2.0.3",
-    "fs-extra": "^11.4.0",
+    "fs-extra": "^11.4.1",
     "mathjs": "^15.2.0",
-    "sharp": "0.35.3",
-    "svelte-check": "^4.7.5"
+    "sharp": "0.35.5",
+    "svelte-check": "^4.7.6"
   },
   "allowScripts": {
     "esbuild@0.28.1": true,
