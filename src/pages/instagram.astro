@@ -1,30 +1,14 @@
 ---
 // Component Imports
-
-import projects from '../_data/projects.json';
-import ProjectGallery from '../components/ProjectGallery.svelte';
-import photoSource from '../_data/instagram.json';
-import music from '../_data/music.json';
-import MusicApp from '../components/MusicApp.svelte';
-import PhotoGallery from '../components/PhotoGallery.svelte';
-import BaseHead from '../layouts/BaseHead.astro';
-import Body from '../layouts/BodyWide.astro';
-
-const photos = photoSource;
+import PhotoGallery from "../components/PhotoGallery.svelte";
+import Layout from "../layouts/Layout.astro";
+import { instagramPhotos as photos } from "../lib/data";
 ---
 
-<html lang="en">
-
-<head>
-  <BaseHead title="Tomasz Gospodarczyk - personal page" description="Tomasz Gospodarczyk  - personal page" />
-</head>
-
-<Body title="Instagram">
-
+<Layout
+  title="Instagram — photo feed | gotomi.info"
+  description="A selection of photos from Tomasz Gospodarczyk's Instagram feed."
+  heading="Instagram"
+>
   <PhotoGallery photos={photos} showFeatured={true} client:visible />
-
-
-
-</Body>
-
-</html>
+</Layout>

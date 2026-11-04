@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { photo } from "../types/photos";
+  import type { GalleryPhoto } from "../types/photos";
   import ExifData from "./ExifData.svelte";
 
-  export let photos: photo[] = [];
+  export let photos: GalleryPhoto[] = [];
   export let ratio: string = "4/5";
   let container: HTMLElement;
   let activeIndex: number = 0;
@@ -35,7 +35,7 @@
       },
       {
         root: container,
-      }
+      },
     );
 
     const galleryInView = new IntersectionObserver(
@@ -46,26 +46,24 @@
       },
       {
         threshold: 0.25,
-      }
+      },
     );
 
     images.forEach((image) => intersectionObserver.observe(image));
     galleryInView.observe(container);
   });
 
-  let key: string | undefined = undefined;
   function handleKeydown(event: KeyboardEvent): void {
     if (!inViewport) return;
-    key = event.key;
-    if (key === "ArrowLeft") {
+    if (event.key === "ArrowLeft") {
       setActive(activeIndex - 1);
-    } else if (key === "ArrowRight") {
+    } else if (event.key === "ArrowRight") {
       setActive(activeIndex + 1);
     }
   }
 
   function handleNaviKeydown(e: KeyboardEvent, direction: number) {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       setActive(activeIndex + direction);
     }
@@ -84,7 +82,10 @@
           alt={item.alt}
           bind:this={images[index]}
           data-id={index}
+          width={item.width}
+          height={item.height}
           loading={index > 0 ? "lazy" : "eager"}
+          decoding="async"
         />
       {/each}
     </div>
@@ -214,7 +215,7 @@
 
   span img {
     width: 100%;
-    filter: drop-shadow(0px 0px 5px #fff)
+    filter: drop-shadow(0px 0px 5px #fff);
   }
 
   span.disabled {

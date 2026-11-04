@@ -10,12 +10,7 @@
         <p>{item.description}</p>
       </div>
       <a href={item.thumbnail}
-        ><img
-          src={item.thumbnail}
-          alt={item.name}
-          width="350"
-          height="132"
-        /></a
+        ><img src={item.thumbnail} alt={item.name} width="350" height="132" /></a
       >
       <p class="more"><a href={item.svn_url}>see <strong>{item.name}</strong> on Github</a></p>
     </div>
@@ -37,8 +32,8 @@
     grid-gap: 16px;
     flex-wrap: wrap;
   }
-  .chunk{
-    flex:1 1 300px;
+  .chunk {
+    flex: 1 1 300px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -66,7 +61,7 @@
     min-height: 2em;
     overflow: hidden;
   }
-  .more{
+  .more {
     text-align: right;
   }
 </style>

@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="404 — page not found | gotomi.info"
+  description="The page you are looking for does not exist."
+  heading="404"
+  noindex
+>
+  <section class="not-found">
+    <h2>Page not found</h2>
+    <p>The page you are looking for does not exist or has been moved.</p>
+    <p>
+      <a href="/">Go back to the homepage</a>
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .not-found {
+    max-width: 1200px;
+    margin: 0 auto calc(4 * var(--gap)) auto;
+    padding: calc(2 * var(--gap));
+    background: var(--copy-bg-color);
+    border-radius: 0 0 16px 16px;
+  }
+
+  .not-found a {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+</style>

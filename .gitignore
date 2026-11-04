@@ -2,6 +2,9 @@
 dist
 _TMP
 
+# Astro generated files
+.astro/
+
 # dependencies
 node_modules/
 .snowpack/
@@ -10,10 +13,12 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
 
 # environment variables
 .env
-.env.production
+.env.*
+!.env.example
 
 # macOS-specific files
 .DS_Store

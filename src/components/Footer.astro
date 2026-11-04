@@ -1,0 +1,25 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+  &copy; {year} Tomasz Gospodarczyk | built with
+  <a href="https://astro.build/" rel="noopener">
+    <img class="astro-logo" src="/assets/astro.svg" alt="astro build" />
+  </a>
+</footer>
+
+<style>
+  footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--gap) * 0.5);
+  }
+
+  .astro-logo {
+    height: 1rem;
+  }
+</style>

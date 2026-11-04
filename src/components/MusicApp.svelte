@@ -11,14 +11,14 @@
   }
 
   function handlePlaylistKeydown(e, index) {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       changeSong(index);
-    } else if (e.key === 'ArrowDown') {
+    } else if (e.key === "ArrowDown") {
       e.preventDefault();
       const next = Math.min(index + 1, songButtons.length - 1);
       songButtons[next]?.focus();
-    } else if (e.key === 'ArrowUp') {
+    } else if (e.key === "ArrowUp") {
       e.preventDefault();
       const prev = Math.max(index - 1, 0);
       songButtons[prev]?.focus();
@@ -30,9 +30,7 @@
   <div class="playlist">
     <ul>
       {#each playlist as item, index}
-        <li
-          class={index === curentSongIndex ? "active-song" : ""}
-        >
+        <li class={index === curentSongIndex ? "active-song" : ""}>
           <button
             class="song-btn"
             bind:this={songButtons[index]}

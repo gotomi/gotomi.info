@@ -49,7 +49,6 @@ a {
   color: inherit;
 }
 
-
 :root {
   --main-bg-color: #ffbf00;
   --copy-bg-color: hsla(44.7, 100%, 90%, 0.47);
@@ -101,8 +100,6 @@ a {
   --copy-shadow: #0009;
 }
 
-
-
 @media (prefers-color-scheme: dark) {
   :root,
   :root.variant1,
@@ -118,8 +115,8 @@ a {
 }
 
 html {
-  font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
-    source-sans-pro, sans-serif;
+  font-family:
+    Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
   font-size: 1.1rem;
   background: var(--main-bg-color) url("/assets/bg/layer5.svg") no-repeat;
   color: var(--copy-color);
@@ -131,4 +128,15 @@ html {
 .section-title {
   filter: drop-shadow(1px 1px 0 var(--copy-shadow));
   font-size: 1.8rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

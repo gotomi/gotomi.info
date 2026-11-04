@@ -10,7 +10,7 @@
   }
 
   function handleThumbnailKeydown(e, index) {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       setActive(index);
     }
@@ -19,30 +19,38 @@
 
 <ul class="photo-gallery">
   {#each photos as item, index}
-    <li
-      class={activeIndex === index ? "featured" : ""}
-    >
+    <li class={showFeatured && activeIndex === index ? "featured" : ""}>
       <button
         class="thumb-btn"
+        disabled={!showFeatured}
+        aria-pressed={showFeatured ? activeIndex === index : undefined}
         on:click={() => setActive(index)}
         on:keydown={(e) => handleThumbnailKeydown(e, index)}
       >
-      <span>
-        {#if item.uri.endsWith(".jpg") || item.uri.endsWith(".webp") || item.type === "image"}
-          <img src={`${item.uri}`} width="400" height="400" alt={item.text} />
-        {:else}
-          <video
-            aria-label={item.text}
-            muted
-            src={`${item.uri}`}
-            width="400"
-            height="400"
-            alt={item.title}
-            loop
-            autoplay
-          ></video>
-        {/if}</span
-      >
+        <span>
+          {#if item.uri?.endsWith(".jpg") || item.uri?.endsWith(".webp") || item.type === "image"}
+            <img
+              src={item.uri}
+              width="400"
+              height="400"
+              alt={item.text || item.title || "Photo"}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+            />
+          {:else}
+            <video
+              aria-label={item.text || item.title || "Video"}
+              muted
+              src={item.uri}
+              width="400"
+              height="400"
+              loop
+              autoplay
+              playsinline
+              preload="metadata"
+            ></video>
+          {/if}</span
+        >
       </button>
     </li>
   {/each}
@@ -63,6 +71,10 @@
     display: block;
     width: 100%;
     height: 100%;
+  }
+
+  .thumb-btn:disabled {
+    cursor: default;
   }
 
   .photo-gallery span::after {
@@ -98,10 +110,6 @@
     padding-block: 16px;
   }
 
-  .photo-gallery li:last-child {
-    display: none;
-  }
-
   @media (min-width: 800px) {
     .photo-gallery li {
       cursor: pointer;
@@ -113,9 +121,6 @@
     }
     .photo-gallery {
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-    .photo-gallery li:last-child {
-      display: initial;
     }
   }
 </style>

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { ExifDataTypes } from "../types/photos";
-  export let exif: ExifDataTypes;
+  export let exif: ExifDataTypes | undefined = undefined;
 </script>
 
 <div class="exif-info">

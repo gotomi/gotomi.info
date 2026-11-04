@@ -1,23 +1,41 @@
 {
   "name": "gotomi.info",
-  "version": "3.5.0 ",
+  "version": "3.5.0",
   "private": true,
+  "engines": {
+    "node": ">=22.23.4"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "check-and-build": "astro check && svelte-check && tsc --noEmit && astro build",
+    "check": "astro check && svelte-check --tsconfig ./tsconfig.json",
+    "check-and-build": "npm run check && tsc --noEmit && astro build",
     "svelte-check": "svelte-check",
+    "data:gallery": "node scripts/generate-gallery.mjs",
+    "data:gallery:all": "node scripts/generate-gallery.mjs --all",
+    "data:instagram": "node scripts/fetch-instagram.mjs",
+    "data:instagram:derivatives": "node scripts/generate-instagram.mjs",
+    "data:photos": "node scripts/generate-photos.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/svelte": "^9.0.1",
-    "astro": "^7.3.8",
+    "@astrojs/check": "^0.9.12",
+    "@astrojs/markdown-remark": "^7.3.5",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/svelte": "^9.1.2",
+    "astro": "^7.4.5",
     "exif-reader": "^2.0.3",
-    "fs-extra": "^11.4.1",
     "mathjs": "^15.2.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.2",
+    "prettier-plugin-svelte": "^4.1.1",
     "sharp": "0.35.5",
-    "svelte-check": "^4.7.6"
+    "svelte": "^5.57.3",
+    "svelte-check": "^4.7.8",
+    "typescript": "^6.0.3"
   },
   "allowScripts": {
     "esbuild@0.28.1": true,

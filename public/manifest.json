@@ -1,25 +1,26 @@
 {
-  "short_name": "merXu",
-  "name": "merXu",
+  "short_name": "gotomi.info",
+  "name": "Tomasz Gospodarczyk — gotomi.info",
   "icons": [
     {
-      "src": "/page-assets/merxu_256.png",
+      "src": "/native-app-icons/ic_merxu_256.png",
       "type": "image/png",
       "sizes": "256x256"
     },
     {
-      "src": "/page-assets/merxu_384.png",
+      "src": "/native-app-icons/ic_merxu_384.png",
       "type": "image/png",
       "sizes": "384x384"
     },
     {
-      "src": "/page-assets/merxu_512.png",
+      "src": "/native-app-icons/ic_merxu_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/?launcher=true",
+  "start_url": "/",
   "prefer_related_applications": false,
   "display": "standalone",
-  "theme_color": "#ffffff"
+  "background_color": "#ffbf00",
+  "theme_color": "#ffbf00"
 }

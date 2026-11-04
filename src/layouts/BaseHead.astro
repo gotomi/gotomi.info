@@ -1,13 +1,46 @@
 ---
-const { title, description } = Astro.props;
-// import '@fontsource/poppins/700.css';
-// import '@fontsource/source-sans-pro';
 import "../style/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+  type?: string;
+}
+
+const {
+  title,
+  description = "",
+  image = "/assets/me.jpg",
+  noindex = false,
+  type = "website",
+} = Astro.props;
+
+const site = Astro.site ?? new URL("https://gotomi.info");
+const canonical = new URL(Astro.url.pathname, site);
+const imageUrl = new URL(image, site);
 ---
 
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{title}</title>
 <meta name="description" content={description} />
+{!noindex && <link rel="canonical" href={canonical} />}
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+<meta name="theme-color" content="#ffbf00" />
+
+<meta property="og:type" content={type} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:site_name" content="gotomi.info" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json" />

@@ -2,48 +2,46 @@
 // Component Imports
 
 import PhotoSwipe from "../components/PhotoSwipe.svelte";
-
-import BaseHead from "../layouts/BaseHead.astro";
-import Body from "../layouts/Body.astro";
-
-import marta from "../_data/galleries/marta.json";
-import nadmorskie from "../_data/galleries/nadmorskie-klimaty.json";
-import gdynia from "../_data/galleries/Gdynia-2022.json";
+import Layout from "../layouts/Layout.astro";
+import { galleries } from "../lib/data";
 ---
 
-<html lang="en" class="variant4">
-  <head>
-    <BaseHead title="gotomi.info" description="gotomi.info  - personal page" />
-  </head>
-  <Body title="Hello Marta!" showFooter={false}>
-    <div class="galleries">
-      <div class="gallery">
-        <PhotoSwipe photos={marta.items} ratio="2/3" client:load />
-      </div>
-      <div class="gallery">
-        <PhotoSwipe photos={gdynia.items} client:visible ratio="16/9" />
-      </div>
-      <div class="gallery">
-        <PhotoSwipe photos={nadmorskie.items} client:visible ratio="16/9" />
-      </div>
+<Layout
+  title="Marta — photo gallery | gotomi.info"
+  description="Photo galleries by Tomasz Gospodarczyk."
+  heading="Hello Marta!"
+  lang="pl"
+  variant="variant4"
+  showFooter={false}
+>
+  <div class="galleries">
+    <div class="gallery">
+      <PhotoSwipe photos={galleries.marta.items} ratio="2/3" client:load />
     </div>
-  </Body>
-  <style>
-    .galleries {
-      scroll-snap-type: y proximity;
-      height: 100vh;
-      overflow-y: auto;
-      overflow-x: hidden;
-      scroll-snap-type: y mandatory;
-      scrollbar-width: none;
-    }
-    .galleries::-webkit-scrollbar {
-      display: none;
-    }
+    <div class="gallery">
+      <PhotoSwipe photos={galleries.gdynia.items} ratio="16/9" client:visible />
+    </div>
+    <div class="gallery">
+      <PhotoSwipe photos={galleries.nadmorskie.items} ratio="16/9" client:visible />
+    </div>
+  </div>
+</Layout>
 
-    .galleries .gallery {
-      scroll-snap-align: start;
-      height: 100vh;
-    }
-  </style>
-</html>
+<style>
+  .galleries {
+    scroll-snap-type: y proximity;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+  }
+  .galleries::-webkit-scrollbar {
+    display: none;
+  }
+
+  .galleries .gallery {
+    scroll-snap-align: start;
+    height: 100vh;
+  }
+</style>

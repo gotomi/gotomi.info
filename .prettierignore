@@ -1,0 +1,8 @@
+dist
+node_modules
+.astro
+.netlify
+package-lock.json
+src/_data
+media
+public

@@ -1,0 +1,41 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import BaseHead from "./BaseHead.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  heading?: string;
+  lang?: string;
+  variant?: string;
+  image?: string;
+  noindex?: boolean;
+  showFooter?: boolean;
+}
+
+const {
+  title,
+  description = "",
+  heading = title,
+  lang = "en",
+  variant,
+  image,
+  noindex = false,
+  showFooter = true,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} class={variant}>
+  <head>
+    <BaseHead title={title} description={description} image={image} noindex={noindex} />
+  </head>
+  <body id="top">
+    <Header title={heading} />
+    <main>
+      <slot />
+    </main>
+    {showFooter && <Footer />}
+  </body>
+</html>
